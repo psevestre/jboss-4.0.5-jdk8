@@ -32,12 +32,14 @@ import java.security.acl.Group;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
 import java.sql.Statement;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.net.URL;
+
 import javax.naming.InitialContext;
 import javax.security.auth.Subject;
 import javax.security.auth.login.AppConfigurationEntry;
@@ -55,7 +57,6 @@ import javax.net.ssl.TrustManagerFactory;
 import junit.framework.TestSuite;
 
 import org.apache.log4j.Logger;
-
 import org.jboss.logging.XLevel;
 import org.jboss.security.SimpleGroup;
 import org.jboss.security.SimplePrincipal;
@@ -396,6 +397,32 @@ public class LoginModulesUnitTestCase extends JBossTestCase
       public void setLoginTimeout(int seconds) throws java.sql.SQLException
       {
       }
+      
+      public java.util.logging.Logger getParentLogger()  throws SQLFeatureNotSupportedException {
+   	   throw new SQLFeatureNotSupportedException();
+      }
+      
+  	/**
+  	 * @param iface
+  	 * @return
+  	 * @throws SQLException
+  	 * @see java.sql.Wrapper#unwrap(java.lang.Class)
+  	 */
+  	public Object unwrap(Class iface) throws SQLException {
+  		   throw new SQLFeatureNotSupportedException();
+  	}
+
+  	/**
+  	 * @param iface
+  	 * @return
+  	 * @throws SQLException
+  	 * @see java.sql.Wrapper#isWrapperFor(java.lang.Class)
+  	 */
+  	public boolean isWrapperFor(Class iface) throws SQLException {
+  		   throw new SQLFeatureNotSupportedException();
+  	}
+      
+      
    }
 
    static class TestSecurityDomain implements SecurityDomain, Serializable

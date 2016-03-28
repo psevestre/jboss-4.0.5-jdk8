@@ -21,24 +21,38 @@
  */
 package org.jboss.test.jca.adapter;
 
+import javax.sql.PooledConnection;
+import javax.sql.StatementEventListener;
 import javax.sql.XADataSource;
 import javax.sql.XAConnection;
 import javax.sql.ConnectionEventListener;
 import javax.transaction.xa.XAResource;
 import javax.transaction.xa.XAException;
 import javax.transaction.xa.Xid;
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
+import java.util.Properties;
+import java.util.concurrent.Executor;
+import java.util.logging.Logger;
 import java.io.PrintWriter;
+import java.sql.Array;
+import java.sql.Blob;
+import java.sql.Clob;
+import java.sql.NClob;
+import java.sql.SQLClientInfoException;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
+import java.sql.SQLFeatureNotSupportedException;
 import java.sql.SQLWarning;
+import java.sql.SQLXML;
 import java.sql.Savepoint;
 import java.sql.Statement;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
+import java.sql.Struct;
 import java.lang.reflect.Proxy;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -51,6 +65,11 @@ public class MockedXADataSource
    implements XADataSource
 {
    private static final Map instances = new HashMap();
+   
+   public Logger getParentLogger()  throws SQLFeatureNotSupportedException {
+	   throw new SQLFeatureNotSupportedException();
+   }
+   
 
    public static MockedXADataSource getInstance(String url)
    {
@@ -149,7 +168,15 @@ public class MockedXADataSource
       public void removeConnectionEventListener(ConnectionEventListener listener)
       {
       }
+      
+      public void addStatementEventListener(StatementEventListener listener) {
+    	  
+      }
 
+      public void removeStatementEventListener(StatementEventListener listener) {
+    	  
+      }
+      
       class MockedConnection
          implements Connection
       {
@@ -434,6 +461,157 @@ public class MockedXADataSource
                throw new SQLException("The database is not available: " + url);
             }
          }
+
+		/* (non-Javadoc)
+		 * @see java.sql.Wrapper#unwrap(java.lang.Class)
+		 */
+		public Object unwrap(Class iface) throws SQLException {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Wrapper#isWrapperFor(java.lang.Class)
+		 */
+		public boolean isWrapperFor(Class iface) throws SQLException {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#createClob()
+		 */
+		public Clob createClob() throws SQLException {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#createBlob()
+		 */
+		public Blob createBlob() throws SQLException {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#createNClob()
+		 */
+		public NClob createNClob() throws SQLException {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#createSQLXML()
+		 */
+		public SQLXML createSQLXML() throws SQLException {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#isValid(int)
+		 */
+		public boolean isValid(int timeout) throws SQLException {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#setClientInfo(java.lang.String, java.lang.String)
+		 */
+		public void setClientInfo(String name, String value)
+				throws SQLClientInfoException {
+			// TODO Auto-generated method stub
+			
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#setClientInfo(java.util.Properties)
+		 */
+		public void setClientInfo(Properties properties)
+				throws SQLClientInfoException {
+			// TODO Auto-generated method stub
+			
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#getClientInfo(java.lang.String)
+		 */
+		public String getClientInfo(String name) throws SQLException {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#getClientInfo()
+		 */
+		public Properties getClientInfo() throws SQLException {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#createArrayOf(java.lang.String, java.lang.Object[])
+		 */
+		public Array createArrayOf(String typeName, Object[] elements)
+				throws SQLException {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#createStruct(java.lang.String, java.lang.Object[])
+		 */
+		public Struct createStruct(String typeName, Object[] attributes)
+				throws SQLException {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#setSchema(java.lang.String)
+		 */
+		public void setSchema(String schema) throws SQLException {
+			// TODO Auto-generated method stub
+			
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#getSchema()
+		 */
+		public String getSchema() throws SQLException {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#abort(java.util.concurrent.Executor)
+		 */
+		public void abort(Executor executor) throws SQLException {
+			// TODO Auto-generated method stub
+			
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#setNetworkTimeout(java.util.concurrent.Executor, int)
+		 */
+		public void setNetworkTimeout(Executor executor, int milliseconds)
+				throws SQLException {
+			// TODO Auto-generated method stub
+			
+		}
+
+		/* (non-Javadoc)
+		 * @see java.sql.Connection#getNetworkTimeout()
+		 */
+		public int getNetworkTimeout() throws SQLException {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+         
+         
       }
    }
 
@@ -487,5 +665,7 @@ public class MockedXADataSource
       public void commit(Xid xid, boolean b) throws XAException
       {
       }
+      
+      
    }
 }

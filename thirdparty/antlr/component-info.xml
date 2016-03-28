@@ -6,8 +6,10 @@
               projectHome="http://www.antlr.org/"
               description="ANother Tool for Language Recognition">
       <artifact id="antlr-2.7.6.jar"/>
+      <artifact id="antlr.jar"/>
       <export>
          <include input="antlr-2.7.6.jar"/>
+         <include input="antlr.jar"/>
       </export>
    </component>
 

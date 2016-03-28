@@ -23,7 +23,9 @@ package org.jboss.test.jca.jdbc;
 
 import java.sql.Driver;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
 import java.util.Properties;
+import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.DriverPropertyInfo;
 
@@ -99,5 +101,10 @@ public class TestDriver implements Driver
    {
       return false;
    }
+
+public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 }// TestDriver

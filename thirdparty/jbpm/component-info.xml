@@ -1,0 +1,24 @@
+<project name="jbpm-component-info">
+
+   <component id="jbpm"
+              licenseType="lgpl"
+              version="3.1"
+              projectHome="http://jbpm.org/"
+              description="Powerfull BPM and workflow engine in Java">
+
+      <artifact id="jbpm.jar"/>
+      <artifact id="jbpm.sar"/>
+      <artifact id="jbpm-identity.jar"/>
+
+      <import componentref="hibernate">
+      	<compatible version="3.1"/>
+      </import>
+      
+      <export>
+        <include input="jbpm.jar"/>
+        <include input="jbpm-identity.jar"/>
+      </export>
+
+   </component>
+
+</project>

@@ -23,6 +23,8 @@ package org.jboss.test.jca.xads;
 
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
+import java.util.logging.Logger;
 
 import javax.sql.XAConnection;
 import javax.sql.XADataSource;
@@ -72,4 +74,9 @@ public class TestXADataSource implements XADataSource
 	public void setLogWriter(PrintWriter out) throws SQLException
 	{
 	}
+	
+	   public Logger getParentLogger()  throws SQLFeatureNotSupportedException {
+		   throw new SQLFeatureNotSupportedException();
+	   }
+
 }
