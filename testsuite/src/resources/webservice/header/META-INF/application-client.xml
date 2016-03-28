@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<application-client xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:impl="http://ws.sample"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/application-client_1_4.xsd"
+  version="1.4">
+
+  <display-name>Test web service</display-name>
+
+  <service-ref>
+    <service-ref-name>service/SimpleHeaderService</service-ref-name>
+    <service-interface>javax.xml.rpc.Service</service-interface>
+    <wsdl-file>META-INF/wsdl/SimpleHeaderEndpointService.wsdl</wsdl-file>
+    <jaxrpc-mapping-file>META-INF/jaxrpc-mapping-simple.xml</jaxrpc-mapping-file>
+    <port-component-ref>
+      <service-endpoint-interface>org.jboss.test.webservice.header.SimpleHeaderEndpoint</service-endpoint-interface>
+    </port-component-ref>
+  </service-ref>
+
+  <service-ref>
+    <service-ref-name>service/BeanHeaderService</service-ref-name>
+    <service-interface>javax.xml.rpc.Service</service-interface>
+    <wsdl-file>META-INF/wsdl/BeanHeaderEndpointService.wsdl</wsdl-file>
+    <jaxrpc-mapping-file>META-INF/jaxrpc-mapping-bean.xml</jaxrpc-mapping-file>
+    <port-component-ref>
+      <service-endpoint-interface>org.jboss.test.webservice.header.BeanHeaderEndpoint</service-endpoint-interface>
+    </port-component-ref>
+  </service-ref>
+
+  <service-ref>
+    <service-ref-name>service/ImplicitHeaderService</service-ref-name>
+    <service-interface>javax.xml.rpc.Service</service-interface>
+    <wsdl-file>META-INF/wsdl/ImplicitHeaderEndpointService.wsdl</wsdl-file>
+    <jaxrpc-mapping-file>META-INF/jaxrpc-mapping-implicit.xml</jaxrpc-mapping-file>
+    <port-component-ref>
+      <service-endpoint-interface>org.jboss.test.webservice.header.ImplicitHeaderEndpoint</service-endpoint-interface>
+    </port-component-ref>
+    <handler>
+      <handler-name>ClientHandler</handler-name>
+      <handler-class>org.jboss.test.webservice.header.ClientHandler</handler-class>
+      <soap-header>impl:SessionHeader</soap-header>
+    </handler>
+  </service-ref>
+
+  <service-ref>
+    <service-ref-name>service/ExplicitHeaderService</service-ref-name>
+    <service-interface>javax.xml.rpc.Service</service-interface>
+    <wsdl-file>META-INF/wsdl/ExplicitHeaderEndpointService.wsdl</wsdl-file>
+    <jaxrpc-mapping-file>META-INF/jaxrpc-mapping-explicit.xml</jaxrpc-mapping-file>
+    <port-component-ref>
+      <service-endpoint-interface>org.jboss.test.webservice.header.ExplicitHeaderEndpoint</service-endpoint-interface>
+    </port-component-ref>
+  </service-ref>
+
+</application-client>
+

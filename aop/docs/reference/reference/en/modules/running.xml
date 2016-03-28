@@ -1,0 +1,506 @@
+<chapter id="running">
+
+   <title>Running Aspectized Applications</title>
+   <para>
+      This section will show you how to run JBoss AOP with standalone applications and how to run it integrated with
+      the JBoss application server.
+   </para>
+   <sect1>
+      <title>Loadtime vs. Compiletime</title>
+      <para>
+      There are
+      2 different modes to run your aspectized applications.  Loadtime or precompiled.  JBoss AOP needs to weave your aspects
+      into the classes which they aspectize.  You can choose to use JBoss AOP's precompiler to accomplish this(Compiletime) or have this
+      weavining happen at runtime when the class is loaded(Loadtime).
+      </para>
+      <para>
+         Compiletime happens before you run your application.
+         Compiletime weaving is done by using the JBoss AOP precompiler to weave in your aspects to existing .class files.
+         The way it works is that you run the JBoss AOP precompiler on a set of .class files and those files will be modified
+         based on what aspects you have defined.  Compiletime weaving isn't always the best choice though.  JSPs are a good
+         instance where compiletime weaving may not be feasible.
+      </para>
+      <para>
+      Loadtime weaving offers the ultimate flexibility, but it requires
+      some tweaking of classloaders that may or may not be standard depending on which JDK version you use.  It is also slower to boot up
+      your aspectized application with loadtime weavining as the class transformations happen at runtime.  Once a class is loaded though,
+      it runs just as fast as precompiled applications.  The way it
+         works is that when a class needs to be loaded, the AOP runtime library transforms the bytecode being loaded before the
+         class is loaded by its class loader.  To make this work with JDK 1.4 requires a little bit of hacking of java.lang.ClassLoader.  JDK 5.0
+         though has a standard way of plugging in a class transformer via the java.lang.instrument package.
+      </para>
+   </sect1>
+
+   <sect1 id="standalone" revision="1">
+      <title>Regular Java Applications</title>
+      <para>
+         JBoss AOP does not require an application server to be used.  Applications running JBoss AOP can be run
+         standalone outside of an application server in any standard Java application.  This section focuses on
+         how to run JBoss AOP applications that don't run in the JBoss application server.
+
+      </para>
+      <sect2 id="standalone-compiletime" revision="1">
+         <title>Precompiled instrumentation</title>
+         <para>
+             Running a precompiled aop application is quite similar to running a normal java
+             application. In addition to the classpath required for your application you need
+             to specify the files required for aop:
+            <itemizedlist>
+               <listitem>
+                  <literal>javassist.jar</literal>
+               </listitem>
+               <listitem>
+                  <literal>trove.jar</literal>
+               </listitem>
+               <listitem>
+                  <literal>concurrent.jar</literal>
+               </listitem>
+               <listitem>
+                  <literal>jboss-common.jar</literal>
+               </listitem>
+               <listitem>
+                  <literal>jboss-aop.jar</literal>
+               </listitem>
+               <listitem>
+                  or
+                  <literal>jboss-aop-jdk50.jar</literal>
+               </listitem>
+            </itemizedlist>
+               - depending on if you are using JDK 1.4 (jboss-aop.jar) or JDK 5.0 (jboss-aop-jdk50.jar)
+         </para>
+         <para>
+            JBoss AOP finds XML configuration files in these two ways:
+            <itemizedlist>
+               <listitem>
+                  You tell JBoss AOP where the XML files are.  Set the
+                  <literal>jboss.aop.path</literal> system property. (You can specify
+                  multiple files or directories separated by ':' (*nix) or ';' (Windows), i.e.
+                  <literal>-Djboss.aop.path=jboss-aop.xml;metadata-aop.xml</literal>)
+                  If you specify a directory, all
+                  <literal>aop.xml</literal> files will be loaded from there as well.
+               </listitem>
+               <listitem>
+                  Let JBoss AOP figure out where XML files are.  JBoss AOP will look for all XML files that match this
+                  pattern  <literal>/META-INF/jboss-aop.xml</literal>.  So, if you package your jars and put your JBoss AOP
+                  XML files within <literal>/META-INF/jboss-aop.xml</literal>, JBoss AOP will find these files.
+               </listitem>
+            </itemizedlist>
+         </para>
+         <para>
+            If you are using annotated bindings (See Chapter "Annotated Bindings"), you must tell JBoss AOP
+            which JARS or directories that may have annotated @Aspects.  To do this you must set the
+            <literal>jboss.aop.class.path</literal>  system property. (You can specify
+                  multiple jars or directories separated by ':' (*nix) or ';' (Windows), i.e.
+            <literal>-Djboss.aop.class.path=aspects.jar;classes</literal>)
+         </para>
+         <para>
+            So to run a precompiled AOP application, where your jboss-aop.xml file is not part of
+            a jar, you enter this at a command prompt:
+            <programlisting>
+$ java -cp=&lt;classpath as described above&gt; -Djboss.aop.path=&lt;path to jboss-aop.xml&gt; \
+         -Djboss.aop.class.path=aspects.jar
+         com.blah.MyMainClass
+            </programlisting>
+         </para>
+         <para>
+            To run a precompiled AOP application, where your application contains a jar
+            with a META-INF/jboss-aop.xml file, you would need to do this from the command-line:
+            <programlisting>
+$ java -cp=&lt;classpath as described above&gt; com.blah.MyMainClass
+            </programlisting>
+         </para>
+         <para>
+            In the /bin folder of the distribution we have provided batch/script files to make
+            this easier. It includes all the aop libs for you, so you just have to worry
+            about your files. The usage for JDK 1.4 is:
+            <programlisting>
+$ run-precompiled classpath [-aoppath path_to_aop.xml] [-aopclasspath path_to_annotated] \
+      com.blah.MyMainClass [args...]
+            </programlisting>
+            For JDK 1.5:
+            <programlisting>
+$ run-precompiled15 classpath [-aoppath path_to_aop.xml] [-aopclasspath path_to_annotated] \
+      com.blah.MyMainClass [args...]
+            </programlisting>
+            If your application is not in a jar with a META-INF/jboss-aop.xml file, you must
+            specify the path to your
+            <literal>*-aop.xml</literal> files in the
+            <literal>-aoppath</literal> parameter, and if your class comtains aspects configured
+            via annotations (
+            <literal>@Aspect</literal> etc.) you must pass in this classpath
+            via the
+            <literal>-aopclasspath</literal> parameter. (For JDK 1.4, you must have compiled
+            the annotations first).
+         </para>
+      </sect2>
+      <sect2>
+         <title>Loadtime</title>
+         <para>
+            This section describes how to use loadtime instrumentation of classes with aop. The
+            classes themselves are just compiled using Java, but are not precompiled with the aop
+            precompiler. (If you want to use annotations with JDK 1.4, you will still need to use the JDK 1.4 Annotation Compiler).
+            In the examples given
+            if your classes are contained in a jar with a META-INF/jboss-aop.xml file, you
+            would omit the
+            <literal>-Djboss.aop.path</literal> system property.
+         </para>
+         <sect3>
+            <title>Loadtime JDK 1.4</title>
+            <para>
+            In order to do loadtime weaving of aspects with JDK 1.4, we had to massage <literal>java.lang.ClassLoader</literal>.
+            <literal>java.lang.ClassLoader</literal> is modified to add hooks for class transformation before class loading.
+            It is very similar to JDK 5's built in ability to define class transformers.
+            What you have to do is generate a modification of <literal>java.lang.ClassLoader</literal> and
+            add this class to the default bootstrap class path (bootclasspath) for your classes to get
+            instrumented at loadtime. The classes used are dependent upon the VM. At present this
+            custom classloader has only been tested with Sun's J2SE 1.4.x   Due to licensing
+            issues we believe we are not allowed to ship the precompiled version of the custom classloader. The
+            steps to compile and use the custom classloader are shown below.
+            </para>
+            <para>
+            USE THIS ONLY WITH JDK 1.4.  See below for how to do loadtime transformations with JDK 5.
+               <programlisting>
+$ java -cp=&lt;classpath as described above&gt;  \
+       org.jboss.aop.hook.GenerateInstrumentedClassLoader &lt;output dir&gt;
+               </programlisting>
+            </para>
+            <para>
+            For the following example, the
+               <literal>aop boot classpath</literal> should be
+            the
+               <literal>output dir</literal> specified above, followed by the jars
+            needed for AOP, i.e.
+               <literal>javassist.jar</literal>,
+               <literal>trove.jar</literal>,
+               <literal>concurrent.jar</literal>,
+               <literal>jboss-common.jar</literal> and
+               <literal>jboss-aop.jar</literal>. You separate the classpath elements
+            as normal, with ';' (Windows) or ':' (Unix). The path to your classes should
+            NOT be included here! You then use this
+               <literal>aop boot classpath</literal>
+            as the argument for
+               <literal>-Xbootclasspath</literal> option as shown here:
+               <programlisting>
+$ java -Xbootclasspath/p:&lt;aop boot classpath as described&gt; \
+      -Djboss.aop.path=&lt;path to jboss-aop.xml&gt; \
+      -classpath &lt;path to your classes&gt; com.blah.MyMainClass
+               </programlisting>
+            </para>
+            <para>
+            In the /bin folder of the distribution we have provided batch/script files to make
+            this easier. It includes all the aop libs for you, so you just have to worry
+            about your files:
+               <programlisting>
+$ run-load-boot classpath [-aoppath path_to_aop.xml] [-aopclasspath path_to_annotated] \
+      com.blah.MyMainClass [args...]
+               </programlisting>
+            The parameters have the same meaning as for the run-precompiled scripts. (Since
+            this is for JDK 1.4, you must have compiled the annotations first). This script
+            both creates the instrumented class loader and makes sure that that the JAVA_HOME
+            environment variable has been set (Your job is to make sure it points to a 1.4
+            distribution!).
+            </para>
+         </sect3>
+         <sect3>
+            <title>Loadtime with JDK 5</title>
+            <para>
+               JDK 5.0 has a pluggable way of defining a class transformer via the
+               <literal>java.lang.instrument</literal>
+            package.  JBoss AOP uses this mechanism to weave aspects at class load time with JDK 5.
+            Using loadtime with JDK 5 is really easy.  All you have to do is define an additional standard switch
+            on the Java command line.
+               <literal>-javaagent:jboss-aop-jdk50.jar</literal>. For these examples make sure that
+            you use
+               <literal>jboss-aop-jdk50.jar</literal> and not
+               <literal>jboss-aop.jar</literal> in your classpath.
+            Here's how run an AOP application in JDK 5.0 with loadtime instrumentation,
+            where your jboss-aop.xml file is not part of a jar:
+               <programlisting>
+$ java -cp=&lt;classpath as described above&gt; -Djboss.aop.path=&lt;path to jboss-aop.xml&gt; \
+      -javaagent:jboss-aop-jdk50.jar com.blah.MyMainClass
+               </programlisting>
+            </para>
+            <para>
+            And to run an AOP application in JDK 5.0 with loadtime instrumentation,
+            where your application contains a jar with a META-INF/jboss-aop.xml file:
+               <programlisting>
+$ java -cp=&lt;classpath as described above&gt; -javaagent:jboss-aop-jdk50.jar \
+      com.blah.MyMainClass
+               </programlisting>
+            </para>
+            <para>
+            In the /bin folder of the distribution we have provided batch/script files to make
+            this easier. It includes all the aop libs for you, so you just have to worry
+            about your files. The usage for JDK 1.5 is:
+               <programlisting>
+$ run-load15 classpath [-aoppath path_to_aop.xml] [-aopclasspath path_to_annotated] \
+      com.blah.MyMainClass [args...]
+               </programlisting>
+            The parameters have the same meaning as for the run-precompiled scripts.
+            </para>
+            <para>
+            If you invoke the previous
+               <literal>java</literal> examples with ant, by using
+            the ant
+               <literal>java</literal> task, make sure that you set
+               <literal>fork="true"</literal> in the ant
+               <literal>java</literal> task. Failure
+            to do so, causes the
+               <literal>java</literal> task to execute in the same VM
+            as ant which is already running. This means that the special classloader used to
+            do the loadtime transformations does not replace the standard one, so no
+            instrumentation takes place.
+            </para>
+         </sect3>
+      </sect2>
+   </sect1>
+
+   <sect1 id="jboss" revision="1">
+      <title>JBoss Application Server</title>
+      <para>
+         JBoss AOP is integrated with JBoss 4.0 and JBoss 3.2.6RC1+ application server.  The integration steps are different
+         depending on what version of JBoss AS you are using and what JDK version you are using.  It is also dependent
+         on whether you want to use loadtime or compiletime instrumentation.
+      </para>
+      <para>
+         The JDK 5.0 integration to do loadtime transformations is much more stable and reliable than the 4.0
+         version and it is highly suggested that you consider moving to both JDK 5 and JBoss AOP's integration with
+         JDK 5 if you want to do loadtime transformations.  JDK 1.4 loadtime works, but it requires custom classloaders
+         and not all libraries will use the JBoss class loader (i.e. JSPs).
+      </para>
+      <sect2>
+         <title>Packaging AOP Applications</title>
+         <para>
+            To deploy an AOP application in JBoss you need to package it. AOP is packaged similarly
+            to SARs(MBeans). You can either deploy an XML file directly in the deploy/ directory
+            with the signature *-aop.xml along with your package (this is how the base-aop.xml,
+            included in the
+            <literal>jboss-aop.deployer</literal> file works) or you can include it in
+            the jar file containing your classes. If you include your xml file in your jar,
+            it must have the file extension .aop and a jboss-aop.xml file must be contained
+            in a META-INF directory, i.e.
+            <literal>META-INF/jboss-aop.xml</literal>.
+         </para>
+         <para>
+            If you want to create anything more than a non-trivial example, using the .aop jar
+            files, you can make any top-level deployment contain a .aop file containing the xml
+            binding configuration. That is you can have a .aop file in an .ear file, or a .aop
+            file in a war file etc. The bindings specified in the
+            <literal>META-INF/jboss-aop.xml</literal>
+            file contained in the .aop file will affect all the classes in the whole war!
+         </para>
+      </sect2>
+      <sect2>
+         <title>JBoss 4.x and JDK 1.4</title>
+      <para>
+         JBoss AOP comes distributed with the JBoss 4.x Application Server.  It is best to download the latest
+         version and update your JBoss Application Server installation as described in the "Installing" chapter
+         of this guide.  Also, the version distributed with JBoss 4.x Application Server may not be up to date.
+         Check http://www.jboss.org/products/aop to see if a new version of JBoss AOP is available.  To install a new
+         version remove the jboss-aop.deployer file from the JBoss AS deploy/ directory and copy the jboss-aop.deployer
+         directory from the JBoss AOP distribution to the JBoss AS deploy/ directory.  This jboss-aop.deployer/ is in
+         the JBoss AOP distribution within the jboss-40-install/ directory.
+      </para>
+      <para>
+         JBoss 4.x Application Server works out of the box with precompiled applications.  If you want to do load-time
+         transformations, you must edit jboss-aop.deployer/META-INF/jboss-service.xml as follows:
+      </para>
+      <para>
+         The
+         <literal>jboss-aop.deployer</literal> file contains some MBeans that deploy and manage
+         the AOP framework.
+         <programlisting>
+            <![CDATA[      <mbean code="org.jboss.aop.deployment.AspectManagerService"
+         name="jboss.aop:service=AspectManager">
+         <attribute name="EnableTransformer">false</attribute>
+         <!-- only relevant when EnableTransformer is true -->
+         <attribute name="SuppressTransformationErrors">true</attribute>
+         <!-- only relevant when Enabletransformer is true.  Optimization is optional
+         only just in case there is a bug in it -->
+         <attribute name="Optimized">true</attribute>
+         <attribute name="Verbose">false</attribute>
+      </mbean>
+
+      <mbean code="org.jboss.aop.deployment.AspectDeployer"
+         name="jboss.aop:service=AspectDeployer">
+      </mbean>
+ ]]>   </programlisting>
+      </para>
+      <para>
+         By default, JBoss application server will not do load-time bytecode manipulation
+         of AOP files. You can turn load-time on by
+         setting the EnableTransformer attribute to true. If SuppressTransformationErrors is
+         true failed bytecode transformation will only give an error warning. This flag is
+         needed because the JSP compiler does not run within a JBoss classloader and the
+         AOP loader cannot resolve classes from this JSP classloader.
+      </para>
+      </sect2>
+      <sect2>
+         <title>JBoss 4.x and JDK 5</title>
+         <para>
+            The JDK 5.0 integration to do loadtime transformations is much more stable and reliable than the 4.0
+            version and it is highly suggested that you consider moving to both JDK 5 and JBoss AOP's integration with
+            JDK 5 if you want to do loadtime transformations.  JDK 1.4 loadtime works, but it requires custom classloaders
+            and not all libraries will use the JBoss class loader (i.e. JSPs).
+         </para>
+      <para>
+         JBoss AOP comes distributed with the JBoss 4.x Application Server.  The version that comes with JBoss 4.x does
+         not take advantage of JDK 5.0 features.
+         It is best to install the jboss-aop-jdk50.deployer/
+         distribution into your JBoss Application Server install base. See the "Installing" chapter for more details.
+      </para>
+      <para>
+         If you want to do load-time
+         transformations with JBoss 4 and JDK 5, there are two steps you must take.
+      </para>
+      <para>
+         The
+         <literal>jboss-aop-jdk50.deployer</literal> file contains some MBeans that deploy and manage
+         the AOP framework.
+         <programlisting>
+            <![CDATA[      <mbean code="org.jboss.aop.deployment.AspectManagerServiceJDK5"
+         name="jboss.aop:service=AspectManager">
+         <attribute name="EnableTransformer">false</attribute>
+         <!-- only relevant when EnableTransformer is true -->
+         <attribute name="SuppressTransformationErrors">true</attribute>
+         <!-- only relevant when Enabletransformer is true.  Optimization is optional
+         only just in case there is a bug in it -->
+         <attribute name="Optimized">true</attribute>
+         <attribute name="Verbose">false</attribute>
+      </mbean>
+
+      <mbean code="org.jboss.aop.deployment.AspectDeployer"
+         name="jboss.aop:service=AspectDeployer">
+      </mbean>
+ ]]>   </programlisting>
+      </para>
+      <para>
+         By default, JBoss application server will not do load-time bytecode manipulation
+         of AOP files. You can turn load-time on by
+         setting the EnableTransformer attribute to true. If SuppressTransformationErrors is
+         true failed bytecode transformation will only give an error warning. This flag is
+         needed because the JSP compiler does not run within a JBoss classloader and the
+         AOP loader cannot resolve classes from this JSP classloader.
+      </para>
+         <para>
+            The next step is to copy the pluggable-instrumentor.jar from the lib-50 directory of your JBoss AOP
+            distribution to the bin/ directory of your JBoss AOP application server installation.  Next edit
+            run.sh or run.bat (depending on what OS you're on) and add the following to the JAVA_OPTS environment
+            variable
+         </para>
+         <programlisting>
+set JAVA_OPTS=%JAVA_OPTS% -Dprogram.name=%PROGNAME% -javaagent:pluggable-instrumentor.jar
+         </programlisting>
+         <para>
+            After modifying JAVA_OPTS and setting the EnableTransformations to true, then you should be ready to go.
+         </para>
+      </sect2>
+   <!-- 3.2.4 -->
+   <sect2 id="jboss325" revision="1">
+      <title>JBoss Application Server 3.2.x and JDK 1.4</title>
+      <para>
+         JBoss AOP can also work with JBoss 3.2.7 (maybe 3.2.6) and higher in the JBoss 3.2 series.  Look in the
+         Installing chapter on how to install the JAR files.
+      </para>
+      <para>
+         After installing, you need to modify the
+         <literal>jboss-3.2.7/server/xxx/conf/jboss-service.xml</literal>
+         file to add these mbean definitions.  They are similar to the 4.0 release, but notice the '32' added to the
+         class name.
+      </para>
+      <programlisting>
+         <![CDATA[      <mbean code="org.jboss.aop.deployment.AspectManagerService32"
+         name="jboss.aop:service=AspectManager">
+         <attribute name="EnableTransformer">false</attribute>
+         <!-- only relevant when EnableTransformer is true -->
+         <attribute name="SuppressTransformationErrors">true</attribute>
+         <!-- only relevant when Enabletransformer is true.  Optimization is optional
+         only just in case there is a bug in it -->
+         <attribute name="Optimized">true</attribute>
+         <attribute name="Verbose">false</attribute>
+      </mbean>
+
+      <mbean code="org.jboss.aop.deployment.AspectDeployer32"
+         name="jboss.aop:service=AspectDeployer">
+      </mbean>
+      ]]></programlisting>
+      <para>
+         Also, copy the
+         <literal>base-aop.xml</literal> file into the server/xxx/deploy/ directory if you want to
+         use any of JBoss Aspects.
+      </para>
+      </sect2>
+   </sect1>
+
+   <sect2>
+      <title>JBoss 3.2.x and JDK 5</title>
+      <para>
+         The JDK 5.0 integration to do loadtime transformations is much more stable and reliable than the JDK 1.4 integration
+         it is highly suggested that you consider moving to both JDK 5 and JBoss AOP's integration with
+         JDK 5 if you want to do loadtime transformations.  JDK 1.4 loadtime works, but it requires custom classloaders
+         and not all libraries will use the JBoss class loader (i.e. JSPs).
+      </para>
+   <para>
+      To use JDK 5 loadtime with JBoss 3.2.x make sure you follow the directions in the 'Installing' chapter.
+   </para>
+   <para>
+      If you want to do load-time
+      transformations with JBoss 3.2.7 and JDK 5, there are two steps you must take.
+   </para>
+      <para>
+         After installing, you need to modify the
+         <literal>jboss-3.2.7/server/xxx/conf/jboss-service.xml</literal>
+         file to add these mbean definitions.  They are similar to the 4.0 release, but notice the '32' added to the
+         class name.
+      </para>
+      <programlisting>
+         <![CDATA[      <mbean code="org.jboss.aop.deployment.AspectManagerService32JDK5"
+         name="jboss.aop:service=AspectManager">
+         <attribute name="EnableTransformer">false</attribute>
+         <!-- only relevant when EnableTransformer is true -->
+         <attribute name="SuppressTransformationErrors">true</attribute>
+         <!-- only relevant when Enabletransformer is true.  Optimization is optional
+         only just in case there is a bug in it -->
+         <attribute name="Optimized">true</attribute>
+         <attribute name="Verbose">false</attribute>
+      </mbean>
+
+      <mbean code="org.jboss.aop.deployment.AspectDeployer32"
+         name="jboss.aop:service=AspectDeployer">
+      </mbean>
+      ]]></programlisting>
+      <para>
+         Also, copy the
+         <literal>base-aop.xml</literal> file into the server/xxx/deploy/ directory if you want to
+         use any of JBoss Aspects.
+      </para>
+   <para>
+      By default, JBoss application server will not do load-time bytecode manipulation
+      of AOP files. You can turn load-time on by
+      setting the EnableTransformer attribute to true. If SuppressTransformationErrors is
+      true failed bytecode transformation will only give an error warning. This flag is
+      needed because the JSP compiler does not run within a JBoss classloader and the
+      AOP loader cannot resolve classes from this JSP classloader.
+   </para>
+      <para>
+         The next step is to copy the pluggable-instrumentor.jar from the lib-50 directory of your JBoss AOP
+         distribution to the bin/ directory of your JBoss AOP application server installation.  Next edit
+         run.sh or run.bat (depending on what OS you're on) and add the following to the JAVA_OPTS environment
+         variable
+      </para>
+      <programlisting>
+set JAVA_OPTS=%JAVA_OPTS% -Dprogram.name=%PROGNAME% -javaagent:pluggable-instrumentor.jar
+      </programlisting>
+      <para>
+         After modifying JAVA_OPTS and setting the EnableTransformations to true, then you should be ready to go.
+      </para>
+   </sect2>
+
+</chapter>
+
+<!--
+   standal
+
+
+
+-->

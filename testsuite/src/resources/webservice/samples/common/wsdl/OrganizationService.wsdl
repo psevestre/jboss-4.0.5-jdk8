@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name='OrganizationService' targetNamespace='http://org.jboss.test.webservice/samples' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://org.jboss.test.webservice/samples' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types/>
+ <message name='Organization_getContactInfo'>
+  <part name='String_1' type='xsd:string'/>
+ </message>
+ <message name='Organization_getContactInfoResponse'>
+  <part name='result' type='xsd:string'/>
+ </message>
+ <portType name='Organization'>
+  <operation name='getContactInfo' parameterOrder='String_1'>
+   <input message='tns:Organization_getContactInfo'/>
+   <output message='tns:Organization_getContactInfoResponse'/>
+  </operation>
+ </portType>
+ <binding name='OrganizationBinding' type='tns:Organization'>
+  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='getContactInfo'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.test.webservice/samples' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.test.webservice/samples' use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='OrganizationService'>
+  <port binding='tns:OrganizationBinding' name='OrganizationPort'>
+   <soap:address location='REPLACE_WITH_ACTUAL_URL'/>
+  </port>
+ </service>
+</definitions>

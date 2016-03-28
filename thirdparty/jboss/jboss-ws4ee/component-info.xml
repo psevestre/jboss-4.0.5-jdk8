@@ -1,0 +1,19 @@
+<project name="jboss/jbossws-component-info">
+
+   <component id="jboss/jboss-ws4ee"
+              licenseType="lgpl"
+              version="4.0.4.SP1"
+              description="JBossWS4EE the deprecated Axis based implementation of J2EE Web Services">
+
+      <artifact id="axis-ws4ee.jar"/>
+      <artifact id="jboss-ws4ee.sar"/>
+      <artifact id="jboss-ws4ee-client.jar"/>
+
+      <export>
+         <include input="jboss-ws4ee-client.jar"/>
+         <include input="axis-ws4ee.jar"/>
+      </export>
+
+   </component>
+
+</project>

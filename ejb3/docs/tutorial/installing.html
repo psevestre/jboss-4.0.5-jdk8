@@ -1,0 +1,39 @@
+<html>
+<body>
+<p>
+<h2>Installing EJB 3.0 RC7 with JBoss 4.0.4.GA installer</h2>
+<p>
+The EJB 3.0 RC7 implementation is only usable with JBoss 4.0.4.GA.  The EJB 3.0 implementation that comes packaged with the JBoss 4.0.4.GA installer is the same as the standalone EJB 3.0 RC7 distribution with one exception.  The standalone distribution has been patched to fix the <a href="http://jira.jboss.com/jira/browse/EJBTHREE-573">EJBTHREE-573</a> JIRA bug.  Also the JBoss Remoting jar has been patched to fix the SSL problems in the 4.0.4.GA release.  If you don't need these fixes, then installing with the installer is fine.
+</p>
+<hr>
+<h2>Installing into JBoss AS 4.0.4.GA</h2>
+<p>
+<ol>
+<li> Download <a
+href="http://sourceforge.net/project/showfiles.php?group_id=22866&package_id=16942">JBoss
+4.0.4.GA</a>.</li>
+
+<li> Download <a href="http://sourceforge.net/project/showfiles.php?group_id=22866&package_id=132063">EJB 3.0 RC7</a>.</li>
+<li> Unzip both of these downloads</li>
+
+<li> Copy <tt>ejb3.deployer</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/server/all/deploy</tt></li>
+<li> Copy <tt>ejb3-clustered-sfsbcache-service.xml</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/server/all/deploy</tt></li>
+<li> Copy <tt>ejb3-entity-cache-service.xml</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/server/all/deploy</tt></li>
+<li> Copy <tt>ejb3-interceptors-aop.xml</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/server/all/deploy</tt></li>
+<li> Copy <tt>jboss-aop-jdk50.deployer</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/server/all/deploy</tt></li>
+<li> Copy <tt>quartz-ra.rar</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/server/all/deploy</tt></li>
+<li> Copy <tt>jboss-remoting.jar</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/server/all/lib</tt></li>
+<li> Copy <tt>hibernate-annotations.jar</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/server/all/lib</tt></li>
+<li> Copy <tt>hibernate-entitymanager.jar</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/server/all/lib</tt></li>
+<li> Copy <tt>ejb3-persistence.jar</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/server/all/lib</tt></li>
+<li> Copy <tt>quartz-all-1.5.2.jar</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/server/all/lib</tt></li>
+<li> Copy <tt>jboss-ejb3-client.jar</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/client</tt></li>
+<li> Copy <tt>jboss-annotations-ejb3.jar</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/client</tt></li>
+<li> Copy <tt>hibernate-client.jar</tt> from the <tt>lib/</tt> directory of the distribution to <tt>jboss-4.0.x/client</tt></li>
+<li> Remove <tt>jboss-aop.deployer/</tt> from <tt>jboss-4.0.x/server/all/deploy</tt></li>
+
+<li> Start jboss up with the <tt>all</tt> configuration <tt>run.sh -c all</tt></li>
+</ol>
+</p>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<project name="apache-commons-httpclient">
+   <component id="apache-httpclient"
+              licenseType="apache-2.0"
+              version="2.0.2"
+              projectHome="http://jakarta.apache.org/commons/httpclient/"
+              description="Implementation of client side of the most recent HTTP standards">
+      <artifact id="commons-httpclient.jar"/>
+      <export>
+         <include input="commons-httpclient.jar"/>
+      </export>
+   </component>
+
+</project>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="MyService" 
+	targetNamespace="http://org.jboss.test.webservice.attachmentstepbystep/MyService" 
+	xmlns:tns="http://org.jboss.test.webservice.attachmentstepbystep/MyService" 
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+
+  <types/>
+
+
+  <message name="MyService_myService">
+    <part name="mimepart" type="xsd:hexBinary"/>
+  </message>
+  <message name="MyService_myServiceResponse">
+    <part name="result" type="xsd:hexBinary"/>
+  </message>
+
+
+  <portType name="MyService">
+    
+    <operation name="myService" parameterOrder="mimepart">
+      <input message="tns:MyService_myService"/>
+      <output message="tns:MyService_myServiceResponse"/>
+    </operation>
+          
+  </portType>
+
+
+
+
+  <binding name="MyServiceBinding" type="tns:MyService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+   
+    <operation name="myService">
+      <soap:operation soapAction=""/>
+      <input>
+			<mime:multipartRelated>
+            <mime:part>
+              <soap:body use="literal" namespace="http://org.jboss.ws.example.attachment/MyService"/>
+            </mime:part>
+            <mime:part>
+              <mime:content part="mimepart" type="text/plain"/>
+            </mime:part>
+          </mime:multipartRelated>
+     </input>
+      <output>
+       <soap:body use="literal" namespace="http://org.jboss.test.webservice.attachmentstepbystep/MyService"/>
+			<mime:multipartRelated>
+            <mime:part>
+              <soap:body use="literal" namespace="http://org.jboss.test.webservice.attachmentstepbystep/MyService"/>
+            </mime:part>
+            <mime:part>
+              <mime:content part="result" type="text/plain"/>
+            </mime:part>
+          </mime:multipartRelated>
+      </output>
+     </operation>
+ 
+ </binding>
+
+
+
+  <service name="MyService">
+    <port name="MyServicePort" binding="tns:MyServiceBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+  
+  </definitions>

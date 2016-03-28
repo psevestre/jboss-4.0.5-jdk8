@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   jwsdp-1.4
+
+   wscompile -cp ../../../../../output/classes -gen:server -f:documentliteral -keep -mapping jaxrpc-mapping.xml config.xml
+-->
+
+<configuration
+  xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+
+  <service name="SampleEndpointService"
+    targetNamespace="http://ws.sample"
+    typeNamespace="http://ws.sample"
+    packageName="org.jboss.test.webservice.encstyle">
+    <interface name="org.jboss.test.webservice.encstyle.SampleEndpoint"/>
+  </service>
+
+</configuration>
+

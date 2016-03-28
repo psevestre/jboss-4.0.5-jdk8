@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/ejb-jar_2_1.xsd"
+  version="2.1">
+  <enterprise-beans>
+    <session>
+      <ejb-name>MarshallTestBean</ejb-name>
+      <home>org.jboss.test.webservice.marshalltest.MarshallTestHome</home>
+      <remote>org.jboss.test.webservice.marshalltest.MarshallTestRemote</remote>
+      <service-endpoint>org.jboss.test.webservice.marshalltest.MarshallTestEndpoint</service-endpoint>
+      <ejb-class>org.jboss.test.webservice.marshalltest.MarshallTestBean</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+    </session>
+  </enterprise-beans>
+</ejb-jar>

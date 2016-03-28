@@ -1,0 +1,57 @@
+<project name="apache-tomcat-component-info">
+
+   <component id="apache-tomcat"
+      licenseType="apache-2.0"
+      version="5.5.20"
+      projectHome="http://tomcat.apache.org"
+      description="Tomcat 5.5 servlet 2.4 web container">
+
+      <artifact id="catalina-manager.jar"/>
+      <artifact id="catalina-optional.jar"/>
+      <artifact id="catalina.jar"/>
+      <artifact id="jasper-compiler-jdt.jar"/>
+      <artifact id="jasper-compiler.jar"/>
+      <artifact id="jasper-runtime.jar"/>
+      <artifact id="naming-resources.jar"/>
+      <artifact id="servlets-default.jar"/>
+      <artifact id="servlets-invoker.jar"/>
+      <artifact id="servlets-webdav.jar"/>
+      <artifact id="tomcat-ajp.jar"/>
+      <artifact id="tomcat-apr.jar"/>      
+      <artifact id="tomcat-coyote.jar"/>
+      <artifact id="tomcat-http.jar"/>
+      <artifact id="tomcat-util.jar"/>
+      
+      <import componentref="apache-logging">
+         <compatible version="1.0.3"/>
+         <compatible version="1.0.4jboss"/>
+         <compatible version="1.0.4.1jboss"/>
+         <compatible version="1.0.5.GA-jboss"/>
+         <compatible version="1.0.5.SP1-jboss"/>
+      </import>
+      <import componentref="apache-modeler">
+         <compatible version="1.1patch" />
+      </import>
+      <import componentref="commons-el">
+         <compatible version="1.0"/>
+      </import>
+      <export>
+         <include input="catalina-manager.jar"/>
+         <include input="catalina-optional.jar"/>
+         <include input="catalina.jar"/>
+         <include input="jasper-compiler-jdt.jar"/>
+         <include input="jasper-compiler.jar"/>
+         <include input="jasper-runtime.jar"/>
+         <include input="naming-resources.jar"/>
+         <include input="servlets-default.jar"/>
+         <include input="servlets-invoker.jar"/>
+         <include input="servlets-webdav.jar"/>
+         <include input="tomcat-ajp.jar"/>
+         <include input="tomcat-apr.jar"/>         
+         <include input="tomcat-coyote.jar"/>
+         <include input="tomcat-http.jar"/>
+         <include input="tomcat-util.jar"/>
+
+      </export>
+   </component>
+</project>

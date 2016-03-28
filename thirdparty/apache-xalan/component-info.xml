@@ -1,0 +1,25 @@
+<project name="apache-xalan-component-info">
+   <!-- ============================================================ -->
+   <!-- Apache Xalan                                                 -->
+   <!-- ============================================================ -->
+
+   <component id="apache-xalan"
+              licenseType="apache-2.0"
+              version="j_2.7.0"
+              projectHome="http://xml.apache.org/xalan-j/"
+              description="Xalan-Java is an XSLT processor for transforming XML documents"
+   >
+      <artifact id="xalan.jar"/>
+      <artifact id="serializer.jar"/>
+      
+      <import componentref="apache-xerces">
+         <compatible version="2.7.1"/>
+      </import>
+      
+      <export>
+         <include input="xalan.jar"/>
+         <include input="serializer.jar"/>
+      </export>
+   </component>
+
+</project>

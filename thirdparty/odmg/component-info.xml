@@ -1,0 +1,14 @@
+<project name="odmg-component-info">
+   <component id="odmg"
+              version="3.0"
+              licenseType="apache-2.0"
+         projectHome="http://www.odmg.org/"
+      description="ODMG Java binding"
+    >
+      <artifact id="odmg-3.0.jar"/>
+      <export>
+         <include input="odmg-3.0.jar"/>
+      </export>
+   </component>
+
+</project>

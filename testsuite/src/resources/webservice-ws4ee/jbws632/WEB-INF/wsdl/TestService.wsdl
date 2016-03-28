@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="TestService"
+	targetNamespace="http://org.jboss.test.webservice/jbws632"
+	xmlns:tns="http://org.jboss.test.webservice/jbws632"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:ns2="http://org.jboss.test.webservice/jbws632/types/arrays/java/lang"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<types>
+		<schema
+			targetNamespace="http://org.jboss.test.webservice/jbws632/types/arrays/java/lang"
+			xmlns:tns="http://org.jboss.test.webservice/jbws632/types/arrays/java/lang"
+			xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			xmlns="http://www.w3.org/2001/XMLSchema">
+			<complexType name="StringArrayArray">
+				<sequence>
+					<element name="value" type="tns:StringArray" minOccurs="0"
+						maxOccurs="unbounded"/>
+				</sequence>
+			</complexType>
+			<complexType name="StringArray">
+				<sequence>
+					<element name="value" type="string" nillable="true"
+						minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</complexType>
+		</schema>
+	</types>
+	<message name="TestSEI_echo">
+		<part name="arrayOfarrayOfString_1" type="ns2:StringArrayArray"/>
+	</message>
+	<message name="TestSEI_echoResponse">
+		<part name="result" type="ns2:StringArrayArray"/>
+	</message>
+	<portType name="TestSEI">
+		<operation name="echo" parameterOrder="arrayOfarrayOfString_1">
+			<input message="tns:TestSEI_echo"/>
+			<output message="tns:TestSEI_echoResponse"/>
+		</operation>
+	</portType>
+	<binding name="TestSEIBinding" type="tns:TestSEI">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="rpc"/>
+		<operation name="echo">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"
+					namespace="http://org.jboss.test.webservice/jbws632"/>
+			</input>
+			<output>
+				<soap:body use="literal"
+					namespace="http://org.jboss.test.webservice/jbws632"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="TestService">
+		<port name="TestSEIPort" binding="tns:TestSEIBinding">
+			<soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+		</port>
+	</service>
+</definitions>

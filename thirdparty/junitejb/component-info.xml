@@ -1,0 +1,15 @@
+<project name="junitejb-component-info">
+   <component id="junitejb"
+      version="1.4"
+      projectHome="http://sourceforge.net/projects/junitejb"
+      licenseType="lgpl"
+      description="JUnitEJB is an extension to JUnit which runs test on a remote EJB server"
+    >
+      <artifact id="junitejb.jar"/>
+      <export>
+         <include input="junitejb.jar"/>
+      </export>
+      
+   </component>
+
+</project>

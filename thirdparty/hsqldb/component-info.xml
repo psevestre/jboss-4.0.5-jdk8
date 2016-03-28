@@ -1,0 +1,15 @@
+<project name="hsqldb-component-info">
+
+   <component id="hsqldb"
+              version="1.8.0.2"
+              licenseType="hsqldb"
+              projectHome="http://hsqldb.org/"
+              description="Java relational database engine supporting a subset of ANSI-92 SQL plus SQL 99 and 2003 enhancements"
+   >
+      <artifact id="hsqldb.jar"/>
+      <export>
+         <include input="hsqldb.jar"/>
+      </export>
+   </component>
+
+</project>

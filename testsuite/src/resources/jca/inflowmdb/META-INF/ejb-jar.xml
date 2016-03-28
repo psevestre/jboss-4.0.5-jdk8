@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+         http://java.sun.com/xml/ns/j2ee/ejb-jar_2_1.xsd"
+         version="2.1">
+
+   <enterprise-beans>
+
+      <message-driven>
+         <ejb-name>TestMDB</ejb-name>
+         <ejb-class>org.jboss.test.jca.inflowmdb.TestMDBMessageListener</ejb-class>
+         <messaging-type>org.jboss.test.jca.inflow.TestMessageListener</messaging-type>
+         <activation-config>
+            <activation-config-property>
+               <activation-config-property-name>name</activation-config-property-name>
+               <activation-config-property-value>testInflow</activation-config-property-value>
+            </activation-config-property>
+            <!-- Other non-String properties to test the ActivationSpec java bean -->
+            <activation-config-property>
+               <activation-config-property-name>anInt</activation-config-property-name>
+               <activation-config-property-value>5</activation-config-property-value>
+            </activation-config-property>
+            <activation-config-property>
+               <activation-config-property-name>anInteger</activation-config-property-name>
+               <activation-config-property-value>55</activation-config-property-value>
+            </activation-config-property>
+            <activation-config-property>
+               <activation-config-property-name>localhost</activation-config-property-name>
+               <activation-config-property-value>127.0.0.1</activation-config-property-value>
+            </activation-config-property>
+            <activation-config-property>
+               <activation-config-property-name>props</activation-config-property-name>
+               <activation-config-property-value>
+                  key1=value1
+                  key2=value2
+                  key3=value3
+               </activation-config-property-value>
+            </activation-config-property>
+        </activation-config>
+        <transaction-type>Container</transaction-type>
+      </message-driven>
+
+<!--
+      <message-driven>
+         <description>An MDB that accepts mail messages</description>
+         <ejb-name>MailMDB</ejb-name>
+         <ejb-class>org.jboss.test.jca.inflowmdb.TestJavaMailMDB</ejb-class>
+         <messaging-type>org.jboss.resource.adapter.mail.inflow.MailListener</messaging-type>
+         <activation-config>
+            <activation-config-property>
+               <activation-config-property-name>mailServer</activation-config-property-name>
+               <activation-config-property-value>${mailhost:mailhost}</activation-config-property-value>
+            </activation-config-property>
+            <activation-config-property>
+               <activation-config-property-name>mailFolder</activation-config-property-name>
+               <activation-config-property-value>INBOX</activation-config-property-value>
+            </activation-config-property>
+            <activation-config-property>
+               <activation-config-property-name>storeProtocol</activation-config-property-name>
+               <activation-config-property-value>imap</activation-config-property-value>
+            </activation-config-property>
+            <activation-config-property>
+               <activation-config-property-name>userName</activation-config-property-name>
+               <activation-config-property-value>jduke</activation-config-property-value>
+            </activation-config-property>
+            <activation-config-property>
+               <activation-config-property-name>password</activation-config-property-name>
+               <activation-config-property-value>theduke</activation-config-property-value>
+            </activation-config-property>
+        </activation-config>
+        <transaction-type>Container</transaction-type>
+      </message-driven>
+-->
+   </enterprise-beans>
+
+   <assembly-descriptor>
+
+      <container-transaction>
+         <method>
+            <ejb-name>TestMDB</ejb-name>
+            <method-name>*</method-name>
+         </method>
+         <trans-attribute>Required</trans-attribute>
+      </container-transaction>
+
+   </assembly-descriptor>
+
+</ejb-jar>

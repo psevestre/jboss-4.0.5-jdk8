@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   wscompile -gen:client -f:rpcliteral -mapping jaxrpc-mapping.xml -keep config.xml
+-->
+
+<configuration
+  xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+
+  <wsdl location="http://localhost:8080/ws4ee-samples-server-jse/Organization?wsdl"
+    packageName="org.jboss.test.webservice.samples">
+  </wsdl>
+
+</configuration>
+

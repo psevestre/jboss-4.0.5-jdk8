@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   jwsdp-1.5
+
+   wscompile -cp ../../../../output/classes -gen:client -f:rpcliteral -f:explicitcontext -f:searchschema -keep -mapping jaxrpc-mapping-simple.xml config-simple.xml
+-->
+
+<configuration
+  xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+
+  <wsdl location="./WEB-INF/wsdl/SimpleHeaderEndpointService.wsdl"
+    packageName="org.jboss.test.webservice.header">
+  </wsdl>
+
+</configuration>
+
+<!-- Not genarated by wscompile-1.5  
+<java-xml-type-mapping>
+  <java-type>java.lang.String</java-type>
+  <root-type-qname xmlns:typeNS="http://ws.sample">typeNS:SimpleHeader</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+</java-xml-type-mapping>
+-->
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java-wsdl-mapping version="1.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee    http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd">
+  <package-mapping>
+    <package-type>org.jboss.test.webservice.header</package-type>
+    <namespaceURI>http://ws.sample</namespaceURI>
+  </package-mapping>
+  <java-xml-type-mapping>
+    <java-type>org.jboss.test.webservice.header.SessionHeader</java-type>
+    <root-type-qname xmlns:typeNS="http://ws.sample">typeNS:SessionHeader</root-type-qname>
+    <qname-scope>complexType</qname-scope>
+    <variable-mapping>
+      <java-variable-name>sessionID</java-variable-name>
+      <xml-element-name>sessionID</xml-element-name>
+    </variable-mapping>
+    <variable-mapping>
+      <java-variable-name>username</java-variable-name>
+      <xml-element-name>username</xml-element-name>
+    </variable-mapping>
+  </java-xml-type-mapping>
+  <service-interface-mapping>
+    <service-interface>org.jboss.test.webservice.header.HeaderEndpointService</service-interface>
+    <wsdl-service-name xmlns:serviceNS="http://ws.sample">serviceNS:HeaderEndpointService</wsdl-service-name>
+    <port-mapping>
+      <port-name>HeaderEndpointPort</port-name>
+      <java-port-name>HeaderEndpointPort</java-port-name>
+    </port-mapping>
+  </service-interface-mapping>
+  <service-endpoint-interface-mapping>
+    <service-endpoint-interface>org.jboss.test.webservice.header.ExplicitHeaderEndpoint</service-endpoint-interface>
+    <wsdl-port-type xmlns:portTypeNS="http://ws.sample">portTypeNS:HeaderEndpoint</wsdl-port-type>
+    <wsdl-binding xmlns:bindingNS="http://ws.sample">bindingNS:HeaderEndpointBinding</wsdl-binding>
+    <service-endpoint-method-mapping>
+      <java-method-name>doStuff</java-method-name>
+      <wsdl-operation>doStuff</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>java.lang.String</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://ws.sample">wsdlMsgNS:HeaderEndpoint_doStuff</wsdl-message>
+          <wsdl-message-part-name>parameter</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <method-param-parts-mapping>
+        <param-position>1</param-position>
+        <param-type>org.jboss.test.webservice.header.SessionHeader</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://ws.sample">wsdlMsgNS:HeaderEndpoint_doStuff_SessionHeader</wsdl-message>
+          <wsdl-message-part-name>header</wsdl-message-part-name>
+          <parameter-mode>INOUT</parameter-mode>
+          <soap-header/>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>boolean</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://ws.sample">wsdlMsgNS:HeaderEndpoint_doStuffResponse</wsdl-message>
+        <wsdl-message-part-name>result</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+  </service-endpoint-interface-mapping>
+</java-wsdl-mapping>

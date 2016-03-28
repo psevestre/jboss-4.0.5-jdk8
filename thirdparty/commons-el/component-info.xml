@@ -1,0 +1,15 @@
+<project name="commons-el-component-info">
+
+   <component id="commons-el"
+      licenseType="apache-2.0"
+      version="1.0"
+      projectHome="http://jakarta.apache.org/commons/el/"
+      description=" EL is the JSP 2.0 Expression Language Interpreter ">
+
+      <artifact id="commons-el.jar"/>
+      <export>
+         <include input="commons-el.jar"/>
+      </export>
+   </component>
+
+</project>

@@ -1,0 +1,15 @@
+<project name="aop-component-info">
+   <!-- ============================================================ -->
+   <!-- AOP                                                          -->
+   <!-- ============================================================ -->
+
+   <component id="aop"
+              module="jboss-aop"
+              version="5.0-SNAPSHOT"
+   >
+      <artifact id="jboss-aop.jar"/>
+      <export>
+         <include input="jboss-aop.jar"/>
+      </export>
+   </component>
+</project>

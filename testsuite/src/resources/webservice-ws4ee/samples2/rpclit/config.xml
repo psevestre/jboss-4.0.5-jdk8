@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   wscompile -cp ../../../../../output/classes -gen:server -f:rpcliteral -mapping jaxrpc-mapping.xml -keep config.xml
+-->
+
+<configuration
+  xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+
+  <service name="OrderProcessService"
+    targetNamespace="http://org.jboss.test.webservice/samples2"
+    typeNamespace="http://org.jboss.test.webservice/samples2/types"
+    packageName="org.jboss.test.webservice.samples2">
+    <interface name="org.jboss.test.webservice.samples2.OrderProcess"/>
+  </service>
+
+</configuration>
+

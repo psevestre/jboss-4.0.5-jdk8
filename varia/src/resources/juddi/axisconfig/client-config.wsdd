@@ -1,0 +1,112 @@
+<!-- a barebone jboss.net/axis client configuration which includes some basic typemappings related to jboss -->
+
+<deployment name="JBoss.net"
+  targetNameSpace="http://net.jboss.org/client"
+  xmlns:jbnet="http://net.jboss.org/client"
+  xmlns:jmx="http://net.jboss.org/jmx"
+  xmlns="http://xml.apache.org/axis/wsdd/"
+  xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <transport name="http" pivot="java:org.jboss.axis.transport.http.HTTPSender">
+  </transport>
+
+  <!-- email transport configuration-->
+  <handler name="MailSender" type="java:org.jboss.net.axis.transport.mailto.client.WSAMailResponder">
+    <parameter name="SessionName" value="java:/Mail"/>
+  </handler>
+
+  <handler name="Addressing" type="java:org.jboss.net.axis.message.addressing.handler.AddressingHandler">
+    <!--parameter name="actor" value=""-->
+    <parameter name="engineName" value="jboss.net:service=Axis"/>
+    <parameter name="transportPackages" value="org.jboss.net.axis.transport.mailto"/>
+    <parameter name="transports" value="mail:org.jboss.net.axis.transport.mailto.client.MailTransport"/>
+  </handler>
+  
+  <!-- This handler will need to be configured with reasonable values for 'user', 'securityDomain', 
+       and 'passwordCallbackClass'.
+       
+       Remember, it is always a good idea to include all addresses (To, From, ReplyTo, FaultTo)
+       in your signature. -->
+  <!--     
+  <handler name="WSSResponse" type="java:org.jboss.net.axis.security.handler.WSSResponseHandler">
+    <parameter name="action" value="Encrypt Signature"/>  
+    <parameter name="mustUnderstand" value="false"/>  
+    <parameter name="user" value="jboss-net"/>  
+    <parameter name="securityDomain" value="java:/jaas/other"/>  
+    <parameter name="signatureKeyIdentifier" value="DirectReference"/>
+    <parameter name="signatureParts" value="{}{http://schemas.xmlsoap.org/ws/2004/03/addressing}To;{}{http://schemas.xmlsoap.org/ws/2004/03/addressing}Action;Body"/>  
+    <parameter name="cryptoImplementation" value="org.jboss.net.axis.security.JBoss14Crypto"/>  
+    <parameter name="encryptionUser" value="useReqSigCert"/>  
+    <parameter name="encryptionKeyIdentifier" value="X509KeyIdentifier"/>
+    <parameter name="passwordCallbackClass" value="org.jboss.net.callback.PrivKeyCallback"/>  
+  </handler>
+  -->
+
+  <transport name="mail" pivot="MailSender">
+    <requestFlow>
+      <!-- This is actually the server's response message -->
+      <handler type="Addressing"/>
+      <!-- uncomment after the handler is properly configured.
+      <handler type="WSSResponse"/>
+      -->
+    </requestFlow>
+    <responseFlow>
+      <!-- we'll likely never end up in this chain -->
+    </responseFlow>
+  </transport>
+
+  <typeMapping qname="jmx:AttributeType"
+    type="java:javax.management.Attribute"
+    serializer="org.jboss.net.jmx.adaptor.AttributeSerFactory"
+    deserializer="org.jboss.net.jmx.adaptor.AttributeDeserFactory"
+    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+  <typeMapping qname="jmx:MBeanAttributeInfo"
+    type="java:javax.management.MBeanAttributeInfo"
+    serializer="org.jboss.net.jmx.adaptor.MBeanAttributeInfoSerFactory"
+    deserializer="org.jboss.net.jmx.adaptor.MBeanAttributeInfoDeserFactory"
+    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+  <typeMapping qname="jmx:MBeanConstructorInfo"
+    type="java:javax.management.MBeanConstructorInfo"
+    serializer="org.jboss.net.jmx.adaptor.MBeanConstructorInfoSerFactory"
+    deserializer="org.jboss.net.jmx.adaptor.MBeanConstructorInfoDeserFactory"
+    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+  <typeMapping qname="jmx:MBeanInfo"
+    type="java:javax.management.MBeanInfo"
+    serializer="org.jboss.net.jmx.adaptor.MBeanInfoSerFactory"
+    deserializer="org.jboss.net.jmx.adaptor.MBeanInfoDeserFactory"
+    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+  <typeMapping qname="jmx:MBeanNotificationInfo"
+    type="java:javax.management.MBeanNotificationInfo"
+    serializer="org.jboss.net.jmx.adaptor.MBeanNotificationInfoSerFactory"
+    deserializer="org.jboss.net.jmx.adaptor.MBeanNotificationInfoDeserFactory"
+    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+  <typeMapping qname="jmx:MBeanOperationInfo"
+    type="java:javax.management.MBeanOperationInfo"
+    serializer="org.jboss.net.jmx.adaptor.MBeanOperationInfoSerFactory"
+    deserializer="org.jboss.net.jmx.adaptor.MBeanOperationInfoDeserFactory"
+    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+  <typeMapping qname="jmx:MBeanParameterInfo"
+    type="java:javax.management.MBeanParameterInfo"
+    serializer="org.jboss.net.jmx.adaptor.MBeanParameterInfoSerFactory"
+    deserializer="org.jboss.net.jmx.adaptor.MBeanParameterInfoDeserFactory"
+    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+  <typeMapping qname="jmx:ObjectInstance"
+    type="java:javax.management.ObjectInstance"
+    serializer="org.jboss.net.jmx.adaptor.ObjectInstanceSerFactory"
+    deserializer="org.jboss.net.jmx.adaptor.ObjectInstanceDeserFactory"
+    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+  <typeMapping qname="jmx:ObjectNameType"
+    type="java:javax.management.ObjectName"
+    serializer="org.jboss.net.jmx.adaptor.ObjectNameSerFactory"
+    deserializer="org.jboss.net.jmx.adaptor.ObjectNameDeserFactory"
+    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+</deployment>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="SampleEndpointService" targetNamespace="http://ws.sample" xmlns:tns="http://ws.sample" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <schema targetNamespace="http://ws.sample" xmlns:tns="http://ws.sample" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="UserType">
+        <sequence>
+          <element name="firstName" type="string" nillable="true"/>
+          <element name="lastName" type="string" nillable="true"/>
+        </sequence>
+      </complexType>
+    </schema>
+  </types>
+  <message name="SampleEndpoint_changeSalary">
+    <part name="UserType_1" type="tns:UserType"/>
+    <part name="Integer_2" type="xsd:int"/>
+  </message>
+  <message name="SampleEndpoint_changeSalaryResponse">
+    <part name="result" type="xsd:string"/>
+  </message>
+  <portType name="SampleEndpoint">
+    <operation name="changeSalary" parameterOrder="UserType_1 Integer_2">
+      <input message="tns:SampleEndpoint_changeSalary"/>
+      <output message="tns:SampleEndpoint_changeSalaryResponse"/>
+    </operation>
+  </portType>
+  <binding name="SampleEndpointBinding" type="tns:SampleEndpoint">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="changeSalary">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://ws.sample"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://ws.sample"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SampleEndpointService">
+    <port name="SampleEndpointPort" binding="tns:SampleEndpointBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+</definitions>

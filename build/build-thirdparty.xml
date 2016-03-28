@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!-- $Id: build-thirdparty.xml 57510 2006-10-09 16:55:20Z dimitris@jboss.org $ -->
+<project name="main.build"
+          default="synchronize"
+          basedir=".">
+
+   <!-- Property File definitions -->
+   <property file="local.properties"/>
+   <property file="synchronize.properties"/>
+   <property environment="env"/>
+   <!-- Allow jbossbuild.repository to be set from (in order or priority)
+      + Command line -Djbossbuild.repository=...
+      + synchronize.properties jbossbuild.repository setting
+      + JBOSS_REPOSITORY environment variable (e.g. JBOSS_REPOSITORY=file:///d:/projects/repository.jboss.com/)
+   -->
+   <condition property="jbossbuild.repository" value="${env.JBOSS_REPOSITORY}">
+      <isset property="env.JBOSS_REPOSITORY"/>
+   </condition>
+   <!-- Fall back to default -->
+   <property name="jbossbuild.repository" value="http://repository.jboss.com"/>
+
+   <!-- Property Definitions -->
+   <property name="generatedLibrariesFiles" value="../thirdparty/libraries.ent"/>
+
+   <!-- File Imports -->
+   <import file="../tools/etc/jbossbuild/tasks.xml"/>
+
+   <!-- Proxy Configuration for HTTP get operations
+   <setproxy proxyhost="<your.proxy.host>" proxyport="<your.proxy.port>"/>
+   -->
+
+   <!-- Main Definition of dependencies -->
+   <build id="jbossas-thirdparty"
+      impltitle="JBossAS"
+      implversion="4.0.4beta"
+      implvendor="JBoss Inc."
+      implurl="http://www.jboss.org"
+      description="JBoss Application Server"
+      cvsroot="${cvs.prefix}@cvs.forge.jboss.com:/cvsroot/jboss"
+      thirdpartypath="../thirdparty/"
+      location="${jbossbuild.repository}"
+      targetdefs="targets">
+
+      <!--
+        The repository is in CVS under the module repository.jboss.com whose contents
+        are pushed to the http://repository.jboss.com site.
+      -->
+
+      <componentref name="antlr" version="2.7.6.ga"/>
+      <componentref name="apache-addressing" version="cvsbuild-7-19"/>
+      <componentref name="apache-avalon" version="4.1.5"/>
+      <componentref name="apache-avalon-logkit" version="1.2"/>
+      <componentref name="apache-bcel" version="5.1"/>
+      <componentref name="apache-beanutils" version="1.7.0"/>
+      <componentref name="apache-bsf" version="2.3.0"/>
+      <componentref name="apache-codec" version="1.3.0"/>
+      <componentref name="apache-collections" version="3.1"/>
+      <componentref name="apache-digester" version="1.6"/>
+      <componentref name="apache-discovery" version="0.2"/>
+      <componentref name="apache-fileupload" version="1.0"/>
+      <componentref name="apache-httpclient" version="2.0.2"/>
+      <componentref name="apache-jaxme" version="0.2-cvs"/>
+      <componentref name="apache-log4j" version="1.2.8"/>
+      <componentref name="apache-logging" version="1.0.5.GA-jboss"/>
+      <componentref name="apache-myfaces" version="1.1.4"/>
+      <componentref name="apache-pool" version="1.0.1"/>
+      <componentref name="apache-scout" version="0.7rc2"/>
+      <componentref name="apache-slide" version="1.0.16"/>
+      <componentref name="apache-tomcat" version="5.5.20"/>
+      <componentref name="apache-velocity" version="1.4jboss"/>
+      <componentref name="apache-wss4j" version="cvs-7-19"/>
+      <componentref name="apache-xalan" version="j_2.7.0"/>
+      <componentref name="apache-xerces" version="2.7.1"/>
+      <componentref name="apache-xmlsec" version="1.3.0"/>
+      <componentref name="cglib" version="2.1.3.nodep"/>
+      <componentref name="beanshell" version="1.3.0"/>
+      <componentref name="dom4j" version="1.6.1"/>
+      <componentref name="gjt-jpl-util" version="1.0"/>
+      <componentref name="gnu-getopt" version="1.0.10"/>
+      <componentref name="hibernate" version="3.2.0.GA"/>
+      <componentref name="hibernate-annotations" version="3.2.0.GA"/>
+      <componentref name="hibernate-entitymanager" version="3.2.0.GA"/>
+      <componentref name="hsqldb" version="1.8.0.2"/>
+      <componentref name="ibm-wsdl4j" version="1.5.2jboss"/>
+      <componentref name="jacorb" version="2.2.4jboss.patch1"/>
+      <componentref name="javassist" version="3.3.0.GA"/>
+      <componentref name="jaxen" version="1.1-beta-9"/>      
+      <componentref name="jboss/aop" version="1.5.2.GA"/>
+      <componentref name="jboss/backport-concurrent" version="2.1.0.GA"/>
+      <componentref name="jboss/cache" version="1.4.0.SP1"/>
+      <componentref name="jboss/common" version="1.0.0.GA"/>
+      <componentref name="jboss/dom4j-jarjar" version="1.6.1"/>
+      <componentref name="jboss/jbossretro-rt" version="1.0.3.GA"/>
+      <componentref name="jboss/jbossws" version="1.0.3.SP1"/>
+      <componentref name="jboss/jbossws14" version="1.0.3.SP1"/>
+      <componentref name="jboss/jboss-ws4ee" version="4.0.4.SP1"/>
+      <componentref name="jboss/jbossxb" version="1.0.0.CR6"/>
+      <componentref name="jboss/microcontainer" version="1.0.2"/>
+      <componentref name="jboss/remoting" version="1.4.3.GA"/>
+      <componentref name="jboss/serialization" version="1.0.3.GA"/>
+      <componentref name="jfreechart" version="0.9.20"/>
+      <componentref name="jgroups" version="2.2.7.SP1"/>
+      <componentref name="joesnmp" version="0.3.4"/>
+      <componentref name="juddi" version="0.9RC4"/>
+      <componentref name="junit" version="3.8.1"/>
+      <componentref name="junitejb" version="1.4"/>
+      <componentref name="objectweb-joramtests" version="1.1"/>
+      <componentref name="odmg" version="3.0"/>
+      <componentref name="oswego-concurrent" version="1.3.4"/>
+      <componentref name="quartz" version="1.5.2"/>
+      <componentref name="qdox" version="1.4"/>
+      <componentref name="sleepycat" version="1.5.2"/>
+      <componentref name="sun-jaf" version="1.1"/>
+      <componentref name="sun-javacc" version="3.2"/>
+      <componentref name="sun-javamail" version="1.4"/>
+      <componentref name="sun-servlet" version="2.4"/>
+      <componentref name="trove" version="1.0.2"/>
+      <componentref name="wutka-dtdparser" version="1.2.1"/>
+      <componentref name="xdoclet" version="1.2b3"/>
+      <componentref name="xml-sax" version="2.0.x"/>
+
+    </build>
+
+   <synchronizeinfo/>
+
+   <!-- Generate the targets -->
+   <generate generate="jbossas-thirdparty"/>
+
+
+   <target name="generate-lib-file"
+      description="generate libraries.ent and thirdparty license info"
+      depends="synchronize">
+         <gen-lib-file filename="${generatedLibrariesFiles}" />
+      <visit-componentref-graph
+         componentVisitor="org.jboss.ant.util.graph.ComponentRefGraphLicenseVisitor" />
+   </target>
+
+</project>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jboss PUBLIC "-//JBoss//DTD JBOSS 3.2//EN" "http://www.jboss.org/j2ee/dtd/jboss_3_2.dtd">
+
+<jboss>
+
+   <enterprise-beans>
+
+      <entity>
+         <ejb-name>test/txtimer/TimerEntity</ejb-name>
+         <jndi-name>test/txtimer/TimerEntity</jndi-name>
+         <local-jndi-name>test/txtimer/TimerEntityLocal</local-jndi-name>
+         <timer-persistence>false</timer-persistence>
+        <method-attributes>
+        </method-attributes>
+      </entity>
+
+      <session>
+         <ejb-name>test/txtimer/TimerFacade</ejb-name>
+         <jndi-name>test/txtimer/TimerFacade</jndi-name>
+      </session>
+      <session>
+         <ejb-name>test/txtimer/TimerSession</ejb-name>
+         <jndi-name>test/txtimer/TimerSession</jndi-name>
+         <local-jndi-name>test/txtimer/TimerSessionLocal</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>test/txtimer/TimerTest</ejb-name>
+         <jndi-name>test/txtimer/TimerTest</jndi-name>
+      </session>
+      
+   </enterprise-beans>
+
+</jboss>

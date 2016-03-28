@@ -1,0 +1,20 @@
+<project name="ibm-wsdl4j-component-info">
+
+   <!-- ============================================================ -->
+   <!-- IBM WSDL4J                                                   -->
+   <!-- ============================================================ -->
+
+   <component id="ibm-wsdl4j"
+           version="1.5.2jboss"
+            licenseType="cpl-1.0"
+            projectHome="http://sourceforge.net/projects/wsdl4j"
+            description="Web Services Description Language for Java Toolkit. Includes a JBoss patch to support EntityResolver injection"
+      >
+      <artifact id="wsdl4j.jar"/>
+      <export>
+         <include input="wsdl4j.jar"/>
+      </export>
+   </component>
+
+
+</project>

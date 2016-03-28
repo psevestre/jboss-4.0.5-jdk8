@@ -1,0 +1,68 @@
+<webservices
+  xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:impl="http://ws.sample"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://www.ibm.com/webservices/xsd/j2ee_web_services_1_1.xsd"
+  version="1.1">
+
+  <webservice-description>
+    <webservice-description-name>SimpleHeaderService</webservice-description-name>
+    <wsdl-file>WEB-INF/wsdl/SimpleHeaderEndpointService.wsdl</wsdl-file>
+    <jaxrpc-mapping-file>WEB-INF/jaxrpc-mapping-simple.xml</jaxrpc-mapping-file>
+    <port-component>
+      <port-component-name>SimplePortComponent</port-component-name>
+      <wsdl-port>impl:HeaderEndpointPort</wsdl-port>
+      <service-endpoint-interface>org.jboss.test.webservice.header.SimpleHeaderEndpoint</service-endpoint-interface>
+      <service-impl-bean>
+        <servlet-link>SimpleHeaderEndpoint</servlet-link>
+      </service-impl-bean>
+    </port-component>
+  </webservice-description>
+
+  <webservice-description>
+    <webservice-description-name>BeanHeaderService</webservice-description-name>
+    <wsdl-file>WEB-INF/wsdl/BeanHeaderEndpointService.wsdl</wsdl-file>
+    <jaxrpc-mapping-file>WEB-INF/jaxrpc-mapping-bean.xml</jaxrpc-mapping-file>
+    <port-component>
+      <port-component-name>BeanPortComponent</port-component-name>
+      <wsdl-port>impl:HeaderEndpointPort</wsdl-port>
+      <service-endpoint-interface>org.jboss.test.webservice.header.BeanHeaderEndpoint</service-endpoint-interface>
+      <service-impl-bean>
+        <servlet-link>BeanHeaderEndpoint</servlet-link>
+      </service-impl-bean>
+    </port-component>
+  </webservice-description>
+
+  <webservice-description>
+    <webservice-description-name>ImplicitHeaderService</webservice-description-name>
+    <wsdl-file>WEB-INF/wsdl/ImplicitHeaderEndpointService.wsdl</wsdl-file>
+    <jaxrpc-mapping-file>WEB-INF/jaxrpc-mapping-implicit.xml</jaxrpc-mapping-file>
+    <port-component>
+      <port-component-name>ImplicitPortComponent</port-component-name>
+      <wsdl-port>impl:HeaderEndpointPort</wsdl-port>
+      <service-endpoint-interface>org.jboss.test.webservice.header.ImplicitHeaderEndpoint</service-endpoint-interface>
+      <service-impl-bean>
+        <servlet-link>ImplicitHeaderEndpoint</servlet-link>
+      </service-impl-bean>
+      <handler>
+        <handler-name>ServerHandler</handler-name>
+        <handler-class>org.jboss.test.webservice.header.ServerHandler</handler-class>
+        <soap-header>impl:SessionHeader</soap-header>
+      </handler>
+    </port-component>
+  </webservice-description>
+
+  <webservice-description>
+    <webservice-description-name>ExplicitHeaderService</webservice-description-name>
+    <wsdl-file>WEB-INF/wsdl/ExplicitHeaderEndpointService.wsdl</wsdl-file>
+    <jaxrpc-mapping-file>WEB-INF/jaxrpc-mapping-explicit.xml</jaxrpc-mapping-file>
+    <port-component>
+      <port-component-name>ExplicitPortComponent</port-component-name>
+      <wsdl-port>impl:HeaderEndpointPort</wsdl-port>
+      <service-endpoint-interface>org.jboss.test.webservice.header.ExplicitHeaderEndpoint</service-endpoint-interface>
+      <service-impl-bean>
+        <servlet-link>ExplicitHeaderEndpoint</servlet-link>
+      </service-impl-bean>
+    </port-component>
+  </webservice-description>
+</webservices>

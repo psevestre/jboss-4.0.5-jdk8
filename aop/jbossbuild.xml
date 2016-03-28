@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<!--
+ JBoss, the OpenSource J2EE webOS
+ 
+ Distributable under LGPL license.
+ See terms of license at gnu.org.
+-->
+
+<!-- ================================================================== -->
+<!-- AOP component definition                                        -->
+<!-- ================================================================== -->
+
+<project name="project" 
+         default="build" 
+         basedir="."
+>
+
+   <import file="../tools/etc/jbossbuild/tasks.xml"/>
+   <import file="component-info.xml"/>
+
+   <!-- =============================================================== -->
+   <!-- The component definition                                        -->
+   <!-- =============================================================== -->
+
+   <componentdef component="aop" description="JBoss AOP">
+
+      <!-- ============================================================ -->
+      <!-- The main source                                              -->
+      <!-- ============================================================ -->
+
+      <resource id="docs" path="../../docs"/>
+
+      <source id="main">
+         <include component="common"/>
+         <include component="container"/>
+         <include component="qdox"/>
+         <include component="javassist"/>
+         <include component="trove"/>
+         <include component="oswego-concurrent"/>
+      </source>
+
+      <!--source id="jdk15" jdk="1.5">
+         <include component="common"/>
+         <include component="container"/>
+         <include component="qdox"/>
+         <include component="javassist"/>
+         <include component="trove"/>
+         <include component="concurrent"/>
+      </source -->
+ 
+      <!-- ============================================================ -->
+      <!-- jboss-aop.jar                                                -->
+      <!-- ============================================================ -->
+
+      <artifactdef artifact="jboss-aop.jar">
+         <include input="main">
+            <include pattern="org/jboss/aop/**"/>
+            <include pattern="org/jboss/lang/**"/>
+            <include pattern="org/jboss/aspects/**"/>
+         </include>
+         <include input="docs"> 
+            <include pattern="jboss-aop_1_0.dtd"/>
+         </include>
+      </artifactdef>
+
+   </componentdef>
+
+   <!-- Generate the targets -->   
+   <generate generate="aop"/>
+
+</project>

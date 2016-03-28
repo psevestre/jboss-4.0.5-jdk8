@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="TestService" targetNamespace="http://org.jboss.test.webservice/jbws423" xmlns:tns="http://org.jboss.test.webservice/jbws423"
+  xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://org.jboss.test.webservice/jbws423/types/arrays/org/jboss/test/webservice/jbws423"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <schema targetNamespace="http://org.jboss.test.webservice/jbws423/types/arrays/org/jboss/test/webservice/jbws423"
+      xmlns:tns="http://org.jboss.test.webservice/jbws423/types/arrays/org/jboss/test/webservice/jbws423" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://org.jboss.test.webservice/jbws423/types" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+      xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://org.jboss.test.webservice/jbws423/types"/>
+      <complexType name="ValueObjArray">
+        <sequence>
+          <element name="value" type="ns2:ValueObj" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema targetNamespace="http://org.jboss.test.webservice/jbws423/types" xmlns:tns="http://org.jboss.test.webservice/jbws423/types"
+      xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+      xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://org.jboss.test.webservice/jbws423/types/arrays/org/jboss/test/webservice/jbws423"/>
+      <complexType name="ValueObj">
+        <sequence>
+          <element name="s1" type="string" nillable="true"/>
+          <element name="s2" type="string" nillable="true"/>
+        </sequence>
+      </complexType>
+    </schema>
+  </types>
+  <message name="DemoEndpoint_getArray"/>
+  <message name="DemoEndpoint_getArrayResponse">
+    <part name="result" type="ns2:ValueObjArray"/>
+  </message>
+  <message name="DemoEndpoint_getEmptyArray"/>
+  <message name="DemoEndpoint_getEmptyArrayResponse">
+    <part name="result" type="ns2:ValueObjArray"/>
+  </message>
+  <message name="DemoEndpoint_getNullArray"/>
+  <message name="DemoEndpoint_getNullArrayResponse">
+    <part name="result" type="ns2:ValueObjArray"/>
+  </message>
+  <portType name="DemoEndpoint">
+    <operation name="getArray">
+      <input message="tns:DemoEndpoint_getArray"/>
+      <output message="tns:DemoEndpoint_getArrayResponse"/>
+    </operation>
+    <operation name="getEmptyArray">
+      <input message="tns:DemoEndpoint_getEmptyArray"/>
+      <output message="tns:DemoEndpoint_getEmptyArrayResponse"/>
+    </operation>
+    <operation name="getNullArray">
+      <input message="tns:DemoEndpoint_getNullArray"/>
+      <output message="tns:DemoEndpoint_getNullArrayResponse"/>
+    </operation>
+  </portType>
+  <binding name="DemoEndpointBinding" type="tns:DemoEndpoint">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="getArray">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://org.jboss.test.webservice/jbws423"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.test.webservice/jbws423"/>
+      </output>
+    </operation>
+    <operation name="getEmptyArray">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://org.jboss.test.webservice/jbws423"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.test.webservice/jbws423"/>
+      </output>
+    </operation>
+    <operation name="getNullArray">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://org.jboss.test.webservice/jbws423"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.test.webservice/jbws423"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="TestService">
+    <port name="DemoEndpointPort" binding="tns:DemoEndpointBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+</definitions>

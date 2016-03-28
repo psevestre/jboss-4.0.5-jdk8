@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name='MarshallRpcLitService' targetNamespace='http://org.jboss.webservice/marshalltest-rpclit' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='http://org.jboss.webservice/marshalltest-rpclit/types' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://org.jboss.webservice/marshalltest-rpclit' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <schema targetNamespace='http://org.jboss.webservice/marshalltest-rpclit/types' xmlns='http://www.w3.org/2001/XMLSchema' xmlns:ns2='http://www.w3.org/2001/XMLSchema' xmlns:soap11-enc='http://schemas.xmlsoap.org/soap/encoding/' xmlns:tns='http://org.jboss.webservice/marshalltest-rpclit/types' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+   <import namespace='http://www.w3.org/2001/XMLSchema'/>
+   <complexType name='byte.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' type='byte'/>
+    </sequence>
+   </complexType>
+   <complexType name='boolean.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' type='boolean'/>
+    </sequence>
+   </complexType>
+   <complexType name='Bean'>
+    <sequence>
+     <element name='base64' nillable='true' type='base64Binary'/>
+     <element name='x' type='int'/>
+     <element name='y' type='int'/>
+    </sequence>
+   </complexType>
+   <complexType name='BigDecimal.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' nillable='true' type='decimal'/>
+    </sequence>
+   </complexType>
+   <complexType name='BigInteger.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' nillable='true' type='integer'/>
+    </sequence>
+   </complexType>
+   <complexType name='Calendar.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' nillable='true' type='dateTime'/>
+    </sequence>
+   </complexType>
+   <complexType name='double.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' type='double'/>
+    </sequence>
+   </complexType>
+   <complexType name='float.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' type='float'/>
+    </sequence>
+   </complexType>
+   <complexType name='int.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' type='int'/>
+    </sequence>
+   </complexType>
+   <complexType name='long.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' type='long'/>
+    </sequence>
+   </complexType>
+   <complexType name='short.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' type='short'/>
+    </sequence>
+   </complexType>
+   <complexType name='QName.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' nillable='true' type='QName'/>
+    </sequence>
+   </complexType>
+   <complexType name='String.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+  </schema>
+ </types>
+ <message name='MarshallEndpoint_echoBase64Binary'>
+  <part name='arrayOfbyte_1' type='xsd:base64Binary'/>
+ </message>
+ <message name='MarshallEndpoint_echoBase64BinaryResponse'>
+  <part name='result' type='xsd:base64Binary'/>
+ </message>
+ <message name='MarshallEndpoint_echoBean'>
+  <part name='Bean_1' type='ns1:Bean'/>
+ </message>
+ <message name='MarshallEndpoint_echoBeanResponse'>
+  <part name='result' type='ns1:Bean'/>
+ </message>
+ <message name='MarshallEndpoint_echoBoolean'>
+  <part name='boolean_1' type='xsd:boolean'/>
+ </message>
+ <message name='MarshallEndpoint_echoBooleanResponse'>
+  <part name='result' type='xsd:boolean'/>
+ </message>
+ <message name='MarshallEndpoint_echoBooleanArray'>
+  <part name='arrayOfboolean_1' type='ns1:boolean.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoBooleanArrayResponse'>
+  <part name='result' type='ns1:boolean.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoByte'>
+  <part name='byte_1' type='xsd:byte'/>
+ </message>
+ <message name='MarshallEndpoint_echoByteResponse'>
+  <part name='result' type='xsd:byte'/>
+ </message>
+ <message name='MarshallEndpoint_echoByteArray'>
+  <part name='arrayOfbyte_1' type='ns1:byte.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoByteArrayResponse'>
+  <part name='result' type='ns1:byte.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateCalendar'>
+  <part name='Calendar_1' type='xsd:dateTime'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateCalendarResponse'>
+  <part name='result' type='xsd:dateTime'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateDate'>
+  <part name='Date_1' type='xsd:dateTime'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateDateResponse'>
+  <part name='result' type='xsd:dateTime'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeArray'>
+  <part name='arrayOfCalendar_1' type='ns1:Calendar.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeArrayResponse'>
+  <part name='result' type='ns1:Calendar.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeCalendar'>
+  <part name='Calendar_1' type='xsd:dateTime'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeCalendarResponse'>
+  <part name='result' type='xsd:dateTime'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeDate'>
+  <part name='Date_1' type='xsd:dateTime'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeDateResponse'>
+  <part name='result' type='xsd:dateTime'/>
+ </message>
+ <message name='MarshallEndpoint_echoDecimal'>
+  <part name='BigDecimal_1' type='xsd:decimal'/>
+ </message>
+ <message name='MarshallEndpoint_echoDecimalResponse'>
+  <part name='result' type='xsd:decimal'/>
+ </message>
+ <message name='MarshallEndpoint_echoDecimalArray'>
+  <part name='arrayOfBigDecimal_1' type='ns1:BigDecimal.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoDecimalArrayResponse'>
+  <part name='result' type='ns1:BigDecimal.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoDouble'>
+  <part name='double_1' type='xsd:double'/>
+ </message>
+ <message name='MarshallEndpoint_echoDoubleResponse'>
+  <part name='result' type='xsd:double'/>
+ </message>
+ <message name='MarshallEndpoint_echoDoubleArray'>
+  <part name='arrayOfdouble_1' type='ns1:double.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoDoubleArrayResponse'>
+  <part name='result' type='ns1:double.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoFloat'>
+  <part name='float_1' type='xsd:float'/>
+ </message>
+ <message name='MarshallEndpoint_echoFloatResponse'>
+  <part name='result' type='xsd:float'/>
+ </message>
+ <message name='MarshallEndpoint_echoFloatArray'>
+  <part name='arrayOffloat_1' type='ns1:float.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoFloatArrayResponse'>
+  <part name='result' type='ns1:float.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoHexBinary'>
+  <part name='arrayOfbyte_1' type='xsd:hexBinary'/>
+ </message>
+ <message name='MarshallEndpoint_echoHexBinaryResponse'>
+  <part name='result' type='xsd:hexBinary'/>
+ </message>
+ <message name='MarshallEndpoint_echoInt'>
+  <part name='int_1' type='xsd:int'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntResponse'>
+  <part name='result' type='xsd:int'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntArray'>
+  <part name='arrayOfint_1' type='ns1:int.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntArrayResponse'>
+  <part name='result' type='ns1:int.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoInteger'>
+  <part name='BigInteger_1' type='xsd:integer'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntegerResponse'>
+  <part name='result' type='xsd:integer'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntegerArray'>
+  <part name='arrayOfBigInteger_1' type='ns1:BigInteger.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntegerArrayResponse'>
+  <part name='result' type='ns1:BigInteger.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoLong'>
+  <part name='long_1' type='xsd:long'/>
+ </message>
+ <message name='MarshallEndpoint_echoLongResponse'>
+  <part name='result' type='xsd:long'/>
+ </message>
+ <message name='MarshallEndpoint_echoLongArray'>
+  <part name='arrayOflong_1' type='ns1:long.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoLongArrayResponse'>
+  <part name='result' type='ns1:long.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoQName'>
+  <part name='QName_1' type='xsd:QName'/>
+ </message>
+ <message name='MarshallEndpoint_echoQNameResponse'>
+  <part name='result' type='xsd:QName'/>
+ </message>
+ <message name='MarshallEndpoint_echoQNameArray'>
+  <part name='arrayOfQName_1' type='ns1:QName.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoQNameArrayResponse'>
+  <part name='result' type='ns1:QName.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoShort'>
+  <part name='short_1' type='xsd:short'/>
+ </message>
+ <message name='MarshallEndpoint_echoShortResponse'>
+  <part name='result' type='xsd:short'/>
+ </message>
+ <message name='MarshallEndpoint_echoShortArray'>
+  <part name='arrayOfshort_1' type='ns1:short.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoShortArrayResponse'>
+  <part name='result' type='ns1:short.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoString'>
+  <part name='String_1' type='xsd:string'/>
+ </message>
+ <message name='MarshallEndpoint_echoStringResponse'>
+  <part name='result' type='xsd:string'/>
+ </message>
+ <message name='MarshallEndpoint_echoStringArray'>
+  <part name='arrayOfString_1' type='ns1:String.Array'/>
+ </message>
+ <message name='MarshallEndpoint_echoStringArrayResponse'>
+  <part name='result' type='ns1:String.Array'/>
+ </message>
+ <portType name='MarshallEndpoint'>
+  <operation name='echoBase64Binary' parameterOrder='arrayOfbyte_1'>
+   <input message='tns:MarshallEndpoint_echoBase64Binary'/>
+   <output message='tns:MarshallEndpoint_echoBase64BinaryResponse'/>
+  </operation>
+  <operation name='echoBean' parameterOrder='Bean_1'>
+   <input message='tns:MarshallEndpoint_echoBean'/>
+   <output message='tns:MarshallEndpoint_echoBeanResponse'/>
+  </operation>
+  <operation name='echoBoolean' parameterOrder='boolean_1'>
+   <input message='tns:MarshallEndpoint_echoBoolean'/>
+   <output message='tns:MarshallEndpoint_echoBooleanResponse'/>
+  </operation>
+  <operation name='echoBooleanArray' parameterOrder='arrayOfboolean_1'>
+   <input message='tns:MarshallEndpoint_echoBooleanArray'/>
+   <output message='tns:MarshallEndpoint_echoBooleanArrayResponse'/>
+  </operation>
+  <operation name='echoByte' parameterOrder='byte_1'>
+   <input message='tns:MarshallEndpoint_echoByte'/>
+   <output message='tns:MarshallEndpoint_echoByteResponse'/>
+  </operation>
+  <operation name='echoByteArray' parameterOrder='arrayOfbyte_1'>
+   <input message='tns:MarshallEndpoint_echoByteArray'/>
+   <output message='tns:MarshallEndpoint_echoByteArrayResponse'/>
+  </operation>
+  <operation name='echoDateCalendar' parameterOrder='Calendar_1'>
+   <input message='tns:MarshallEndpoint_echoDateCalendar'/>
+   <output message='tns:MarshallEndpoint_echoDateCalendarResponse'/>
+  </operation>
+  <operation name='echoDateDate' parameterOrder='Date_1'>
+   <input message='tns:MarshallEndpoint_echoDateDate'/>
+   <output message='tns:MarshallEndpoint_echoDateDateResponse'/>
+  </operation>
+  <operation name='echoDateTimeArray' parameterOrder='arrayOfCalendar_1'>
+   <input message='tns:MarshallEndpoint_echoDateTimeArray'/>
+   <output message='tns:MarshallEndpoint_echoDateTimeArrayResponse'/>
+  </operation>
+  <operation name='echoDateTimeCalendar' parameterOrder='Calendar_1'>
+   <input message='tns:MarshallEndpoint_echoDateTimeCalendar'/>
+   <output message='tns:MarshallEndpoint_echoDateTimeCalendarResponse'/>
+  </operation>
+  <operation name='echoDateTimeDate' parameterOrder='Date_1'>
+   <input message='tns:MarshallEndpoint_echoDateTimeDate'/>
+   <output message='tns:MarshallEndpoint_echoDateTimeDateResponse'/>
+  </operation>
+  <operation name='echoDecimal' parameterOrder='BigDecimal_1'>
+   <input message='tns:MarshallEndpoint_echoDecimal'/>
+   <output message='tns:MarshallEndpoint_echoDecimalResponse'/>
+  </operation>
+  <operation name='echoDecimalArray' parameterOrder='arrayOfBigDecimal_1'>
+   <input message='tns:MarshallEndpoint_echoDecimalArray'/>
+   <output message='tns:MarshallEndpoint_echoDecimalArrayResponse'/>
+  </operation>
+  <operation name='echoDouble' parameterOrder='double_1'>
+   <input message='tns:MarshallEndpoint_echoDouble'/>
+   <output message='tns:MarshallEndpoint_echoDoubleResponse'/>
+  </operation>
+  <operation name='echoDoubleArray' parameterOrder='arrayOfdouble_1'>
+   <input message='tns:MarshallEndpoint_echoDoubleArray'/>
+   <output message='tns:MarshallEndpoint_echoDoubleArrayResponse'/>
+  </operation>
+  <operation name='echoFloat' parameterOrder='float_1'>
+   <input message='tns:MarshallEndpoint_echoFloat'/>
+   <output message='tns:MarshallEndpoint_echoFloatResponse'/>
+  </operation>
+  <operation name='echoFloatArray' parameterOrder='arrayOffloat_1'>
+   <input message='tns:MarshallEndpoint_echoFloatArray'/>
+   <output message='tns:MarshallEndpoint_echoFloatArrayResponse'/>
+  </operation>
+  <operation name='echoHexBinary' parameterOrder='arrayOfbyte_1'>
+   <input message='tns:MarshallEndpoint_echoHexBinary'/>
+   <output message='tns:MarshallEndpoint_echoHexBinaryResponse'/>
+  </operation>
+  <operation name='echoInt' parameterOrder='int_1'>
+   <input message='tns:MarshallEndpoint_echoInt'/>
+   <output message='tns:MarshallEndpoint_echoIntResponse'/>
+  </operation>
+  <operation name='echoIntArray' parameterOrder='arrayOfint_1'>
+   <input message='tns:MarshallEndpoint_echoIntArray'/>
+   <output message='tns:MarshallEndpoint_echoIntArrayResponse'/>
+  </operation>
+  <operation name='echoInteger' parameterOrder='BigInteger_1'>
+   <input message='tns:MarshallEndpoint_echoInteger'/>
+   <output message='tns:MarshallEndpoint_echoIntegerResponse'/>
+  </operation>
+  <operation name='echoIntegerArray' parameterOrder='arrayOfBigInteger_1'>
+   <input message='tns:MarshallEndpoint_echoIntegerArray'/>
+   <output message='tns:MarshallEndpoint_echoIntegerArrayResponse'/>
+  </operation>
+  <operation name='echoLong' parameterOrder='long_1'>
+   <input message='tns:MarshallEndpoint_echoLong'/>
+   <output message='tns:MarshallEndpoint_echoLongResponse'/>
+  </operation>
+  <operation name='echoLongArray' parameterOrder='arrayOflong_1'>
+   <input message='tns:MarshallEndpoint_echoLongArray'/>
+   <output message='tns:MarshallEndpoint_echoLongArrayResponse'/>
+  </operation>
+  <operation name='echoQName' parameterOrder='QName_1'>
+   <input message='tns:MarshallEndpoint_echoQName'/>
+   <output message='tns:MarshallEndpoint_echoQNameResponse'/>
+  </operation>
+  <operation name='echoQNameArray' parameterOrder='arrayOfQName_1'>
+   <input message='tns:MarshallEndpoint_echoQNameArray'/>
+   <output message='tns:MarshallEndpoint_echoQNameArrayResponse'/>
+  </operation>
+  <operation name='echoShort' parameterOrder='short_1'>
+   <input message='tns:MarshallEndpoint_echoShort'/>
+   <output message='tns:MarshallEndpoint_echoShortResponse'/>
+  </operation>
+  <operation name='echoShortArray' parameterOrder='arrayOfshort_1'>
+   <input message='tns:MarshallEndpoint_echoShortArray'/>
+   <output message='tns:MarshallEndpoint_echoShortArrayResponse'/>
+  </operation>
+  <operation name='echoString' parameterOrder='String_1'>
+   <input message='tns:MarshallEndpoint_echoString'/>
+   <output message='tns:MarshallEndpoint_echoStringResponse'/>
+  </operation>
+  <operation name='echoStringArray' parameterOrder='arrayOfString_1'>
+   <input message='tns:MarshallEndpoint_echoStringArray'/>
+   <output message='tns:MarshallEndpoint_echoStringArrayResponse'/>
+  </operation>
+ </portType>
+ <binding name='MarshallEndpointBinding' type='tns:MarshallEndpoint'>
+  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='echoBase64Binary'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoBean'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoBoolean'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoBooleanArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoByte'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoByteArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDateCalendar'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDateDate'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDateTimeArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDateTimeCalendar'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDateTimeDate'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDecimal'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDecimalArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDouble'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDoubleArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoFloat'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoFloatArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoHexBinary'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoInt'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoIntArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoInteger'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoIntegerArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoLong'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoLongArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoQName'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoQNameArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoShort'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoShortArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoString'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoStringArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.webservice/marshalltest-rpclit' use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='MarshallRpcLitService'>
+  <port binding='tns:MarshallEndpointBinding' name='MarshallEndpointPort'>
+   <soap:address location='REPLACE_WITH_ACTUAL_URL'/>
+  </port>
+ </service>
+</definitions>

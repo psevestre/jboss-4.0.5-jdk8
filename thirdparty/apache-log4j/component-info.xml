@@ -1,0 +1,18 @@
+<project name="apache-log4j-component-info">
+   <!-- ============================================================ -->
+   <!-- Apache Log4j                                                 -->
+   <!-- ============================================================ -->
+
+   <component id="apache-log4j"
+              licenseType="apache-2.0"
+              version="1.2.8"
+              projectHome="http://logging.apache.org/"
+         description="Java logging framework">
+      <artifact id="log4j.jar"/>
+      <artifact id="snmpTrapAppender.jar"/>
+      <export>
+         <include input="log4j.jar"/>
+      </export>
+   </component>
+
+</project>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java-wsdl-mapping version="1.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee    http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd">
+  <package-mapping>
+    <package-type>org.jboss.test.webservice.encstyle</package-type>
+    <namespaceURI>http://ws.sample</namespaceURI>
+  </package-mapping>
+  <package-mapping>
+    <package-type>org.jboss.test.webservice.encstyle</package-type>
+    <namespaceURI>http://ws.sample</namespaceURI>
+  </package-mapping>
+  <java-xml-type-mapping>
+    <java-type>org.jboss.test.webservice.encstyle.UserType</java-type>
+    <root-type-qname xmlns:typeNS="http://ws.sample">typeNS:UserType</root-type-qname>
+    <qname-scope>complexType</qname-scope>
+    <variable-mapping>
+      <java-variable-name>firstName</java-variable-name>
+      <xml-element-name>firstName</xml-element-name>
+    </variable-mapping>
+    <variable-mapping>
+      <java-variable-name>lastName</java-variable-name>
+      <xml-element-name>lastName</xml-element-name>
+    </variable-mapping>
+  </java-xml-type-mapping>
+  <service-interface-mapping>
+    <service-interface>org.jboss.test.webservice.encstyle.SampleEndpointService</service-interface>
+    <wsdl-service-name xmlns:serviceNS="http://ws.sample">serviceNS:SampleEndpointService</wsdl-service-name>
+    <port-mapping>
+      <port-name>SampleEndpointPort</port-name>
+      <java-port-name>SampleEndpointPort</java-port-name>
+    </port-mapping>
+  </service-interface-mapping>
+  <service-endpoint-interface-mapping>
+    <service-endpoint-interface>org.jboss.test.webservice.encstyle.SampleEndpoint</service-endpoint-interface>
+    <wsdl-port-type xmlns:portTypeNS="http://ws.sample">portTypeNS:SampleEndpoint</wsdl-port-type>
+    <wsdl-binding xmlns:bindingNS="http://ws.sample">bindingNS:SampleEndpointBinding</wsdl-binding>
+    <service-endpoint-method-mapping>
+      <java-method-name>changeSalary</java-method-name>
+      <wsdl-operation>changeSalary</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>org.jboss.test.webservice.encstyle.UserType</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://ws.sample">wsdlMsgNS:SampleEndpoint_changeSalary</wsdl-message>
+          <wsdl-message-part-name>UserType_1</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <method-param-parts-mapping>
+        <param-position>1</param-position>
+        <param-type>java.lang.Integer</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://ws.sample">wsdlMsgNS:SampleEndpoint_changeSalary</wsdl-message>
+          <wsdl-message-part-name>Integer_2</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>java.lang.String</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://ws.sample">wsdlMsgNS:SampleEndpoint_changeSalaryResponse</wsdl-message>
+        <wsdl-message-part-name>result</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+  </service-endpoint-interface-mapping>
+</java-wsdl-mapping>

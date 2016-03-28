@@ -1,0 +1,19 @@
+<project name="jbossretro-rt-component-info">
+
+   <component id="jboss/jbossretro-rt"
+              version="1.0.3.GA"
+              licenseType="lgpl"
+              projectHome="http://www.jboss.org"
+              description="JBossRetro runtime jar"
+   >
+      <artifact id="jbossretro-rt.jar"/>
+
+      <import componentref="javassist">
+        <compatible version="3.3.0.GA"/>
+      </import>
+
+      <export>
+         <include input="jbossretro-rt.jar"/>
+      </export>
+   </component>
+</project>

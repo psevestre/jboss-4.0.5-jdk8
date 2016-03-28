@@ -1,0 +1,15 @@
+<project name="junit-component-info">
+
+   <component id="junit"
+              licenseType="cpl-1.0"
+              version="3.8.1"
+              projectHome="http://www.junit.org/index.htm"
+              description="Java unit testing framework">
+
+      <artifact id="junit.jar"/>
+      <export>
+         <include input="junit.jar"/>
+      </export>
+   </component>
+
+</project>

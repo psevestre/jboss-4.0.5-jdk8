@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Add the following to webservices.xml:
+
+ <handler>
+   <handler-name>ServerHandler1</handler-name>
+   <handler-class>org.jboss.test.webservice.handlerflow.ServerHandler1</handler-class>
+   <soap-header>impl:HelloHeader</soap-header>
+ </handler>
+ <handler>
+   <handler-name>ServerHandler2</handler-name>
+   <handler-class>org.jboss.test.webservice.handlerflow.ServerHandler2</handler-class>
+   <soap-header>impl:HelloHeader</soap-header>
+ </handler>
+
+Change soapaddress in wsdl to:
+      <soap:address location="http://@jbosstest.host.name@:8080/ws4ee-handlerflow/HelloService"/>
+
+-->
+
+<configuration xmlns="http://www.jboss.org/jbossws-tools" 
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.jboss.org/jbossws-tools http://www.jboss.org/jbossws-tools/schema/jbossws-tool_1_0.xsd">
+   <java-wsdl>
+     <service name="HelloService" 
+              endpoint="org.jboss.test.webservice.handlerflow.HelloEndpoint"
+              style="rpc">
+     </service>
+     <namespaces target-namespace="http://org.jboss.webservice/handlerflow"
+                 type-namespace="http://org.jboss.webservice/handlerflow/types"/>
+     <mapping file="jaxrpc-mapping.xml"/>
+     <webservices  servlet-link="HelloJSE"/>
+   </java-wsdl>  
+</configuration>

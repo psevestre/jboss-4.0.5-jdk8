@@ -1,0 +1,12 @@
+<project name="apache-commons-discovery">
+   <component id="apache-discovery"
+              licenseType="apache-2.0"
+              version="0.2"
+              projectHome="http://jakarta.apache.org/commons/discovery/">
+      <artifact id="commons-discovery.jar"/>
+      <export>
+         <include input="commons-discovery.jar"/>
+      </export>
+   </component>
+
+</project>

@@ -1,0 +1,19 @@
+<project name="trove-component-info">
+
+   <!-- ============================================================ -->
+   <!-- Trove                                                        -->
+   <!-- ============================================================ -->
+
+   <component id="trove"
+              licenseType="lgpl"
+              version="1.0.2"
+              projectHome="http://trove4j.sourceforge.net/"
+              description="High performance collections for Java">
+
+      <artifact id="trove.jar"/>
+      <export>
+         <include input="trove.jar"/>
+      </export>
+   </component>
+
+</project>

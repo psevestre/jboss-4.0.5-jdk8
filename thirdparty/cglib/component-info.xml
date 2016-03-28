@@ -1,0 +1,14 @@
+<project name="cglib-component-info">
+
+   <component id="cglib"
+              licenseType="apache-2.0"
+              version="2.1.3.nodep"
+              projectHome="http://cglib.sourceforge.net/"
+              description="Code Generation Library with no dependencies">
+      <artifact id="cglib.jar"/>
+      <export>
+         <include input="cglib.jar"/>
+      </export>
+   </component>
+
+</project>

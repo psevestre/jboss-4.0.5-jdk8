@@ -1,0 +1,22 @@
+<project name="jgroups-component-info">
+
+   <component id="jgroups"
+      licenseType="lgpl"
+      version="2.2.7.SP1"
+      projectHome="http://www.jgroups.org"
+      description="JGroups is a toolkit for reliable multicast communication">
+
+      <artifact id="jgroups.jar"/>
+      <import componentref="apache-logging">
+         <compatible version="1.0.3"/>
+         <compatible version="1.0.4jboss"/>
+         <compatible version="1.0.4.1jboss"/>
+         <compatible version="1.0.5.GA-jboss"/>
+         <compatible version="1.0.5.SP1-jboss"/>
+      </import>
+
+      <export>
+         <include input="jgroups.jar"/>
+      </export>
+   </component>
+</project>

@@ -1,0 +1,21 @@
+<project name="gjt-jpl-util-component-info">
+
+   <!-- ============================================================ -->
+   <!-- GJT JPL-Util                                                 -->
+   <!-- ============================================================ -->
+
+   <component id="gjt-jpl-util"
+         licenseType="lgpl"
+         version="1.0"
+         projectHome="http://www.gjt.org/pkgdoc/org/gjt/lindfors/util/"
+         description="Miscellaneous utility classes and methods">
+      <artifact id="jpl-util.jar"/>
+      <artifact id="jpl-pattern.jar"/>
+      <export>
+         <include input="jpl-util.jar"/>
+         <include input="jpl-pattern.jar"/>
+      </export>
+   </component>
+
+
+</project>

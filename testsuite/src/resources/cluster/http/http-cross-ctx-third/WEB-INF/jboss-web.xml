@@ -1,0 +1,13 @@
+<jboss-web>
+   <class-loading>
+   <loader-repository>jboss.web:loader=testHA</loader-repository>
+   </class-loading>
+
+	<!-- To avoid a custom config, use the jmx-console security domain -->
+   <security-domain>java:/jaas/jmx-console</security-domain>
+   
+   <replication-config>
+      <replication-trigger>SET_AND_GET</replication-trigger>
+      <replication-granularity>SESSION</replication-granularity>
+   </replication-config>
+</jboss-web>

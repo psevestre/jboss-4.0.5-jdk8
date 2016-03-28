@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   wscompile -cp ../../../../../output/classes -gen:server -f:documentliteral -mapping jaxrpc-mapping.xml -keep config.xml
+-->
+
+<configuration
+  xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+
+  <service name="OrderProcessService"
+    targetNamespace="http://org.jboss.test.webservice/samples2"
+    typeNamespace="http://org.jboss.test.webservice/samples2/types"
+    packageName="org.jboss.test.webservice.samples2">
+    <interface name="org.jboss.test.webservice.samples2.OrderProcess"/>
+  </service>
+
+</configuration>
+
+  <!-- BEGIN manual modification -->
+  <service-endpoint-interface-mapping>
+    <service-endpoint-interface>org.jboss.test.webservice.samples2.OrderProcessBare</service-endpoint-interface>
+    <wsdl-port-type xmlns:portTypeNS="http://org.jboss.test.webservice/samples2">portTypeNS:OrderProcess</wsdl-port-type>
+    <wsdl-binding xmlns:bindingNS="http://org.jboss.test.webservice/samples2">bindingNS:OrderProcessBinding</wsdl-binding>
+    <service-endpoint-method-mapping>
+      <java-method-name>processOrder</java-method-name>
+      <wsdl-operation>processOrder</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>org.jboss.test.webservice.samples2.OrderProcess_processOrder_RequestStruct</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.test.webservice/samples2">wsdlMsgNS:OrderProcess_processOrder</wsdl-message>
+          <wsdl-message-part-name>parameters</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>org.jboss.test.webservice.samples2.OrderProcess_processOrder_ResponseStruct</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.test.webservice/samples2">wsdlMsgNS:OrderProcess_processOrderResponse</wsdl-message>
+        <wsdl-message-part-name>result</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+  </service-endpoint-interface-mapping>
+  <!-- END manual modification -->

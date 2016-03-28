@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="OrganizationService" targetNamespace="http://org.jboss.test.webservice/samples" xmlns:tns="http://org.jboss.test.webservice/samples" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://org.jboss.test.webservice/samples/types" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types/>
+  <message name="Organization_getContactInfo">
+    <part name="String_1" type="xsd:string"/>
+  </message>
+  <message name="Organization_getContactInfoResponse">
+    <part name="result" type="xsd:string"/>
+  </message>
+  <portType name="Organization">
+    <operation name="getContactInfo" parameterOrder="String_1">
+      <input message="tns:Organization_getContactInfo"/>
+      <output message="tns:Organization_getContactInfoResponse"/>
+    </operation>
+  </portType>
+  <binding name="OrganizationBinding" type="tns:Organization">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="getContactInfo">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://org.jboss.test.webservice/samples"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.test.webservice/samples"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="OrganizationService">
+    <port name="BasicSecuredPort" binding="tns:OrganizationBinding">
+      <soap:address location="http://@jbosstest.host.name@:8080/ws4ee-samples-ejb/BasicSecured"/>
+    </port>
+    <port name="RoleSecuredPort" binding="tns:OrganizationBinding">
+      <soap:address location="http://@jbosstest.host.name@:8080/ws4ee-samples-ejb/RoleSecured"/>
+    </port>
+  </service>
+</definitions>

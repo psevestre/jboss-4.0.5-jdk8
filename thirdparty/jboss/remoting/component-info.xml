@@ -1,0 +1,27 @@
+<project name="jboss/remoting-component-info">
+
+   <!-- ============================================================ -->
+   <!-- JBOSS REMOTING                                               -->
+   <!-- ============================================================ -->
+
+   <component id="jboss/remoting"
+              licenseType="lgpl"
+              version="1.4.3.GA"
+              projectHome="http://www.jboss.org/products/remoting"
+              description="a single API for most network based invocations and related service that uses pluggable transports and data marshallers">
+      <artifact id="jboss-remoting.jar"/>
+      
+      <import componentref="jboss/serialization">
+      	<compatible version="1.0.0.GA"/>
+      	<compatible version="1.0.1.GA"/>
+      	<compatible version="1.0.2.GA"/>
+      	<compatible version="1.0.3.GA"/>
+      </import>
+
+      <export>
+         <include input="jboss-remoting.jar"/>
+      </export>
+   </component>
+
+
+</project>

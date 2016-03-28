@@ -1,0 +1,15 @@
+<project name="apache-wss4j-component-info">
+   <component id="apache-wss4j"
+              licenseType="apache-2.0"
+              version="cvs-7-19"
+              projectHome="http://ws.apache.org/ws-fx/wss4j/"
+              description="This is the Web Service Security implementation used by JBoss.Net
+   This CVS build will be replaced by an official build when one becomes
+   available.">
+      <artifact id="wss4j.jar"/>
+      <export>
+         <include input="wss4j.jar"/>
+      </export>
+   </component>
+
+</project>

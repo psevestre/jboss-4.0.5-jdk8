@@ -1,0 +1,18 @@
+<!-- $Id: component-info.xml,v 1.2 2006/03/18 17:16:09 dimitris Exp $ -->
+<project name="jboss/backport-concurrent">
+
+   <component id="jboss/backport-concurrent"
+              licenseType="public-domain"
+              version="2.1.0.GA"
+              description="JBoss repository version of backport-util-concurrent">
+
+      <!-- Build on WinXP using 1.4.2_09-b05 (Sun Microsystems Inc.) -->
+      <artifact id="jboss-backport-concurrent.jar"/>
+
+      <export>
+         <include input="jboss-backport-concurrent.jar"/>
+      </export>
+
+   </component>
+
+</project>

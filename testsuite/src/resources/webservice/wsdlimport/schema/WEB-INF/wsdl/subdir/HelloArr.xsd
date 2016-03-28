@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema targetNamespace="http://org.jboss.webservice/example/types/arrays/org/jboss/test/webservice/admindevel" xmlns:tns="http://org.jboss.webservice/example/types/arrays/org/jboss/test/webservice/admindevel" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://org.jboss.webservice/example/types" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://org.jboss.webservice/example/types"/>
+  <complexType name="HelloObjArray">
+    <sequence>
+      <element name="value" type="ns2:HelloObj" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+</schema>

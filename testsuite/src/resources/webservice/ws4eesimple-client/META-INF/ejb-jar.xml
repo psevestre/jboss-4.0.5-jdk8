@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ejb-jar
+  xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:intf="http://test.jboss.org/ws4eesimple"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/ejb-jar_2_1.xsd"
+  version="2.1">
+
+  <enterprise-beans>
+    <session>
+      <ejb-name>HelloClientEjb</ejb-name>
+      <home>org.jboss.test.webservice.ws4eesimple.HelloHome</home>
+      <remote>org.jboss.test.webservice.ws4eesimple.Hello</remote>
+      <ejb-class>org.jboss.test.webservice.ws4eesimple.HelloClientBean</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+      <service-ref>
+        <service-ref-name>service/HelloService</service-ref-name>
+        <service-interface>javax.xml.rpc.Service</service-interface>
+        <wsdl-file>META-INF/wsdl/HelloService.wsdl</wsdl-file>
+        <jaxrpc-mapping-file>META-INF/jaxrpc-mapping.xml</jaxrpc-mapping-file>
+        <service-qname>intf:HelloService</service-qname>
+      </service-ref>
+    </session>
+  </enterprise-beans>
+
+</ejb-jar>
+

@@ -1,0 +1,20 @@
+<project name="sun-servlet-component-info">
+
+   <!-- ============================================================ -->
+   <!-- Sun Servlet API                                              -->
+   <!-- ============================================================ -->
+
+   <component id="sun-servlet"
+      licenseType="apache-2.0"
+      version="2.4"
+      projectHome="http://jakarta.apache.org/tomcat/index.html"
+      description="Tomcat 5.5 servlet 2.4 spec api classes">
+      <artifact id="servlet-api.jar"/>
+      <artifact id="jsp-api.jar"/>
+      <export>
+         <include input="servlet-api.jar"/>
+         <include input="jsp-api.jar"/>
+      </export>
+   </component>
+
+</project>

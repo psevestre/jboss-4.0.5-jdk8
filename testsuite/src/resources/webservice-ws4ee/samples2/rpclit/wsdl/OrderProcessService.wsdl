@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="OrderProcessService" targetNamespace="http://org.jboss.test.webservice/samples2" xmlns:tns="http://org.jboss.test.webservice/samples2" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://org.jboss.test.webservice/samples2/types" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://org.jboss.test.webservice/samples2/types/arrays/org/jboss/test/webservice/samples2">
+  <types>
+    <schema targetNamespace="http://org.jboss.test.webservice/samples2/types" xmlns:tns="http://org.jboss.test.webservice/samples2/types" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://org.jboss.test.webservice/samples2/types/arrays/org/jboss/test/webservice/samples2"/>
+      <complexType name="OrderItem">
+        <sequence>
+          <element name="name" type="string" nillable="true"/>
+          <element name="quantity" type="int"/>
+        </sequence>
+      </complexType>
+      <complexType name="Person">
+        <sequence>
+          <element name="age" type="int"/>
+          <element name="name" type="string" nillable="true"/>
+        </sequence>
+      </complexType>
+      <complexType name="OrderResponse">
+        <sequence>
+          <element name="items" type="tns:OrderItem" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <element name="message" type="string" nillable="true"/>
+        </sequence>
+      </complexType>
+      <complexType name="OrderException">
+        <sequence>
+          <element name="message" type="string" nillable="true"/>
+        </sequence>
+      </complexType>
+      <element name="OrderException" type="tns:OrderException"/>
+    </schema>
+    <schema targetNamespace="http://org.jboss.test.webservice/samples2/types/arrays/org/jboss/test/webservice/samples2" xmlns:tns="http://org.jboss.test.webservice/samples2/types/arrays/org/jboss/test/webservice/samples2" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://org.jboss.test.webservice/samples2/types" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://org.jboss.test.webservice/samples2/types"/>
+      <complexType name="OrderItemArray">
+        <sequence>
+          <element name="value" type="ns2:OrderItem" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+      </complexType>
+    </schema>
+  </types>
+  <message name="OrderProcess_processOrder">
+    <part name="arrayOfOrderItem_1" type="ns3:OrderItemArray"/>
+    <part name="Person_2" type="ns2:Person"/>
+  </message>
+  <message name="OrderProcess_processOrderResponse">
+    <part name="result" type="ns2:OrderResponse"/>
+  </message>
+  <message name="OrderException">
+    <part name="OrderException" element="ns2:OrderException"/>
+  </message>
+  <portType name="OrderProcess">
+    <operation name="processOrder" parameterOrder="arrayOfOrderItem_1 Person_2">
+      <input message="tns:OrderProcess_processOrder"/>
+      <output message="tns:OrderProcess_processOrderResponse"/>
+      <fault name="OrderException" message="tns:OrderException"/>
+    </operation>
+  </portType>
+  <binding name="OrderProcessBinding" type="tns:OrderProcess">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="processOrder">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://org.jboss.test.webservice/samples2"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.test.webservice/samples2"/>
+      </output>
+      <fault name="OrderException">
+        <soap:fault name="OrderException" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="OrderProcessService">
+    <port name="OrderProcessPort" binding="tns:OrderProcessBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+</definitions>

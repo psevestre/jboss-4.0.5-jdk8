@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Edit WSDL:
+   <complexType name='echoByteArray'>
+    <sequence>
+     <element name='arrayOfbyte_1' nillable='true' minOccurs="0" maxOccurs="unbounded" type='byte'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoByteArrayResponse'>
+    <sequence>
+     <element name='result' nillable='true' minOccurs="0" maxOccurs="unbounded" type='byte'/>
+    </sequence>
+   </complexType>
+
+
+   <complexType name='echoHexBinary'>
+    <sequence>
+     <element name='arrayOfbyte_1' nillable='true' type='hexBinary'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoHexBinaryResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='hexBinary'/>
+    </sequence>
+   </complexType>
+-->
+<configuration xmlns="http://www.jboss.org/jbossws-tools" 
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.jboss.org/jbossws-tools http://www.jboss.org/jbossws-tools/schema/jbossws-tool_1_0.xsd">
+   <java-wsdl>
+     <service name="MarshallDocLitService" 
+              endpoint="org.jboss.test.webservice.marshalltest.MarshallEndpoint"
+              style="document">
+     </service>
+     <namespaces target-namespace="http://org.jboss.webservice/marshalltest-doclit"
+                 type-namespace="http://org.jboss.webservice/marshalltest-doclit/types" />
+     <mapping file="jaxrpc-mapping.xml"/>
+     <webservices  ejb-link="MarshallDocLitBean"/>
+   </java-wsdl>  
+</configuration>

@@ -1,0 +1,2460 @@
+<project name="tests-webservice-jars">
+   <!-- webservice tests -->
+    <target name="_jars-webservice">
+      <mkdir dir="${build.lib}"/>
+      
+      <echo message="Using target node: ${node0}"/>
+      
+      <antcall target="copy-webservice"/>
+      <antcall target="copy-webservice-ws4ee"/>
+      
+      <!-- ws4ee-addressrewrite -->
+      <war warfile="${build.lib}/ws4ee-addressrewrite.war" webxml="${build.resources}/webservice/addressrewrite/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWs.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/addressrewrite/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <war warfile="${build.lib}/ws4ee-addressrewrite-sec.war" webxml="${build.resources}/webservice/addressrewrite/WEB-INF/web-sec.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWs.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/addressrewrite/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      
+      <!-- ws4ee-admindevel -->
+      <jar destfile="${build.lib}/ws4ee-admindevel.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/admindevel/**"/>
+          <exclude name="org/jboss/test/webservice/admindevel/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/admindevel/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/HelloService.wsdl"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-admindevel-client.jar">
+        <metainf dir="${build.resources}/webservice/admindevel/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/HelloService.wsdl"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-attachment -->
+      <war warfile="${build.lib}/ws4ee-attachment.war" webxml="${build.resources}/webservice/attachment/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/attachment/AttachmentImpl.class"/>
+          <include name="org/jboss/test/webservice/attachment/Attachment.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/attachment/WEB-INF">
+          <include name="wsdl/Attachment.wsdl"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-attachment-client.jar">
+        <metainf dir="${build.resources}/webservice/attachment/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/attachment/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/Attachment.wsdl"/>
+        </metainf>
+      </jar>
+      
+      <!-- attachment step by step -->
+      <war warfile="${build.lib}/myservice.war" webxml="${build.resources}/webservice/attachmentstepbystep/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/attachmentstepbystep/MyServiceImpl.class"/>
+          <include name="org/jboss/test/webservice/attachmentstepbystep/MyService.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/attachmentstepbystep/WEB-INF">
+          <include name="wsdl/MyService.wsdl"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+        </webinf>
+        <fileset dir="${build.resources}/webservice/attachmentstepbystep">
+          <include name="resources/attachment_server2client.txt"/>
+        </fileset>
+      </war>
+      
+      <!-- ws4ee-benchmark-rpclit -->
+      <war warfile="${build.lib}/ws4ee-benchmark-rpclit.war" webxml="${build.resources}/webservice/benchmark/rpclit/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/benchmark/SimpleUserType.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Synthetic.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Order.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Customer.class"/>
+          <include name="org/jboss/test/webservice/benchmark/LineItem.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Address.class"/>
+          <include name="org/jboss/test/webservice/benchmark/BenchmarkJSEEndpoint.class"/>
+          <include name="org/jboss/test/webservice/benchmark/BenchmarkService.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/benchmark/rpclit/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar jarfile="${build.lib}/ws4ee-benchmark-rpclit.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/benchmark/SimpleUserType.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Synthetic.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Order.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Customer.class"/>
+          <include name="org/jboss/test/webservice/benchmark/LineItem.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Address.class"/>
+          <include name="org/jboss/test/webservice/benchmark/BenchmarkEJBEndpoint.class"/>
+          <include name="org/jboss/test/webservice/benchmark/BenchmarkService.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/benchmark/rpclit/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar jarfile="${build.lib}/ws4ee-benchmark-rpclit-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/benchmark/SimpleUserType.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Synthetic.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Order.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Customer.class"/>
+          <include name="org/jboss/test/webservice/benchmark/LineItem.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Address.class"/>
+          <include name="org/jboss/test/webservice/benchmark/BenchmarkService.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/benchmark/rpclit/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-benchmark-doclit -->
+      <war warfile="${build.lib}/ws4ee-benchmark-doclit.war" webxml="${build.resources}/webservice/benchmark/doclit/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/benchmark/SimpleUserType.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Synthetic.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Order.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Customer.class"/>
+          <include name="org/jboss/test/webservice/benchmark/LineItem.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Address.class"/>
+          <include name="org/jboss/test/webservice/benchmark/*RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/benchmark/*ResponseStruct.class"/>
+          <include name="org/jboss/test/webservice/benchmark/BenchmarkJSEEndpoint.class"/>
+          <include name="org/jboss/test/webservice/benchmark/BenchmarkService.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/benchmark/doclit/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar jarfile="${build.lib}/ws4ee-benchmark-doclit.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/benchmark/SimpleUserType.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Synthetic.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Order.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Customer.class"/>
+          <include name="org/jboss/test/webservice/benchmark/LineItem.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Address.class"/>
+          <include name="org/jboss/test/webservice/benchmark/*RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/benchmark/*ResponseStruct.class"/>
+          <include name="org/jboss/test/webservice/benchmark/BenchmarkEJBEndpoint.class"/>
+          <include name="org/jboss/test/webservice/benchmark/BenchmarkService.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/benchmark/doclit/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar jarfile="${build.lib}/ws4ee-benchmark-doclit-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/benchmark/SimpleUserType.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Synthetic.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Order.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Customer.class"/>
+          <include name="org/jboss/test/webservice/benchmark/LineItem.class"/>
+          <include name="org/jboss/test/webservice/benchmark/Address.class"/>
+          <include name="org/jboss/test/webservice/benchmark/*RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/benchmark/*ResponseStruct.class"/>
+          <include name="org/jboss/test/webservice/benchmark/BenchmarkService.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/benchmark/doclit/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-encstyle -->
+      <war warfile="${build.lib}/ws4ee-encstyle-doc.war" webxml="${build.resources}/webservice/encstyle/document/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/encstyle/SampleEndpointDOC.class"/>
+          <include name="org/jboss/test/webservice/encstyle/SampleEndpointImplDOC.class"/>
+          <include name="org/jboss/test/webservice/encstyle/SampleEndpoint_changeSalary_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/encstyle/SampleEndpoint_changeSalary_ResponseStruct.class"/>
+          <include name="org/jboss/test/webservice/encstyle/UserType.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/encstyle/document">
+          <include name="wsdl/SampleEndpointService.wsdl"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-encstyle-doc-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/encstyle/SampleEndpoint.class"/>
+          <include name="org/jboss/test/webservice/encstyle/SampleEndpoint_changeSalary_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/encstyle/SampleEndpoint_changeSalary_ResponseStruct.class"/>
+          <include name="org/jboss/test/webservice/encstyle/UserType.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/encstyle/document">
+          <include name="wsdl/SampleEndpointService.wsd"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-encstyle-rpc.war" webxml="${build.resources}/webservice/encstyle/rpc/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/encstyle/SampleEndpoint.class"/>
+          <include name="org/jboss/test/webservice/encstyle/SampleEndpointImpl.class"/>
+          <include name="org/jboss/test/webservice/encstyle/UserType.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/encstyle/rpc">
+          <include name="wsdl/SampleEndpointService.wsdl"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-encstyle-rpc-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/encstyle/SampleEndpoint.class"/>
+          <include name="org/jboss/test/webservice/encstyle/UserType.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/encstyle/rpc">
+          <include name="wsdl/SampleEndpointService.wsdl"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-exception -->
+      <jar destfile="${build.lib}/ws4ee-exception.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/exception/_arrays/**"/>
+          <include name="org/jboss/test/webservice/exception/*Exception.class"/>
+          <include name="org/jboss/test/webservice/exception/ServerHandler.class"/>
+          <include name="org/jboss/test/webservice/exception/ExceptionServiceInterface.class"/>
+          <include name="org/jboss/test/webservice/exception/ExceptionBeanImpl.class"/>
+          <exclude name="**/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/exception/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-exception-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/exception/_arrays/*.class"/>
+          <include name="org/jboss/test/webservice/exception/ExceptionService.class"/>
+          <include name="org/jboss/test/webservice/exception/ExceptionServiceInterface.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/exception/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-handlerflow-ejb -->
+      <jar destfile="${build.lib}/ws4ee-handlerflow.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/handlerflow/HelloHome.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/HelloRemote.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/HelloEndpoint.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/HelloBean.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/HandlerBase.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/HandlerTracker.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/ClientHandler1.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/ClientHandler2.class"/>
+          
+          <!-- although the server handler are not needed, keep them for the test -->
+          <include name="org/jboss/test/webservice/handlerflow/ServerHandler1.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/ServerHandler2.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/handlerflow/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-handlerflow.war" webxml="${build.resources}/webservice/handlerflow/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/handlerflow/HelloEndpoint.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/HelloJSE.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/HelloFeedbackServlet.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/HandlerBase.class"/>
+          <!-- With UseJBossWebLoader=false the static state in HandlerTracker can only live
+          in the jar, which must be deployed first
+          <include name="org/jboss/test/webservice/handlerflow/HandlerTracker.class"/>
+          -->
+          <include name="org/jboss/test/webservice/handlerflow/ServerHandler1.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/ServerHandler2.class"/>
+          
+          <!-- although the client handler are not needed, keep them for the test -->
+          <include name="org/jboss/test/webservice/handlerflow/ClientHandler1.class"/>
+          <include name="org/jboss/test/webservice/handlerflow/ClientHandler2.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/handlerflow/META-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+        <webinf dir="${build.resources}/webservice/handlerflow/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jboss-web.xml"/>
+        </webinf>
+      </war>
+      
+      <!-- ws4ee-header -->
+      <war warfile="${build.lib}/ws4ee-header.war" webxml="${build.resources}/webservice/header/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/header/*.class"/>
+          <exclude name="org/jboss/test/webservice/header/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/header/WEB-INF">
+          <include name="jaxrpc-mapping-*.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-header-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/header/*.class"/>
+          <exclude name="org/jboss/test/webservice/header/*EndpointImpl.class"/>
+          <exclude name="org/jboss/test/webservice/header/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/header/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/header/WEB-INF">
+          <include name="jaxrpc-mapping-*.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbas897 -->
+      <jar destfile="${build.lib}/ws4ee-jbas897.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbas897/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbas897/HelloSLSB.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbas897/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-jbas897-fail.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbas897/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbas897/HelloSLSB.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbas897/META-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbas897/META-INF-FAIL">
+          <include name="ejb-jar.xml"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-jbas897.war" webxml="${build.resources}/webservice/jbas897/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbas897/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbas897/HelloJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbas897/META-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+        <webinf dir="${build.resources}/webservice/jbas897/WEB-INF">
+          <include name="webservices.xml"/>
+        </webinf>
+      </war>
+      <war warfile="${build.lib}/ws4ee-jbas897-fail.war" webxml="${build.resources}/webservice/jbas897/WEB-INF/web-fail.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbas897/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbas897/HelloJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbas897/META-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+        <webinf dir="${build.resources}/webservice/jbas897/WEB-INF">
+          <include name="webservices.xml"/>
+        </webinf>
+      </war>
+      
+      <!-- ws4ee-jbws64 -->
+      <war warfile="${build.lib}/ws4ee-jbws64.war" webxml="${build.resources}/webservice/jbws64/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws64/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws64/HelloJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws64/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      
+      <!-- ws4ee-jbws68 -->
+      <war warfile="${build.lib}/ws4ee-jbws68.war" webxml="${build.resources}/webservice/jbws68/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws68/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws68/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws68/UserType.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws68/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws68-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws68/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws68/UserType.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws68/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws68/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws70 -->
+      <war warfile="${build.lib}/ws4ee-jbws70.war" webxml="${build.resources}/webservice/jbws70/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws70/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws70/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws70/*_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/jbws70/*_ResponseStruct.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws70/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws70-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws70/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws70/*_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/jbws70/*_ResponseStruct.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws70/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws70/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws71 -->
+      <jar destfile="${build.lib}/ws4ee-jbws71-types.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws71/UserType.class"/>
+          <include name="org/jboss/test/webservice/jbws71/*_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/jbws71/*_ResponseStruct.class"/>
+        </fileset>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-jbws71.war" webxml="${build.resources}/webservice/jbws71/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws71/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws71/HelloJavaBean.class"/>
+        </classes>
+        <lib dir="${build.lib}">
+          <include name="ws4ee-jbws71-types.jar"/>
+        </lib>
+        <webinf dir="${build.resources}/webservice/jbws71/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws71-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws71/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws71/UserType.class"/>
+          <include name="org/jboss/test/webservice/jbws71/*_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/jbws71/*_ResponseStruct.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws71/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws71/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws79 -->
+      <war warfile="${build.lib}/ws4ee-jbws79.war" webxml="${build.resources}/webservice/jbws79/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws79/HelloOne.class"/>
+          <include name="org/jboss/test/webservice/jbws79/HelloTwo.class"/>
+          <include name="org/jboss/test/webservice/jbws79/HelloOneJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws79/HelloTwoJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws79/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping-one.xml"/>
+          <include name="jaxrpc-mapping-two.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws79-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws79/HelloOne.class"/>
+          <include name="org/jboss/test/webservice/jbws79/HelloTwo.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws79/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws79/WEB-INF">
+          <include name="jaxrpc-mapping-one.xml"/>
+          <include name="jaxrpc-mapping-two.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws82 -->
+      <war warfile="${build.lib}/ws4ee-jbws82.war" webxml="${build.resources}/webservice/jbws82/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws82/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws82/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws82/UserType.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws82/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws82-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws82/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws82/UserType.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws82/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws82/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws83 -->
+      <war warfile="${build.lib}/ws4ee-jbws83.war" webxml="${build.resources}/webservice/jbws83/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws83/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws83/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws83/UserType.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws83/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws83-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws83/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws83/UserType.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws83/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws83/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws84 -->
+      <war warfile="${build.lib}/ws4ee-jbws84.war" webxml="${build.resources}/webservice/jbws84/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws84/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws84/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws84/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws84-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws84/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws84/*JavaBean.class"/>
+          <exclude name="org/jboss/test/webservice/jbws84/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws84/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws84/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws124 -->
+      <war warfile="${build.lib}/ws4ee-jbws124.war" webxml="${build.resources}/webservice/jbws124/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws124/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws124/HelloJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws124/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws124-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws124/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws124/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws124/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws128 -->
+      <war warfile="${build.lib}/ws4ee-jbws128-service.war" webxml="${build.resources}/webservice/jbws128/WEB-INF-service/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws128/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws128/HelloJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws128/WEB-INF-service">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <war warfile="${build.lib}/ws4ee-jbws128-client.war" webxml="${build.resources}/webservice/jbws128/WEB-INF-client/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws128/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws128/HelloClientServlet.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws128/WEB-INF-client">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <ear destfile="${build.lib}/ws4ee-jbws128.ear" appxml="${build.resources}/webservice/jbws128/META-INF/application.xml">
+        <fileset dir="${build.lib}">
+          <include name="ws4ee-jbws128-service.war"/>
+          <include name="ws4ee-jbws128-client.war"/>
+        </fileset>
+      </ear>
+      
+      <!-- ws4ee-jbws153 -->
+      <war warfile="${build.lib}/ws4ee-jbws153.war" webxml="${build.resources}/webservice/jbws153/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws153/Order.class"/>
+          <include name="org/jboss/test/webservice/jbws153/OrderJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws153/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="ws4ee-deployment.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws153-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws153/Order.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws153/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws153/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="ws4ee-deployment.xml"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws163 -->
+      <war warfile="${build.lib}/ws4ee-jbws163.war" webxml="${build.resources}/webservice/jbws163/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws163/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws163/HelloJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws163/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws163-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws163/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws163/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws163/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws165 -->
+      <jar jarfile="${build.lib}/ws4ee-jbws165-none.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws165/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws165/HelloEJB.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws165/META-INF-none">
+          <include name="webservices.xml"/>
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar jarfile="${build.lib}/ws4ee-jbws165-pcuri.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws165/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws165/HelloEJB.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws165/META-INF-pcuri">
+          <include name="webservices.xml"/>
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar jarfile="${build.lib}/ws4ee-jbws165-ctxroot.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws165/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws165/HelloEJB.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws165/META-INF-ctxroot">
+          <include name="webservices.xml"/>
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar jarfile="${build.lib}/ws4ee-jbws165-both.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws165/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws165/HelloEJB.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws165/META-INF-both">
+          <include name="webservices.xml"/>
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-jbws165-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws165/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws165/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+        </metainf>
+      </jar>
+      <ear destfile="${build.lib}/ws4ee-jbws165.ear" appxml="${build.resources}/webservice/jbws165/META-INF/application.xml">
+        <fileset dir="${build.lib}">
+          <include name="ws4ee-jbws165-none.jar"/>
+          <include name="ws4ee-jbws165-pcuri.jar"/>
+          <include name="ws4ee-jbws165-ctxroot.jar"/>
+          <include name="ws4ee-jbws165-both.jar"/>
+          <include name="ws4ee-jbws165-client.jar"/>
+        </fileset>
+      </ear>
+      
+      <!-- ws4ee-jbws167 -->
+      <war warfile="${build.lib}/ws4ee-jbws167.war" webxml="${build.resources}/webservice/jbws167/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws167/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws167/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws167/HeaderHandler.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws167/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      
+      <!-- ws4ee-jbws168 -->
+      <war warfile="${build.lib}/ws4ee-jbws168.war" webxml="${build.resources}/webservice/jbws168/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws168/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws168/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws168/UserType.class"/>
+          <include name="org/jboss/test/webservice/jbws168/HelloHandler.class"/>
+          <include name="org/jboss/test/webservice/jbws168/*RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/jbws168/*ResponseStruct.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws168/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="ws4ee-deployment.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws168-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws168/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws168/UserType.class"/>
+          <include name="org/jboss/test/webservice/jbws168/*RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/jbws168/*ResponseStruct.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws168/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws168/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="ws4ee-deployment.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws217 -->
+      <war warfile="${build.lib}/ws4ee-jbws217.war" webxml="${build.resources}/webservice/jbws217/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws217/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws217/HelloJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws217/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws217-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws217/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws217/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws217/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws251 -->
+      <war warfile="${build.lib}/ws4ee-jbws251.war" webxml="${build.resources}/webservice/jbws251/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws251/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws251/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws251/BaseException.class"/>
+          <include name="org/jboss/test/webservice/jbws251/UserExceptionOne.class"/>
+          <include name="org/jboss/test/webservice/jbws251/UserExceptionTwo.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws251/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws251-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws251/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws251/BaseException.class"/>
+          <include name="org/jboss/test/webservice/jbws251/UserExceptionOne.class"/>
+          <include name="org/jboss/test/webservice/jbws251/UserExceptionTwo.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws251/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws251/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws309 -->
+      <jar jarfile="${build.lib}/ws4ee-jbws309.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws309/Organization.class"/>
+          <include name="org/jboss/test/webservice/jbws309/OrganizationHome.class"/>
+          <include name="org/jboss/test/webservice/jbws309/OrganizationRemote.class"/>
+          <include name="org/jboss/test/webservice/jbws309/OrganizationImpl.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws309/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar jarfile="${build.lib}/ws4ee-jbws309-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws309/Organization.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws309/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- jbws-314 -->
+      <copy todir="${build.resources}/META-INF" file="${build.resources}/webservice/jbws413/WEB-INF/jaxrpc-mapping.xml"/>
+      
+      <!-- ws4ee-jbws316 -->
+      <war warfile="${build.lib}/ws4ee-jbws316.war" webxml="${build.resources}/webservice/jbws316/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws316/BinDataDTO.class"/>
+          <include name="org/jboss/test/webservice/jbws316/TestBusinessFacadeBF*.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws316/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="TestBusinessFacadeMapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws316-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws316/BinDataDTO.class"/>
+          <include name="org/jboss/test/webservice/jbws316/TestBusinessFacadeBF*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws316/TestBusinessFacadeBFBean.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws316/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws316/WEB-INF">
+          <include name="TestBusinessFacadeMapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws331 -->
+      <jar destfile="${build.lib}/ws4ee-jbws331-ws.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws331/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws331/HelloEndpoint.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws331/WS-META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-jbws331-ejb.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws331/HelloHome.class"/>
+          <include name="org/jboss/test/webservice/jbws331/HelloRemote.class"/>
+          <include name="org/jboss/test/webservice/jbws331/HelloSLSB.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws331/EJB-META-INF">
+          <include name="ejb-jar.xml"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-jbws331-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws331/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws331/HelloHome.class"/>
+          <include name="org/jboss/test/webservice/jbws331/HelloRemote.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws331/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws331/WS-META-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <ear destfile="${build.lib}/ws4ee-jbws331.ear" appxml="${build.resources}/webservice/jbws331/META-INF/application.xml">
+        <fileset dir="${build.lib}">
+          <include name="ws4ee-jbws331-ejb.jar"/>
+          <include name="ws4ee-jbws331-ws.jar"/>
+          <include name="ws4ee-jbws331-client.jar"/>
+        </fileset>
+      </ear>
+      
+      <!-- ws4ee-jbws349 -->
+      <war warfile="${build.lib}/ws4ee-jbws349.war" webxml="${build.resources}/webservice/jbws349/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws349/*"/>
+          <exclude name="org/jboss/test/webservice/jbws349/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws349/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws349-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws349/*"/>
+          <exclude name="org/jboss/test/webservice/jbws349/*EndpointImpl.class"/>
+          <exclude name="org/jboss/test/webservice/jbws349/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws349/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws349/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws358 -->
+      <jar destfile="${build.lib}/ws4ee-jbws358.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws358/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws358/HelloBean.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws358/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-jbws358-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws358/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws358/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <mkdir dir="${build.lib}/ws4ee-jbws358.ear/ws4ee-jbws358.jar"/>
+      <unjar dest="${build.lib}/ws4ee-jbws358.ear/ws4ee-jbws358.jar" src="${build.lib}/ws4ee-jbws358.jar"/>
+      <copy todir="${build.lib}/ws4ee-jbws358.ear">
+        <fileset dir="${build.resources}/webservice/jbws358">
+          <include name="META-INF/application.xml"/>
+        </fileset>
+        <fileset dir="${build.lib}">
+          <include name="ws4ee-jbws358-client.jar"/>
+        </fileset>
+      </copy>
+      
+      <!-- ws4ee-jbws377 -->
+      <war warfile="${build.lib}/ws4ee-jbws377.war" webxml="${build.resources}/webservice/jbws377/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws377/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws377/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws377/UserType.class"/>
+          <include name="org/jboss/test/webservice/jbws377/*_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/jbws377/*_ResponseStruct.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws377/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws377-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws377/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws377/UserType.class"/>
+          <include name="org/jboss/test/webservice/jbws377/*_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/jbws377/*_ResponseStruct.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws377/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws377/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws381 -->
+      <war warfile="${build.lib}/ws4ee-jbws381.war" webxml="${build.resources}/webservice/jbws381/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws381/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws381/JBWS381TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws381/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws381-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws381/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws381/WeatherForecastSoapImpl.class"/>
+          <exclude name="org/jboss/test/webservice/jbws381/JBWS381TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws381/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws381/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws383 -->
+      <war warfile="${build.lib}/ws4ee-jbws383.war" webxml="${build.resources}/webservice/jbws383/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws383/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws383/TestJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws383/JavaType.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws383/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws383-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws383/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws383/JavaType.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws383/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws383/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws413 -->
+      <war warfile="${build.lib}/ws4ee-jbws413.war" webxml="${build.resources}/webservice/jbws413/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws413/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws413/TestJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws413/JavaType.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws413/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws413-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws413/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws413/JavaType.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws413/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws413/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws414 -->
+      <war warfile="${build.lib}/ws4ee-jbws414.war" webxml="${build.resources}/webservice/jbws414/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws414/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws414/TestJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws414/St.class"/>
+          <include name="org/jboss/test/webservice/jbws414/RefType.class"/>
+          <include name="org/jboss/test/webservice/jbws414/Interface.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws414/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="ws4ee-deployment.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws414-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws414/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws414/St.class"/>
+          <include name="org/jboss/test/webservice/jbws414/RefType.class"/>
+          <include name="org/jboss/test/webservice/jbws414/Interface.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws414/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws414/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="ws4ee-deployment.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws423 -->
+      <war warfile="${build.lib}/ws4ee-jbws423.war" webxml="${build.resources}/webservice/jbws423/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws423/DemoEndpoint.class"/>
+          <include name="org/jboss/test/webservice/jbws423/DemoBean.class"/>
+          <include name="org/jboss/test/webservice/jbws423/ValueObj.class"/>
+          <include name="org/jboss/test/webservice/jbws423/_arrays/**"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws423/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws423-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws423/DemoEndpoint.class"/>
+          <include name="org/jboss/test/webservice/jbws423/ValueObj.class"/>
+          <include name="org/jboss/test/webservice/jbws423/_arrays/**"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws423/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws423/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws424 -->
+      <war warfile="${build.lib}/ws4ee-jbws424.war" webxml="${build.resources}/webservice/jbws424/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws424/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws424/TestJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws424/PrivateException.class"/>
+          <include name="org/jboss/test/webservice/jbws424/Exception2.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws424/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws424-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws424/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws424/PrivateException.class"/>
+          <include name="org/jboss/test/webservice/jbws424/Exception2.class"/>
+          <include name="org/jboss/test/webservice/jbws424/TestHandler.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws424/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws424/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws425 -->
+      <war warfile="${build.lib}/ws4ee-jbws425.war" webxml="${build.resources}/webservice/jbws425/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws425/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws425/HelloJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws425/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws425-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws425/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws425/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws425/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws456 -->
+      <war warfile="${build.lib}/ws4ee-jbws456.war" webxml="${build.resources}/webservice/jbws456/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws456/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws456/TestJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws456/JavaType.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws456/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws456-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws456/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws456/JavaType.class"/>
+          <include name="org/jboss/test/webservice/jbws456/TestHandler.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws456/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws456/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws463 -->
+      <war warfile="${build.lib}/ws4ee-jbws463.war" webxml="${build.resources}/webservice/jbws463/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws463/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws463/TestJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws463/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws463-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws463/TestSEI.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws463/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws463/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws464 -->
+      <war warfile="${build.lib}/ws4ee-jbws464.war" webxml="${build.resources}/webservice/jbws464/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws464/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws464/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws464/SAAJTestHandler.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws464/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws464-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws464/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws464/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws464/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws484 -->
+      <war warfile="${build.lib}/ws4ee-jbws484.war" webxml="${build.resources}/webservice/jbws484/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws484/*"/>
+          <exclude name="org/jboss/test/webservice/jbws484/JBWS484TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws484/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws484-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws484/*"/>
+          <exclude name="org/jboss/test/webservice/jbws484/TestServiceBean.class"/>
+          <exclude name="org/jboss/test/webservice/jbws484/JBWS484TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws484/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws484/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws626 -->
+      <jar jarfile="${build.lib}/ws4ee-jbws626.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws626/DemoEndpoint.class"/>
+          <include name="org/jboss/test/webservice/jbws626/ServerHandler.class"/>
+          <include name="org/jboss/test/webservice/jbws626/DemoBean.class"/>
+          <include name="org/jboss/test/webservice/jbws626/ValueObj.class"/>
+          <include name="org/jboss/test/webservice/jbws626/_arrays/**"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws626/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/TestService.wsdl"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-jbws626-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws626/DemoEndpoint.class"/>
+          <include name="org/jboss/test/webservice/jbws626/ValueObj.class"/>
+          <include name="org/jboss/test/webservice/jbws626/_arrays/**"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws626/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <ear destfile="${build.lib}/ws4ee-jbws626.ear" appxml="${build.resources}/webservice/jbws626/META-INF/application.xml">
+        <metainf dir="${build.resources}/webservice/jbws626/META-INF">
+          <include name="jboss-app.xml"/>
+        </metainf>
+        <fileset dir="${build.lib}">
+          <include name="ws4ee-jbws626.jar"/>
+          <include name="ws4ee-jbws626-client.jar"/>
+        </fileset>
+      </ear>
+      
+      <!-- ws4ee-jbws632 -->
+      <war warfile="${build.lib}/ws4ee-jbws632.war" webxml="${build.resources}/webservice/jbws632/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws632/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws632/TestJavaBean.class"/>
+          <include name="org/jboss/test/webservice/jbws632/_arrays/**"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws632/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws632-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws632/TestSEI.class"/>
+          <include name="org/jboss/test/webservice/jbws632/_arrays/**"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws632/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws632/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws637 -->
+      <jar destfile="${build.lib}/ws4ee-jbws637-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws637/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws637/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws637/META-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws643 -->
+      <war warfile="${build.lib}/ws4ee-jbws643.war" webxml="${build.resources}/webservice/jbws643/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws643/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws643/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws643/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws643-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws643/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws643/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws643/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws643/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws663 -->
+      <war warfile="${build.lib}/ws4ee-jbws663b.war" webxml="${build.resources}/webservice/jbws663b/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws663/*.class"/>
+          <include name="org/jboss/test/webservice/jbws663/holders/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws663/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws663b/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws663b-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws663/*.class"/>
+          <include name="org/jboss/test/webservice/jbws663/holders/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws663/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws663b/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws663b/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-jbws663bb.war" webxml="${build.resources}/webservice/jbws663bb/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws663/*.class"/>
+          <include name="org/jboss/test/webservice/jbws663/holders/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws663/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws663bb/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws663bb-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws663/*.class"/>
+          <include name="org/jboss/test/webservice/jbws663/holders/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws663/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws663bb/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws663bb/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-jbws663w.war" webxml="${build.resources}/webservice/jbws663w/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws663/*.class"/>
+          <include name="org/jboss/test/webservice/jbws663/holders/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws663/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws663w/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws663w-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws663/*.class"/>
+          <include name="org/jboss/test/webservice/jbws663/holders/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws663/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws663w/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws663w/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-jbws663wb.war" webxml="${build.resources}/webservice/jbws663wb/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws663/*.class"/>
+          <include name="org/jboss/test/webservice/jbws663/holders/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws663/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws663wb/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws663wb-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws663/*.class"/>
+          <include name="org/jboss/test/webservice/jbws663/holders/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws663/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws663wb/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws663wb/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws706 -->
+      <war warfile="${build.lib}/ws4ee-jbws706.war" webxml="${build.resources}/webservice/jbws706/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws706/**"/>
+          <exclude name="org/jboss/test/webservice/jbws706/ClientHandler.class"/>
+          <exclude name="org/jboss/test/webservice/jbws706/JBWS706TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws706/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws706-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws706/**"/>
+          <exclude name="org/jboss/test/webservice/jbws706/DemoServicePortTypeImpl.class"/>
+          <exclude name="org/jboss/test/webservice/jbws706/JBWS706TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws706/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws706/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws707 -->
+      <war warfile="${build.lib}/ws4ee-jbws707.war" webxml="${build.resources}/webservice/jbws707/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws707/UserType.class"/>
+          <include name="org/jboss/test/webservice/jbws707/TestEndpoint.class"/>
+          <include name="org/jboss/test/webservice/jbws707/TestEndpointImpl.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws707/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws707-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws707/UserType.class"/>
+          <include name="org/jboss/test/webservice/jbws707/TestEndpoint.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws707/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws707/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws710 -->
+      <war warfile="${build.lib}/ws4ee-jbws710.war" webxml="${build.resources}/webservice/jbws710/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws710/**"/>
+          <exclude name="org/jboss/test/webservice/jbws710/JBWS710TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws710/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws710-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws710/**"/>
+          <exclude name="org/jboss/test/webservice/jbws710/HelloBean.class"/>
+          <exclude name="org/jboss/test/webservice/jbws710/JBWS710TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws710/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws710/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws718 -->
+      <war warfile="${build.lib}/ws4ee-jbws718.war" webxml="${build.resources}/webservice/jbws718/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws718/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws718/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws718/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws718-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws718/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws718/*Impl.class"/>
+          <exclude name="org/jboss/test/webservice/jbws718/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws718/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws718/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jbws751 -->
+      <war warfile="${build.lib}/ws4ee-jbws751.war" webxml="${build.resources}/webservice/jbws751/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws751/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws751/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/jbws751/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-jbws751-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws751/*.class"/>
+          <exclude name="org/jboss/test/webservice/jbws751/*Impl.class"/>
+          <exclude name="org/jboss/test/webservice/jbws751/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws751/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/jbws751/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-jws772 -->
+      <jar destfile="${build.lib}/ws4ee-jbws772-endpoint.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws772/Hello.class"/>
+          <include name="org/jboss/test/webservice/jbws772/HelloSLSB.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws772/META-INF-ONE">
+          <include name="ejb-jar.xml"/>
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-jbws772-remote.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws772/HelloHome.class"/>
+          <include name="org/jboss/test/webservice/jbws772/HelloRemote.class"/>
+          <include name="org/jboss/test/webservice/jbws772/HelloSLSB.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws772/META-INF-TWO">
+          <include name="ejb-jar.xml"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-jbws772-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/jbws772/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/jbws772/META-INF-ONE">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <ear destfile="${build.lib}/ws4ee-jbws772.ear" appxml="${build.resources}/webservice/jbws772/META-INF-ONE/application.xml">
+        <fileset dir="${build.lib}">
+          <include name="ws4ee-jbws772-endpoint.jar"/>
+          <include name="ws4ee-jbws772-remote.jar"/>
+          <include name="ws4ee-jbws772-client.jar"/>
+        </fileset>
+      </ear>
+      
+      <!-- ws4ee-marshall-doclit -->
+      <jar destfile="${build.lib}/ws4ee-marshall-doclit.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointHome.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointRemote.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpoint.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointImpl.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/*RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/*ResponseStruct.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/types/*"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/marshalltest-doclit/META-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-marshall-doclit-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointHome.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointRemote.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpoint.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/*RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/*ResponseStruct.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/types/*"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/marshalltest-doclit/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </metainf>
+      </jar>
+      <ear destfile="${build.lib}/ws4ee-marshall-doclit.ear" appxml="${build.resources}/webservice/marshalltest-doclit/META-INF/application.xml">
+        <fileset dir="${build.lib}">
+          <include name="ws4ee-marshall-doclit.jar"/>
+          <include name="ws4ee-marshall-doclit-client.jar"/>
+        </fileset>
+      </ear>
+      
+      <!-- ws4ee-marshall-rpcenc -->
+      <jar destfile="${build.lib}/ws4ee-marshall-rpcenc.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointHome.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointRemote.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpoint.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointImpl.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/types/Bean.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/marshalltest-rpcenc/META-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-marshall-rpcenc-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointHome.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointRemote.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpoint.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/types/Bean.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/marshalltest-rpcenc/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </metainf>
+      </jar>
+      <ear destfile="${build.lib}/ws4ee-marshall-rpcenc.ear" appxml="${build.resources}/webservice/marshalltest-rpcenc/META-INF/application.xml">
+        <fileset dir="${build.lib}">
+          <include name="ws4ee-marshall-rpcenc.jar"/>
+          <include name="ws4ee-marshall-rpcenc-client.jar"/>
+        </fileset>
+      </ear>
+      
+      <!-- ws4ee-marshall-rpclit -->
+      <jar destfile="${build.lib}/ws4ee-marshall-rpclit.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointHome.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointRemote.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpoint.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointImpl.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/types/Bean.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/_arrays/**"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/marshalltest-rpclit/META-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </metainf>
+      </jar>
+      <jar destfile="${build.lib}/ws4ee-marshall-rpclit-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointHome.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpointRemote.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/MarshallEndpoint.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/types/Bean.class"/>
+          <include name="org/jboss/test/webservice/marshalltest/_arrays/**"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/marshalltest-rpclit/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </metainf>
+      </jar>
+      <ear destfile="${build.lib}/ws4ee-marshall-rpclit.ear" appxml="${build.resources}/webservice/marshalltest-rpclit/META-INF/application.xml">
+        <fileset dir="${build.lib}">
+          <include name="ws4ee-marshall-rpclit.jar"/>
+          <include name="ws4ee-marshall-rpclit-client.jar"/>
+        </fileset>
+      </ear>
+      
+      <!-- ws4ee-message -->
+      <war warfile="${build.lib}/ws4ee-message.war" webxml="${build.resources}/webservice/message/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/message/*.class"/>
+          <exclude name="org/jboss/test/webservice/message/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/message/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-message-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/message/*.class"/>
+          <exclude name="org/jboss/test/webservice/message/*JavaBean.class"/>
+          <exclude name="org/jboss/test/webservice/message/*TestCase.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/message/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/message/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/*.wsdl"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-samples -->
+      <jar jarfile="${build.lib}/ws4ee-samples-client-appl.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples/Person.class"/>
+          <include name="org/jboss/test/webservice/samples/Organization.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationService.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/samples/client-appl/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/samples/common">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar jarfile="${build.lib}/ws4ee-samples-client-ejb.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples/Person.class"/>
+          <include name="org/jboss/test/webservice/samples/Organization.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationService.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationClientBean.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationClientHome.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationClientRemote.class"/>
+          <include name="org/jboss/test/webservice/samples/ClientSideHandler.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/samples/client-ejb/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/samples/common">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-samples-client-web.war" webxml="${build.resources}/webservice/samples/client-web/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples/Person.class"/>
+          <include name="org/jboss/test/webservice/samples/Organization.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationService.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationClientServlet.class"/>
+          <include name="org/jboss/test/webservice/samples/ClientSideHandler.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/samples/client-web/WEB-INF">
+          <include name="jboss-web.xml"/>
+        </webinf>
+        <webinf dir="${build.resources}/webservice/samples/common">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar jarfile="${build.lib}/ws4ee-samples-server-ejb.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples/Person.class"/>
+          <include name="org/jboss/test/webservice/samples/Organization.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationEJBEndpoint.class"/>
+          <include name="org/jboss/test/webservice/samples/ServerSideHandler.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/samples/server-ejb/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="webservices.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/samples/common">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar jarfile="${build.lib}/ws4ee-samples-server-ejb-sec.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples/Person.class"/>
+          <include name="org/jboss/test/webservice/samples/Organization.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationHome.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationRemote.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationEJBEndpoint.class"/>
+          <include name="org/jboss/test/webservice/samples/ServerSideHandler.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/samples/server-ejb-sec/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/samples/common">
+          <include name="jaxrpc-mapping.xml"/>
+        </metainf>
+      </jar>
+      <jar jarfile="${build.lib}/ws4ee-samples-server-ejb-sec-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples/Person.class"/>
+          <include name="org/jboss/test/webservice/samples/Organization.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationService.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/samples/server-ejb-sec/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/samples/common">
+          <include name="jaxrpc-mapping.xml"/>
+        </metainf>
+      </jar>
+      <jar jarfile="${build.lib}/ws4ee-samples-server-jms.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples/Person.class"/>
+          <include name="org/jboss/test/webservice/samples/Organization.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationJMSEndpoint.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/samples/server-jms/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jboss.xml"/>
+          <include name="webservices.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/samples/common">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <jar jarfile="${build.lib}/ws4ee-samples-server-jms.sar">
+        <fileset dir="${build.lib}">
+          <include name="ws4ee-samples-server-jms.jar"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/samples/server-jms/META-INF">
+          <include name="jboss-service.xml"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-samples-server-jse.war" webxml="${build.resources}/webservice/samples/server-jse/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples/Person.class"/>
+          <include name="org/jboss/test/webservice/samples/Organization.class"/>
+          <include name="org/jboss/test/webservice/samples/OrganizationJSEEndpoint.class"/>
+          <include name="org/jboss/test/webservice/samples/ServerSideHandler.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/samples/server-jse/WEB-INF">
+          <include name="webservices.xml"/>
+        </webinf>
+        <webinf dir="${build.resources}/webservice/samples/common">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      
+      <!-- ws4ee-samples2 -->
+      <war warfile="${build.lib}/ws4ee-samples2-rpc.war" webxml="${build.resources}/webservice/samples2/rpclit/web.xml">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples2/_arrays/**"/>
+          <include name="org/jboss/test/webservice/samples2/OrderException.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderItem.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcess.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcessImpl.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderResponse.class"/>
+          <include name="org/jboss/test/webservice/samples2/Person.class"/>
+        </fileset>
+        <webinf dir="${build.resources}/webservice/samples2/rpclit">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar jarfile="${build.lib}/ws4ee-samples2-rpc-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples2/_arrays/**"/>
+          <include name="org/jboss/test/webservice/samples2/OrderException.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderItem.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcess.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderResponse.class"/>
+          <include name="org/jboss/test/webservice/samples2/Person.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/samples2/rpclit">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-samples2-doc.war" webxml="${build.resources}/webservice/samples2/doclit/web.xml">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples2/OrderProcess_processOrder_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcess_processOrder_ResponseStruct.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderException.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderItem.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcess.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcessImpl.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderResponse.class"/>
+          <include name="org/jboss/test/webservice/samples2/Person.class"/>
+        </fileset>
+        <webinf dir="${build.resources}/webservice/samples2/doclit">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar jarfile="${build.lib}/ws4ee-samples2-doc-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples2/OrderException.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderItem.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcess.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcess_processOrder_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcess_processOrder_ResponseStruct.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderResponse.class"/>
+          <include name="org/jboss/test/webservice/samples2/Person.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/samples2/doclit">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-samples2-docbare.war" webxml="${build.resources}/webservice/samples2/doclit-bare/web.xml">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples2/OrderProcess_processOrder_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcess_processOrder_ResponseStruct.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderException.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderItem.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcessBare.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcessBareImpl.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderResponse.class"/>
+          <include name="org/jboss/test/webservice/samples2/Person.class"/>
+        </fileset>
+        <webinf dir="${build.resources}/webservice/samples2/doclit-bare">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar jarfile="${build.lib}/ws4ee-samples2-docbare-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/samples2/OrderException.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderItem.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcessBare.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcess_processOrder_RequestStruct.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderProcess_processOrder_ResponseStruct.class"/>
+          <include name="org/jboss/test/webservice/samples2/OrderResponse.class"/>
+          <include name="org/jboss/test/webservice/samples2/Person.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/samples2/doclit-bare">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-utf16 -->
+      <war warfile="${build.lib}/ws4ee-utf16.war" webxml="${build.resources}/webservice/utf16/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/utf16/Hello.class"/>
+          <include name="org/jboss/test/webservice/utf16/HelloJavaBean.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/utf16/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-utf16-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/utf16/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/utf16/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/utf16/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-simple -->
+      <jar destfile="${build.lib}/ws4ee-simple.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/ws4eesimple/Hello.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloBean.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloHome.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWs.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/ws4eesimple/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-simple.war" webxml="${build.resources}/webservice/ws4eesimple/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWs.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/ws4eesimple/META-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+        <webinf dir="${build.resources}/webservice/ws4eesimple/WEB-INF">
+          <include name="webservices.xml"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-simple-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWs.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWsClientApp.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloHome.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/ws4eesimple-client/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <war warfile="${build.lib}/ws4ee-simple-client.war" webxml="${build.resources}/webservice/ws4eesimple-client/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWsClientServlet.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWs.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/ws4eesimple-client/META-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-simple-client-ejb.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWs.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloClientBean.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloHome.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/ws4eesimple-client/META-INF">
+          <include name="ejb-jar.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      <ear destfile="${build.lib}/ws4ee-simple-client.ear" appxml="${build.resources}/webservice/ws4eesimple-client/META-INF/application.xml">
+        <fileset dir="${build.lib}">
+          <include name="ws4ee-simple-client.jar"/>
+          <include name="ws4ee-simple-client.war"/>
+          <include name="ws4ee-simple-client-ejb.jar"/>
+        </fileset>
+      </ear>
+      
+      <!-- ws4ee-simple secure version -->
+      <war warfile="${build.lib}/ws4ee-simple-secure.war" webxml="${build.resources}/webservice/ws4eesimple-secure/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWs.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/ws4eesimple-secure/META-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+        <webinf dir="${build.resources}/webservice/ws4eesimple-secure/WEB-INF">
+          <include name="webservices.xml"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-simple-secure-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWs.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWsClientApp.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloHome.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/Hello.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/ws4eesimple-secure-client/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+      <!-- ws4ee-wsdlimport-absolute -->
+      <war warfile="${build.lib}/ws4ee-wsdlimport-absolute1.war" webxml="${build.resources}/webservice/wsdlimport/absolute/WEB-INF/web1.xml">
+        <fileset dir="${build.resources}/webservice/wsdlimport/absolute">
+          <include name="HelloImport.xml"/>
+        </fileset>
+      </war>
+      <war warfile="${build.lib}/ws4ee-wsdlimport-absolute2.war" webxml="${build.resources}/webservice/wsdlimport/absolute/WEB-INF/web2.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloJavaBean.class"/>
+          <include name="org/jboss/test/webservice/ws4eesimple/HelloWs.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/wsdlimport/absolute/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="webservices.xml"/>
+          <include name="wsdl/HelloService.wsdl"/>
+        </webinf>
+      </war>
+      
+      <!-- ws4ee-wsdlimport-schema -->
+      <war warfile="${build.lib}/ws4ee-wsdlimport-schema.war" webxml="${build.resources}/webservice/wsdlimport/schema/WEB-INF/web.xml">
+        <classes dir="${build.classes}">
+          <include name="org/jboss/test/webservice/admindevel/**"/>
+          <exclude name="org/jboss/test/webservice/admindevel/*TestCase.class"/>
+        </classes>
+        <webinf dir="${build.resources}/webservice/wsdlimport/schema/WEB-INF">
+          <include name="webservices.xml"/>
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </webinf>
+      </war>
+      <jar destfile="${build.lib}/ws4ee-wsdlimport-schema-client.jar">
+        <fileset dir="${build.classes}">
+          <include name="org/jboss/test/webservice/admindevel/Hello.class"/>
+          <include name="org/jboss/test/webservice/admindevel/HelloObj.class"/>
+        </fileset>
+        <metainf dir="${build.resources}/webservice/wsdlimport/schema/META-INF">
+          <include name="application-client.xml"/>
+          <include name="jboss-client.xml"/>
+        </metainf>
+        <metainf dir="${build.resources}/webservice/wsdlimport/schema/WEB-INF">
+          <include name="jaxrpc-mapping.xml"/>
+          <include name="wsdl/**"/>
+        </metainf>
+      </jar>
+      
+    </target>
+
+    <target name="copy-webservice">
+        <copy todir="${build.resources}/webservice" filtering="yes">
+            <fileset dir="${source.resources}/webservice">
+                <include name="**/*.wsdl"/>
+                <include name="**/*.xml"/>
+            </fileset>
+            <filterset>
+                <filter token="jbosstest.host.name" value="${node0}"/>
+            </filterset>
+        </copy>
+        <!-- Copy binary files -->
+        <copy todir="${build.resources}/webservice">
+            <fileset dir="${source.resources}/webservice">
+                <exclude name="**/*.wsdl"/>
+                <exclude name="**/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+  
+    <target name="copy-webservice-ws4ee" if="jboss-ws4ee.available">
+        <copy todir="${build.resources}/webservice" filtering="yes">
+            <fileset dir="${source.resources}/webservice-ws4ee">
+                <include name="**/*.wsdl"/>
+                <include name="**/*.xml"/>
+            </fileset>
+            <filterset>
+                <filter token="jbosstest.host.name" value="${node0}"/>
+            </filterset>
+        </copy>
+        <!-- Copy binary files -->
+        <copy todir="${build.resources}/webservice">
+            <fileset dir="${source.resources}/webservice-ws4ee">
+                <exclude name="**/*.wsdl"/>
+                <exclude name="**/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+</project>

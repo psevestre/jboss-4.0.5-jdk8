@@ -1,0 +1,19 @@
+<project name="juddi-component-info">
+
+   <!-- ============================================================ -->
+   <!-- jUDDI                                                        -->
+   <!-- ============================================================ -->
+
+   <component id="juddi"
+              licenseType="apache-2.0"
+              version="0.9RC4"
+              projectHome="http://ws.apache.org/juddi/"
+              description="Universal Description, Discovery, and Integration (UDDI)"
+   >
+      <artifact id="juddi.jar"/>
+      <export>
+         <include input="juddi.jar"/>
+      </export>
+   </component>
+
+</project>

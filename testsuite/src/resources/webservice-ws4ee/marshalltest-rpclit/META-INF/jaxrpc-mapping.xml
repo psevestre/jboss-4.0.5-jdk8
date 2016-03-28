@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java-wsdl-mapping xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee    http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd">
+	<package-mapping>
+		<package-type>org.jboss.test.webservice.marshalltest</package-type>
+		<namespaceURI>http://org.jboss.webservice/marshalltest-rpclit/types</namespaceURI>
+	</package-mapping>
+	<package-mapping>
+		<package-type>org.jboss.test.webservice.marshalltest</package-type>
+		<namespaceURI>http://org.jboss.webservice/marshalltest-rpclit</namespaceURI>
+	</package-mapping>
+	<package-mapping>
+		<package-type>org.jboss.test.webservice.marshalltest._arrays.java.math</package-type>
+		<namespaceURI>http://org.jboss.webservice/marshalltest-rpclit/types/arrays/java/math</namespaceURI>
+	</package-mapping>
+	<package-mapping>
+		<package-type>org.jboss.test.webservice.marshalltest._arrays.java.lang</package-type>
+		<namespaceURI>http://org.jboss.webservice/marshalltest-rpclit/types/arrays/java/lang</namespaceURI>
+	</package-mapping>
+	<package-mapping>
+		<package-type>org.jboss.test.webservice.marshalltest._arrays.javax.xml.namespace</package-type>
+		<namespaceURI>http://org.jboss.webservice/marshalltest-rpclit/types/arrays/javax/xml/namespace</namespaceURI>
+	</package-mapping>
+	<package-mapping>
+		<package-type>org.jboss.test.webservice.marshalltest._arrays.java.util</package-type>
+		<namespaceURI>http://org.jboss.webservice/marshalltest-rpclit/types/arrays/java/util</namespaceURI>
+	</package-mapping>
+	<package-mapping>
+		<package-type>org.jboss.test.webservice.marshalltest._arrays</package-type>
+		<namespaceURI>http://org.jboss.webservice/marshalltest-rpclit/types/arrays/</namespaceURI>
+	</package-mapping>
+	<java-xml-type-mapping>
+		<java-type>org.jboss.test.webservice.marshalltest.types.Bean</java-type>
+		<root-type-qname xmlns:typeNS="http://org.jboss.webservice/marshalltest-rpclit/types">typeNS:Bean</root-type-qname>
+		<qname-scope>complexType</qname-scope>
+		<variable-mapping>
+			<java-variable-name>base64</java-variable-name>
+			<xml-element-name>base64</xml-element-name>
+		</variable-mapping>
+		<variable-mapping>
+			<java-variable-name>x</java-variable-name>
+			<xml-element-name>x</xml-element-name>
+		</variable-mapping>
+		<variable-mapping>
+			<java-variable-name>y</java-variable-name>
+			<xml-element-name>y</xml-element-name>
+		</variable-mapping>
+	</java-xml-type-mapping>
+	<service-interface-mapping>
+		<service-interface>org.jboss.test.webservice.marshalltest.MarshallRpcLitService</service-interface>
+		<wsdl-service-name xmlns:serviceNS="http://org.jboss.webservice/marshalltest-rpclit">serviceNS:MarshallRpcLitService</wsdl-service-name>
+		<port-mapping>
+			<port-name>MarshallEndpointPort</port-name>
+			<java-port-name>MarshallEndpointPort</java-port-name>
+		</port-mapping>
+	</service-interface-mapping>
+	<service-endpoint-interface-mapping>
+		<service-endpoint-interface>org.jboss.test.webservice.marshalltest.MarshallEndpoint</service-endpoint-interface>
+		<wsdl-port-type xmlns:portTypeNS="http://org.jboss.webservice/marshalltest-rpclit">portTypeNS:MarshallEndpoint</wsdl-port-type>
+		<wsdl-binding xmlns:bindingNS="http://org.jboss.webservice/marshalltest-rpclit">bindingNS:MarshallEndpointBinding</wsdl-binding>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoBase64Binary</java-method-name>
+			<wsdl-operation>echoBase64Binary</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>byte[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoBase64Binary</wsdl-message>
+					<wsdl-message-part-name>arrayOfbyte_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>byte[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoBase64BinaryResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoBean</java-method-name>
+			<wsdl-operation>echoBean</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>org.jboss.test.webservice.marshalltest.types.Bean</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoBean</wsdl-message>
+					<wsdl-message-part-name>Bean_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>org.jboss.test.webservice.marshalltest.types.Bean</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoBeanResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoBoolean</java-method-name>
+			<wsdl-operation>echoBoolean</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>boolean</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoBoolean</wsdl-message>
+					<wsdl-message-part-name>boolean_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>boolean</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoBooleanResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoBooleanArray</java-method-name>
+			<wsdl-operation>echoBooleanArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>boolean[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoBooleanArray</wsdl-message>
+					<wsdl-message-part-name>arrayOfboolean_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>boolean[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoBooleanArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoByte</java-method-name>
+			<wsdl-operation>echoByte</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>byte</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoByte</wsdl-message>
+					<wsdl-message-part-name>byte_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>byte</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoByteResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoByteArray</java-method-name>
+			<wsdl-operation>echoByteArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>byte[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoByteArray</wsdl-message>
+					<wsdl-message-part-name>arrayOfbyte_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>byte[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoByteArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoDateCalendar</java-method-name>
+			<wsdl-operation>echoDateCalendar</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>java.util.Calendar</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDateCalendar</wsdl-message>
+					<wsdl-message-part-name>Calendar_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>java.util.Calendar</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDateCalendarResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoDateDate</java-method-name>
+			<wsdl-operation>echoDateDate</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>java.util.Date</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDateDate</wsdl-message>
+					<wsdl-message-part-name>Date_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>java.util.Date</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDateDateResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoDateTimeArray</java-method-name>
+			<wsdl-operation>echoDateTimeArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>java.util.Calendar[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDateTimeArray</wsdl-message>
+					<wsdl-message-part-name>arrayOfCalendar_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>java.util.Calendar[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDateTimeArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoDateTimeCalendar</java-method-name>
+			<wsdl-operation>echoDateTimeCalendar</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>java.util.Calendar</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDateTimeCalendar</wsdl-message>
+					<wsdl-message-part-name>Calendar_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>java.util.Calendar</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDateTimeCalendarResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoDateTimeDate</java-method-name>
+			<wsdl-operation>echoDateTimeDate</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>java.util.Date</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDateTimeDate</wsdl-message>
+					<wsdl-message-part-name>Date_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>java.util.Date</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDateTimeDateResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoDecimal</java-method-name>
+			<wsdl-operation>echoDecimal</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>java.math.BigDecimal</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDecimal</wsdl-message>
+					<wsdl-message-part-name>BigDecimal_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>java.math.BigDecimal</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDecimalResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoDecimalArray</java-method-name>
+			<wsdl-operation>echoDecimalArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>java.math.BigDecimal[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDecimalArray</wsdl-message>
+					<wsdl-message-part-name>arrayOfBigDecimal_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>java.math.BigDecimal[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDecimalArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoDouble</java-method-name>
+			<wsdl-operation>echoDouble</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>double</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDouble</wsdl-message>
+					<wsdl-message-part-name>double_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>double</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDoubleResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoDoubleArray</java-method-name>
+			<wsdl-operation>echoDoubleArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>double[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDoubleArray</wsdl-message>
+					<wsdl-message-part-name>arrayOfdouble_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>double[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoDoubleArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoFloat</java-method-name>
+			<wsdl-operation>echoFloat</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>float</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoFloat</wsdl-message>
+					<wsdl-message-part-name>float_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>float</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoFloatResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoFloatArray</java-method-name>
+			<wsdl-operation>echoFloatArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>float[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoFloatArray</wsdl-message>
+					<wsdl-message-part-name>arrayOffloat_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>float[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoFloatArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoHexBinary</java-method-name>
+			<wsdl-operation>echoHexBinary</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>byte[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoHexBinary</wsdl-message>
+					<wsdl-message-part-name>arrayOfbyte_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>byte[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoHexBinaryResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoInt</java-method-name>
+			<wsdl-operation>echoInt</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>int</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoInt</wsdl-message>
+					<wsdl-message-part-name>int_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>int</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoIntResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoIntArray</java-method-name>
+			<wsdl-operation>echoIntArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>int[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoIntArray</wsdl-message>
+					<wsdl-message-part-name>arrayOfint_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>int[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoIntArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoInteger</java-method-name>
+			<wsdl-operation>echoInteger</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>java.math.BigInteger</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoInteger</wsdl-message>
+					<wsdl-message-part-name>BigInteger_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>java.math.BigInteger</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoIntegerResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoIntegerArray</java-method-name>
+			<wsdl-operation>echoIntegerArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>java.math.BigInteger[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoIntegerArray</wsdl-message>
+					<wsdl-message-part-name>arrayOfBigInteger_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>java.math.BigInteger[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoIntegerArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoLong</java-method-name>
+			<wsdl-operation>echoLong</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>long</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoLong</wsdl-message>
+					<wsdl-message-part-name>long_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>long</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoLongResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoLongArray</java-method-name>
+			<wsdl-operation>echoLongArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>long[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoLongArray</wsdl-message>
+					<wsdl-message-part-name>arrayOflong_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>long[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoLongArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoQName</java-method-name>
+			<wsdl-operation>echoQName</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>javax.xml.namespace.QName</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoQName</wsdl-message>
+					<wsdl-message-part-name>QName_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>javax.xml.namespace.QName</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoQNameResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoQNameArray</java-method-name>
+			<wsdl-operation>echoQNameArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>javax.xml.namespace.QName[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoQNameArray</wsdl-message>
+					<wsdl-message-part-name>arrayOfQName_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>javax.xml.namespace.QName[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoQNameArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoShort</java-method-name>
+			<wsdl-operation>echoShort</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>short</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoShort</wsdl-message>
+					<wsdl-message-part-name>short_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>short</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoShortResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoShortArray</java-method-name>
+			<wsdl-operation>echoShortArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>short[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoShortArray</wsdl-message>
+					<wsdl-message-part-name>arrayOfshort_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>short[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoShortArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoString</java-method-name>
+			<wsdl-operation>echoString</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>java.lang.String</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoString</wsdl-message>
+					<wsdl-message-part-name>String_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>java.lang.String</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoStringResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+		<service-endpoint-method-mapping>
+			<java-method-name>echoStringArray</java-method-name>
+			<wsdl-operation>echoStringArray</wsdl-operation>
+			<method-param-parts-mapping>
+				<param-position>0</param-position>
+				<param-type>java.lang.String[]</param-type>
+				<wsdl-message-mapping>
+					<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoStringArray</wsdl-message>
+					<wsdl-message-part-name>arrayOfString_1</wsdl-message-part-name>
+					<parameter-mode>IN</parameter-mode>
+				</wsdl-message-mapping>
+			</method-param-parts-mapping>
+			<wsdl-return-value-mapping>
+				<method-return-value>java.lang.String[]</method-return-value>
+				<wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/marshalltest-rpclit">wsdlMsgNS:MarshallEndpoint_echoStringArrayResponse</wsdl-message>
+				<wsdl-message-part-name>result</wsdl-message-part-name>
+			</wsdl-return-value-mapping>
+		</service-endpoint-method-mapping>
+	</service-endpoint-interface-mapping>
+</java-wsdl-mapping>

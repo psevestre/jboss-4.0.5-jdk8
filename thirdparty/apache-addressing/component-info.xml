@@ -1,0 +1,21 @@
+<project name="apache-addressing-component-info">
+
+   <!-- ============================================================ -->
+   <!-- Apache Addressing                                            -->
+   <!-- ============================================================ -->
+
+   <component id="apache-addressing"
+              licenseType="apache-2.0"
+              version="cvsbuild-7-19"
+              projectHome="http://ws.apache.org/ws-fx/addressing/"
+              description="This is the Web Service Addressing implementation used by JBoss.Net
+                  This CVS build will be replaced by an official build when one becomes available."
+   >
+
+      <artifact id="addressing-1.0.jar"/>
+
+      <export>
+         <include input="addressing-1.0.jar"/>
+      </export>
+   </component>
+</project>

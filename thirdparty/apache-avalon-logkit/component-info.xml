@@ -1,0 +1,14 @@
+<project name="apache-avalon-logkit-component-info">
+
+   <component id="apache-avalon-logkit"
+              licenseType="apache-1.1"
+              version="1.2"
+              projectHome="http://www.apache.org/dist/avalon/logkit/"
+              description="Java Apache Server Framework Logging">
+      <artifact id="logkit.jar"/>
+      <export>
+         <include input="logkit.jar"/>
+      </export>
+   </component>
+
+</project>

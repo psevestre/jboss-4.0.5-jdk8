@@ -1,0 +1,15 @@
+<project name="apache-avalon-component-info">
+
+   <component id="apache-avalon"
+              licenseType="apache-1.1"
+              version="4.1.5"
+              projectHome="http://www.apache.org/dist/avalon/avalon-framework/"
+         description="Java Apache Server Framework">
+      <artifact id="avalon-framework.jar"/>
+      <export>
+         <include input="avalon-framework.jar"/>
+      </export>
+   </component>
+
+
+</project>

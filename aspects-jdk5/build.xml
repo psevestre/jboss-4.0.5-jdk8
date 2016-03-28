@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- $Id: build.xml 43069 2006-03-31 04:33:16Z starksm $ -->
+
+<!--+======================================================================+-->
+<!--| JBoss, Home of Professional Open Source                              |-->
+<!--|                                                                      |-->
+<!--| Distributable under LGPL license.                                    |-->
+<!--| See terms of license at http://www.gnu.org.                          |-->
+<!--|                                                                      |-->
+<!--+======================================================================+-->
+
+<project default="most" name="JBoss/Aspects-JDK5">
+
+   <target name="most">
+      <ant dir="../aspects" target="most" />
+   </target>
+   <target name="all">
+      <ant dir="../aspects" target="all" />
+   </target>
+   <target name="clean">
+   </target>
+
+</project>
+

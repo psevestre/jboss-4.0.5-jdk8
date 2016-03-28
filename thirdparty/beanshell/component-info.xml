@@ -1,0 +1,16 @@
+<project name="beanshell-component-info">
+
+   <component id="beanshell"
+      version="1.3.0"
+      licenseType="lgpl"
+      projectHome="http://www.beanshell.org/"
+      description="Lightweight Scripting for Java"
+   >
+      <artifact id="bsh-1.3.0.jar"/>
+      <export>
+         <include input="bsh-1.3.0.jar"/>
+      </export>
+   </component>
+
+
+</project>

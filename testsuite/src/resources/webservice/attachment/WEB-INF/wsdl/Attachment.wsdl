@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="Attachment" targetNamespace="http://org.jboss.webservice/attachment"
+  xmlns:tns="http://org.jboss.webservice/attachment" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+  <types/>
+
+  <message name="Attachment_send">
+    <part name="message" type="xsd:string"/>
+    <part name="mimepart" type="xsd:hexBinary"/>
+  </message>
+  <message name="Attachment_sendResponse">
+    <part name="result" type="xsd:string"/>
+  </message>
+  <message name="Attachment_echo">
+    <part name="mimepart" type="xsd:hexBinary"/>
+  </message>
+  <message name="Attachment_echoResponse">
+    <part name="result" type="xsd:hexBinary"/>
+  </message>
+
+  <portType name="Attachment">
+    <operation name="sendMimeImageGIF">
+      <input message="tns:Attachment_send"/>
+      <output message="tns:Attachment_sendResponse"/>
+    </operation>
+    <operation name="sendMimeImageJPEG">
+      <input message="tns:Attachment_send"/>
+      <output message="tns:Attachment_sendResponse"/>
+    </operation>
+    <operation name="sendMimeTextPlain">
+      <input message="tns:Attachment_send"/>
+      <output message="tns:Attachment_sendResponse"/>
+    </operation>
+    <operation name="sendMimeMultipart">
+      <input message="tns:Attachment_send"/>
+      <output message="tns:Attachment_sendResponse"/>
+    </operation>
+    <operation name="sendMimeTextXML">
+      <input message="tns:Attachment_send"/>
+      <output message="tns:Attachment_sendResponse"/>
+    </operation>
+    <operation name="sendMimeApplicationXML">
+      <input message="tns:Attachment_send"/>
+      <output message="tns:Attachment_sendResponse"/>
+    </operation>
+
+    <operation name="echoMimeImageGIF">
+      <input message="tns:Attachment_echo"/>
+      <output message="tns:Attachment_echoResponse"/>
+    </operation>
+    <operation name="echoMimeImageJPEG">
+      <input message="tns:Attachment_echo"/>
+      <output message="tns:Attachment_echoResponse"/>
+    </operation>
+    <operation name="echoMimeTextPlain">
+      <input message="tns:Attachment_echo"/>
+      <output message="tns:Attachment_echoResponse"/>
+    </operation>
+    <operation name="echoMimeMultipart">
+      <input message="tns:Attachment_echo"/>
+      <output message="tns:Attachment_echoResponse"/>
+    </operation>
+    <operation name="echoMimeTextXML">
+      <input message="tns:Attachment_echo"/>
+      <output message="tns:Attachment_echoResponse"/>
+    </operation>
+    <operation name="echoMimeApplicationXML">
+      <input message="tns:Attachment_echo"/>
+      <output message="tns:Attachment_echoResponse"/>
+    </operation>
+    <operation name="echoHandler">
+      <input message="tns:Attachment_echo"/>
+      <output message="tns:Attachment_echoResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="AttachmentBinding" type="tns:Attachment">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+
+    <operation name="sendMimeImageGIF">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <soap:body part="message" use="literal" namespace="http://org.jboss.webservice/attachment"/>
+          </mime:part>
+          <mime:part>
+            <mime:content part="mimepart" type="image/gif"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/attachment"/>
+      </output>
+    </operation>
+    <operation name="sendMimeImageJPEG">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <soap:body part="message" use="literal" namespace="http://org.jboss.webservice/attachment"/>
+          </mime:part>
+          <mime:part>
+            <mime:content part="mimepart" type="image/jpeg"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/attachment"/>
+      </output>
+    </operation>
+    <operation name="sendMimeTextPlain">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <soap:body part="message" use="literal" namespace="http://org.jboss.webservice/attachment"/>
+          </mime:part>
+          <mime:part>
+            <mime:content part="mimepart" type="text/plain"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/attachment"/>
+      </output>
+    </operation>
+    <operation name="sendMimeMultipart">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <soap:body part="message" use="literal" namespace="http://org.jboss.webservice/attachment"/>
+          </mime:part>
+          <mime:part>
+            <mime:content part="mimepart" type="multipart/mixed"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/attachment"/>
+      </output>
+    </operation>
+    <operation name="sendMimeTextXML">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <soap:body part="message" use="literal" namespace="http://org.jboss.webservice/attachment"/>
+          </mime:part>
+          <mime:part>
+            <mime:content part="mimepart" type="text/xml"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/attachment"/>
+      </output>
+    </operation>
+    <operation name="sendMimeApplicationXML">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <soap:body part="message" use="literal" namespace="http://org.jboss.webservice/attachment"/>
+          </mime:part>
+          <mime:part>
+            <mime:content part="mimepart" type="application/xml"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/attachment"/>
+      </output>
+    </operation>
+
+    <operation name="echoMimeImageGIF">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="mimepart" type="image/gif"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="result" type="image/gif"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </output>
+    </operation>
+    <operation name="echoMimeImageJPEG">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="mimepart" type="image/jpeg"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="result" type="image/jpeg"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </output>
+    </operation>
+    <operation name="echoMimeTextPlain">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="mimepart" type="text/plain"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="result" type="text/plain"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </output>
+    </operation>
+    <operation name="echoMimeMultipart">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="mimepart" type="multipart/mixed"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="result" type="multipart/mixed"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </output>
+    </operation>
+    <operation name="echoMimeTextXML">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="mimepart" type="text/xml"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="result" type="text/xml"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </output>
+    </operation>
+    <operation name="echoMimeApplicationXML">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="mimepart" type="application/xml"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="result" type="application/xml"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </output>
+    </operation>
+    <operation name="echoHandler">
+      <soap:operation soapAction=""/>
+      <input>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="mimepart" type="text/xml"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </input>
+      <output>
+        <mime:multipartRelated>
+          <mime:part>
+            <mime:content part="result" type="text/xml"/>
+          </mime:part>
+        </mime:multipartRelated>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="Attachment">
+    <port name="AttachmentPort" binding="tns:AttachmentBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+</definitions>

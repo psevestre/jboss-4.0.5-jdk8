@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="SampleEndpointService" targetNamespace="http://ws.sample" xmlns:tns="http://ws.sample" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <schema targetNamespace="http://ws.sample" xmlns:tns="http://ws.sample" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="changeSalary">
+        <sequence>
+          <element name="UserType_1" type="tns:UserType" nillable="true"/>
+          <element name="Integer_2" type="int" nillable="true"/>
+        </sequence>
+      </complexType>
+      <complexType name="UserType">
+        <sequence>
+          <element name="firstName" type="string" nillable="true"/>
+          <element name="lastName" type="string" nillable="true"/>
+        </sequence>
+      </complexType>
+      <complexType name="changeSalaryResponse">
+        <sequence>
+          <element name="result" type="string" nillable="true"/>
+        </sequence>
+      </complexType>
+      <element name="changeSalary" type="tns:changeSalary"/>
+      <element name="changeSalaryResponse" type="tns:changeSalaryResponse"/>
+    </schema>
+  </types>
+  <message name="SampleEndpoint_changeSalary">
+    <part name="parameters" element="tns:changeSalary"/>
+  </message>
+  <message name="SampleEndpoint_changeSalaryResponse">
+    <part name="result" element="tns:changeSalaryResponse"/>
+  </message>
+  <portType name="SampleEndpoint">
+    <operation name="changeSalary">
+      <input message="tns:SampleEndpoint_changeSalary"/>
+      <output message="tns:SampleEndpoint_changeSalaryResponse"/>
+    </operation>
+  </portType>
+  <binding name="SampleEndpointBinding" type="tns:SampleEndpoint">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="changeSalary">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SampleEndpointService">
+    <port name="SampleEndpointPort" binding="tns:SampleEndpointBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+</definitions>

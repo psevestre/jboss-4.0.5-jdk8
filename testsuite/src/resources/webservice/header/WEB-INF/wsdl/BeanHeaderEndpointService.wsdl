@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  This WSDL uses the SessionHeader as IN header defined in the binding AND in the message parts
+  The header parameter is seen by the service endpoint interface.
+ -->
+<definitions name="HeaderEndpointService" targetNamespace="http://ws.sample" xmlns:tns="http://ws.sample" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <schema targetNamespace="http://ws.sample" xmlns:tns="http://ws.sample" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="SessionHeader">
+        <sequence>
+          <element name="sessionID" type="string" nillable="true"/>
+          <element name="username" type="string" nillable="true"/>
+        </sequence>
+      </complexType>
+      <element name="SessionHeader" type="tns:SessionHeader"/>
+    </schema>
+  </types>
+  <message name="HeaderEndpoint_doStuff">
+    <part name="parameter" type="xsd:string"/>
+    <part name="header" element="tns:SessionHeader"/>
+  </message>
+  <message name="HeaderEndpoint_doStuffResponse">
+    <part name="result" type="xsd:boolean"/>
+  </message>
+  <portType name="HeaderEndpoint">
+    <!-- wscompile-1.5 does not acccept, parameterOrder="parameter header" -->
+    <operation name="doStuff" parameterOrder="parameter header">
+      <input message="tns:HeaderEndpoint_doStuff"/>
+      <output message="tns:HeaderEndpoint_doStuffResponse"/>
+    </operation>
+  </portType>
+  <binding name="HeaderEndpointBinding" type="tns:HeaderEndpoint">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="doStuff">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:header part="header" use="literal" message="tns:HeaderEndpoint_doStuff"/>
+        <soap:body parts="parameter" use="literal" namespace="http://ws.sample"/>
+      </input>
+      <output>
+        <soap:body parts="result" use="literal" namespace="http://ws.sample"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="BeanHeaderEndpointService">
+    <port name="HeaderEndpointPort" binding="tns:HeaderEndpointBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java-wsdl-mapping version="1.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee    http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd">
+  <package-mapping>
+    <package-type>org.jboss.test.webservice.samples2</package-type>
+    <namespaceURI>http://org.jboss.test.webservice/samples2/types</namespaceURI>
+  </package-mapping>
+  <package-mapping>
+    <package-type>org.jboss.test.webservice.samples2</package-type>
+    <namespaceURI>http://org.jboss.test.webservice/samples2</namespaceURI>
+  </package-mapping>
+  <package-mapping>
+    <package-type>org.jboss.test.webservice.samples2._arrays.org.jboss.test.webservice.samples2</package-type>
+    <namespaceURI>http://org.jboss.test.webservice/samples2/types/arrays/org/jboss/test/webservice/samples2</namespaceURI>
+  </package-mapping>
+  <java-xml-type-mapping>
+    <java-type>org.jboss.test.webservice.samples2.OrderException</java-type>
+    <root-type-qname xmlns:typeNS="http://org.jboss.test.webservice/samples2/types">typeNS:OrderException</root-type-qname>
+    <qname-scope>complexType</qname-scope>
+    <variable-mapping>
+      <java-variable-name>message</java-variable-name>
+      <xml-element-name>message</xml-element-name>
+    </variable-mapping>
+  </java-xml-type-mapping>
+  <java-xml-type-mapping>
+    <java-type>org.jboss.test.webservice.samples2.OrderItem</java-type>
+    <root-type-qname xmlns:typeNS="http://org.jboss.test.webservice/samples2/types">typeNS:OrderItem</root-type-qname>
+    <qname-scope>complexType</qname-scope>
+    <variable-mapping>
+      <java-variable-name>name</java-variable-name>
+      <xml-element-name>name</xml-element-name>
+    </variable-mapping>
+    <variable-mapping>
+      <java-variable-name>quantity</java-variable-name>
+      <xml-element-name>quantity</xml-element-name>
+    </variable-mapping>
+  </java-xml-type-mapping>
+  <java-xml-type-mapping>
+    <java-type>org.jboss.test.webservice.samples2.Person</java-type>
+    <root-type-qname xmlns:typeNS="http://org.jboss.test.webservice/samples2/types">typeNS:Person</root-type-qname>
+    <qname-scope>complexType</qname-scope>
+    <variable-mapping>
+      <java-variable-name>age</java-variable-name>
+      <xml-element-name>age</xml-element-name>
+    </variable-mapping>
+    <variable-mapping>
+      <java-variable-name>name</java-variable-name>
+      <xml-element-name>name</xml-element-name>
+    </variable-mapping>
+  </java-xml-type-mapping>
+  <java-xml-type-mapping>
+    <java-type>org.jboss.test.webservice.samples2.OrderResponse</java-type>
+    <root-type-qname xmlns:typeNS="http://org.jboss.test.webservice/samples2/types">typeNS:OrderResponse</root-type-qname>
+    <qname-scope>complexType</qname-scope>
+    <variable-mapping>
+      <java-variable-name>items</java-variable-name>
+      <xml-element-name>items</xml-element-name>
+    </variable-mapping>
+    <variable-mapping>
+      <java-variable-name>message</java-variable-name>
+      <xml-element-name>message</xml-element-name>
+    </variable-mapping>
+  </java-xml-type-mapping>
+  <exception-mapping>
+    <exception-type>org.jboss.test.webservice.samples2.OrderException</exception-type>
+    <wsdl-message xmlns:exMsgNS="http://org.jboss.test.webservice/samples2">exMsgNS:OrderException</wsdl-message>
+    <constructor-parameter-order>
+      <element-name>message</element-name>
+    </constructor-parameter-order>
+  </exception-mapping>
+  <service-interface-mapping>
+    <service-interface>org.jboss.test.webservice.samples2.OrderProcessService</service-interface>
+    <wsdl-service-name xmlns:serviceNS="http://org.jboss.test.webservice/samples2">serviceNS:OrderProcessService</wsdl-service-name>
+    <port-mapping>
+      <port-name>OrderProcessPort</port-name>
+      <java-port-name>OrderProcessPort</java-port-name>
+    </port-mapping>
+  </service-interface-mapping>
+  <service-endpoint-interface-mapping>
+    <service-endpoint-interface>org.jboss.test.webservice.samples2.OrderProcess</service-endpoint-interface>
+    <wsdl-port-type xmlns:portTypeNS="http://org.jboss.test.webservice/samples2">portTypeNS:OrderProcess</wsdl-port-type>
+    <wsdl-binding xmlns:bindingNS="http://org.jboss.test.webservice/samples2">bindingNS:OrderProcessBinding</wsdl-binding>
+    <service-endpoint-method-mapping>
+      <java-method-name>processOrder</java-method-name>
+      <wsdl-operation>processOrder</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>org.jboss.test.webservice.samples2.OrderItem[]</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.test.webservice/samples2">wsdlMsgNS:OrderProcess_processOrder</wsdl-message>
+          <wsdl-message-part-name>arrayOfOrderItem_1</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <method-param-parts-mapping>
+        <param-position>1</param-position>
+        <param-type>org.jboss.test.webservice.samples2.Person</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.test.webservice/samples2">wsdlMsgNS:OrderProcess_processOrder</wsdl-message>
+          <wsdl-message-part-name>Person_2</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>org.jboss.test.webservice.samples2.OrderResponse</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.test.webservice/samples2">wsdlMsgNS:OrderProcess_processOrderResponse</wsdl-message>
+        <wsdl-message-part-name>result</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+  </service-endpoint-interface-mapping>
+</java-wsdl-mapping>

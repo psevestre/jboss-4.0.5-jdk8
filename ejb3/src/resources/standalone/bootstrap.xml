@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<deployment>
+   <bean name="Naming" class="org.jnp.server.SingletonNamingServer"/>
+   
+   <bean name="XidFactory" class="org.jboss.tm.XidFactoryImpl"/>
+
+   <bean name="TransactionManagerInitializer" class="org.jboss.tm.TransactionManagerInitializer">
+      <property name="xidFactory"><inject bean="XidFactory"/></property>
+   </bean>
+
+   <bean name="TransactionManager" class="java.lang.Object">
+      <constructor factoryMethod="getTransactionManager">
+         <factory value="TransactionManagerInitializer"/>
+      </constructor>
+   </bean>
+   <bean name="CachedConnectionManager" class="org.jboss.resource.connectionmanager.CachedConnectionManagerReference">
+      <property name="transactionManager"><inject bean="TransactionManager"/></property>
+   </bean>
+
+   <bean name="DefaultDS" class="org.jboss.resource.adapter.jdbc.local.LocalTxDataSource">
+      <property name="driverClass">org.hsqldb.jdbcDriver</property>
+      <property name="connectionURL">jdbc:hsqldb:.</property>
+      <property name="userName">sa</property>
+      <property name="jndiName">java:/DefaultDS</property>
+      <property name="transactionManager"><inject bean="TransactionManager"/></property>
+      <property name="cachedConnectionManager"><inject bean="CachedConnectionManager"/></property>
+   </bean>
+
+</deployment>

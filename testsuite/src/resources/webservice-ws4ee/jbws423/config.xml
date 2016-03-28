@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   wscompile -cp ../../../../output/classes -gen:server -f:rpcliteral -keep -mapping jaxrpc-mapping.xml config.xml
+-->
+
+<configuration
+  xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+
+  <service name="TestService"
+    targetNamespace="http://org.jboss.test.webservice/jbws423"
+    typeNamespace="http://org.jboss.test.webservice/jbws423/types"
+    packageName="org.jboss.test.webservice.jbws423">
+    <interface name="org.jboss.test.webservice.jbws423.DemoEndpoint"/>
+  </service>
+
+</configuration>
+
+<!-- Add these type mappings
+  <java-xml-type-mapping>
+    <java-type>org.jboss.test.webservice.jbws423._arrays.org.jboss.test.webservice.jbws423.ValueObjArray</java-type>
+    <root-type-qname xmlns:typeNS="http://org.jboss.test.webservice/jbws423/types/arrays/org/jboss/test/webservice/jbws423">typeNS:ValueObjArray</root-type-qname>
+    <qname-scope>complexType</qname-scope>
+  </java-xml-type-mapping>
+  <java-xml-type-mapping>
+    <java-type>org.jboss.test.webservice.jbws423.ValueObj</java-type>
+    <root-type-qname xmlns:typeNS="http://org.jboss.test.webservice/jbws423/types">typeNS:ValueObj</root-type-qname>
+    <qname-scope>complexType</qname-scope>
+  </java-xml-type-mapping>
+-->

@@ -1,0 +1,22 @@
+<project name="apache-myfaces-component-info">
+
+   <component id="apache-myfaces"
+              licenseType="apache-2.0"
+              version="1.1.4"
+              projectHome="http://myfaces.apache.org"
+         description="JavaServer(tm) Faces Implementation">
+
+      <artifact id="myfaces-api.jar"/>
+      <artifact id="myfaces-impl.jar"/>
+      <artifact id="jstl.jar"/>
+      <import componentref="apache-lang">
+         <compatible version="2.1"/>
+      </import>
+      <export>
+         <include input="myfaces-api.jar"/>
+         <include input="myfaces-impl.jar"/>
+         <include input="jstl.jar"/>
+      </export>
+   </component>
+
+</project>

@@ -1,0 +1,12 @@
+<project name="apache-commons-pool">
+   <component id="apache-pool"
+              licenseType="apache-2.0"
+              version="1.0.1"
+              projectHome="http://jakarta.apache.org/commons/logging/">
+      <artifact id="commons-pool.jar"/>
+      <export>
+         <include input="commons-pool.jar"/>
+      </export>
+   </component>
+
+</project>

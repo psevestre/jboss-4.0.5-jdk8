@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" version="2.4"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  <servlet>
+    <servlet-name>OrganizationClientServlet</servlet-name>
+    <servlet-class>org.jboss.test.webservice.samples.OrganizationClientServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>OrganizationClientServlet</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+
+  <service-ref>
+    <service-ref-name>service/OrganizationServiceEJB</service-ref-name>
+    <service-interface>javax.xml.rpc.Service</service-interface>
+    <wsdl-file>USE_JBOSS_WEB_XML_OVERRIDE</wsdl-file>
+    <jaxrpc-mapping-file>WEB-INF/jaxrpc-mapping.xml</jaxrpc-mapping-file>
+    <handler>
+      <handler-name>TestHandler</handler-name>
+      <handler-class>org.jboss.test.webservice.samples.ClientSideHandler</handler-class>
+    </handler>
+  </service-ref>
+  <service-ref>
+    <service-ref-name>service/OrganizationServiceJSE</service-ref-name>
+    <service-interface>org.jboss.test.webservice.samples.OrganizationService</service-interface>
+    <wsdl-file>USE_JBOSS_WEB_XML_OVERRIDE</wsdl-file>
+    <jaxrpc-mapping-file>WEB-INF/jaxrpc-mapping.xml</jaxrpc-mapping-file>
+    <handler>
+      <handler-name>TestHandler</handler-name>
+      <handler-class>org.jboss.test.webservice.samples.ClientSideHandler</handler-class>
+    </handler>
+  </service-ref>
+
+</web-app>

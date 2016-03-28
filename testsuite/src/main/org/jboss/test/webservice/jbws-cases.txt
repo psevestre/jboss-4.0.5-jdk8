@@ -1,0 +1,53 @@
+# $Id: jbws-cases.txt 43656 2006-04-11 18:51:25Z tdiesler $
+
+JBAS-897    invalid ejb-link
+JBWS-64     NPE with invalid namespace in msg
+JBWS-68     Response message uses XSD type instead of wsdl msg part name
+JBWS-70     document literal style and ws method with no parameter
+JBWS-71     Cannot find custom datatypes in WEB-INF/lib
+JBWS-79     Cannot deploy a ws containing more than one service per wsdl
+JBWS-82     Access to /context/services/Foo is denied
+JBWS-83     XML-> Java naming in jaxrpc mapping file is not honored
+JBWS-84     Cannot use subclass of org.w3c.dom.Element when mapping document fragments
+JBWS-124    Redeployment of an unpackaged war causes a NoSuchMethodException at runtime
+JBWS-128    Cannot load client wsdl from war inside an ear
+JBWS-153    invalid schemaLocation generated for imported schema
+JBWS-163    Problems mapping between xsd:unsignedLong and javax.xml.rpc.holders.BigIntegerHolder
+JBWS-165    Deployment sharing the same servlet context
+JBWS-167    SAAJ implementation does not add soapAction header
+JBWS-168    soap response does not respect minOccurs=0
+JBWS-217    simpletype primitives fails to deploy
+JBWS-231    Handle Simple Types with Enumerated Values
+JBWS-251    SOAP fault inheritance
+JBWS-309    Authorization Error using JBossWS together with JACC
+JBWS-316    field of type byte[] does not serialize correctly in doc/lit web service
+JBWS-331    EAR deployment of ejb.jar + ws-ejb.jar
+JBWS-349    Polymorphism in return types
+JBWS-358    Unpackaged ear deployments with unpackaged jars inside them do not undeploy WS correctly
+JBWS-377    Document/Literal parameter wrapping with null values
+JBWS-381    JBoss creates SOAP messages that don't conform WS-I
+JBWS-383    JBoss doesn't propertly support JavaBeans with array-type properties.
+JBWS-413    JBoss ignores metadata supplied in a JAX-RPC Mapping DD. Part 1
+JBWS-414    JBoss ignores metadata supplied in a JAX-RPC Mapping DD. Part 2
+JBWS-423    'No serializer found' exception for method returning an array of objects
+JBWS-424    JBoss ignores metadata supplied in a JAX-RPC Mapping DD. Part 3
+JBWS-425    No SOAPAction when message is sent with SOAPConnection
+JBWS-456    JBoss incorrectly implements SOAP serialization semantics.
+JBWS-463    JBoss doesn't support overloaded methods in SEIs
+JBWS-464    soapEnvelope.getOwnerDocument() should not return null
+JBWS-484    Parameter name cannot start from a single lower case letter
+JBWS-626    No deserializer found for array of complex types with scoped classloading
+JBWS-632    String[][] deserialization error
+JBWS-637    Multiple bindings are not supported
+JBWS-663    SOAP headers with doc/lit endpoints
+JBWS-706    rpc-literal binding MUST namespace qualify the descendents of part accessor elements
+JBWS-707    white spaces within <![CDATA[ ]]> element of a SOAP message are not retained
+JBWS-710    Document/Literal webservices that are oneway
+JBWS-718    DOM Serialization in ServiceReferencable leads to stack overflow
+JBWS-720    Handling of xml:lang and any namespace="##other"
+JBWS-751    Multiple schema imports with the same namespace
+JBWS-772    Web services deployment can fail when deploying multiple EJB JARs
+JBWS-775    ComplexType cannot be constructed from attributes
+
+
+

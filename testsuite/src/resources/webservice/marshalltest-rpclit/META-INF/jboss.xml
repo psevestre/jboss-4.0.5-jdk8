@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE jboss PUBLIC "-//JBoss//DTD JBOSS 4.0//EN" "http://www.jboss.org/j2ee/dtd/jboss_4_0.dtd">
+
+<jboss>
+
+  <enterprise-beans>
+    <session>
+      <ejb-name>MarshallRpcLitBean</ejb-name>
+      <jndi-name>test/webservice/MarshallRpcLitBean</jndi-name>
+      <port-component>
+        <port-component-name>MarshallServicePort</port-component-name>
+        <port-component-uri>/ws4ee-marshall-rpclit/*</port-component-uri>
+      </port-component>
+    </session>
+  </enterprise-beans>
+
+</jboss>

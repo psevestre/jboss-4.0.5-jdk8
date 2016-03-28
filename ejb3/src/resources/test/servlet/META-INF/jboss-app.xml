@@ -1,0 +1,3 @@
+<jboss-app>
+   <loader-repository>jboss.test:war=servlet.war</loader-repository>
+</jboss-app>

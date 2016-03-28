@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java-wsdl-mapping version="1.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee    http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd">
+  <package-mapping>
+    <package-type>org.jboss.webservice.attachment</package-type>
+    <namespaceURI>http://org.jboss.webservice/attachment</namespaceURI>
+  </package-mapping>
+  <service-interface-mapping>
+    <service-interface>org.jboss.webservice.attachment.Attachment_Service</service-interface>
+    <wsdl-service-name xmlns:serviceNS="http://org.jboss.webservice/attachment">serviceNS:Attachment</wsdl-service-name>
+    <port-mapping>
+      <port-name>AttachmentPort</port-name>
+      <java-port-name>AttachmentPort</java-port-name>
+    </port-mapping>
+  </service-interface-mapping>
+  <service-endpoint-interface-mapping>
+    <service-endpoint-interface>org.jboss.test.webservice.attachment.Attachment</service-endpoint-interface>
+    <wsdl-port-type xmlns:portTypeNS="http://org.jboss.webservice/attachment">portTypeNS:Attachment</wsdl-port-type>
+    <wsdl-binding xmlns:bindingNS="http://org.jboss.webservice/attachment">bindingNS:AttachmentBinding</wsdl-binding>
+    <service-endpoint-method-mapping>
+      <java-method-name>sendMimeImageGIF</java-method-name>
+      <wsdl-operation>sendMimeImageGIF</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>java.lang.String</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>message</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <method-param-parts-mapping>
+        <param-position>1</param-position>
+        <param-type>java.awt.Image</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>java.lang.String</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_sendResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+    <service-endpoint-method-mapping>
+      <java-method-name>sendMimeImageJPEG</java-method-name>
+      <wsdl-operation>sendMimeImageJPEG</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>java.lang.String</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>message</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <method-param-parts-mapping>
+        <param-position>1</param-position>
+        <param-type>java.awt.Image</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>java.lang.String</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_sendResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+    <service-endpoint-method-mapping>
+      <java-method-name>sendMimeTextPlain</java-method-name>
+      <wsdl-operation>sendMimeTextPlain</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>java.lang.String</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>message</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <method-param-parts-mapping>
+        <param-position>1</param-position>
+        <param-type>java.lang.String</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>java.lang.String</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_sendResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+    <service-endpoint-method-mapping>
+      <java-method-name>sendMimeMultipart</java-method-name>
+      <wsdl-operation>sendMimeMultipart</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>java.lang.String</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>message</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <method-param-parts-mapping>
+        <param-position>1</param-position>
+        <param-type>javax.mail.internet.MimeMultipart</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>java.lang.String</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_sendResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+    <service-endpoint-method-mapping>
+      <java-method-name>sendMimeTextXML</java-method-name>
+      <wsdl-operation>sendMimeTextXML</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>java.lang.String</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>message</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <method-param-parts-mapping>
+        <param-position>1</param-position>
+        <param-type>javax.xml.transform.Source</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>java.lang.String</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_sendResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+    <service-endpoint-method-mapping>
+      <java-method-name>sendMimeApplicationXML</java-method-name>
+      <wsdl-operation>sendMimeApplicationXML</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>java.lang.String</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>message</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <method-param-parts-mapping>
+        <param-position>1</param-position>
+        <param-type>javax.xml.transform.Source</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_send</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>java.lang.String</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_sendResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+
+    <service-endpoint-method-mapping>
+      <java-method-name>echoMimeImageGIF</java-method-name>
+      <wsdl-operation>echoMimeImageGIF</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>java.awt.Image</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echo</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>java.awt.Image</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echoResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+    <service-endpoint-method-mapping>
+      <java-method-name>echoMimeImageJPEG</java-method-name>
+      <wsdl-operation>echoMimeImageJPEG</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>java.awt.Image</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echo</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>java.awt.Image</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echoResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+    <service-endpoint-method-mapping>
+      <java-method-name>echoMimeTextPlain</java-method-name>
+      <wsdl-operation>echoMimeTextPlain</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>java.lang.String</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echo</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>java.lang.String</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echoResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+    <service-endpoint-method-mapping>
+      <java-method-name>echoMimeMultipart</java-method-name>
+      <wsdl-operation>echoMimeMultipart</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>javax.mail.internet.MimeMultipart</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echo</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>javax.mail.internet.MimeMultipart</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echoResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+    <service-endpoint-method-mapping>
+      <java-method-name>echoMimeTextXML</java-method-name>
+      <wsdl-operation>echoMimeTextXML</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>javax.xml.transform.Source</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echo</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>javax.xml.transform.Source</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echoResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+    <service-endpoint-method-mapping>
+      <java-method-name>echoMimeApplicationXML</java-method-name>
+      <wsdl-operation>echoMimeApplicationXML</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>javax.xml.transform.Source</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echo</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>javax.xml.transform.Source</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echoResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+    <service-endpoint-method-mapping>
+      <java-method-name>echoHandler</java-method-name>
+      <wsdl-operation>echoHandler</wsdl-operation>
+      <method-param-parts-mapping>
+        <param-position>0</param-position>
+        <param-type>javax.activation.DataHandler</param-type>
+        <wsdl-message-mapping>
+          <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echo</wsdl-message>
+          <wsdl-message-part-name>mimepart</wsdl-message-part-name>
+          <parameter-mode>IN</parameter-mode>
+        </wsdl-message-mapping>
+      </method-param-parts-mapping>
+      <wsdl-return-value-mapping>
+        <method-return-value>javax.activation.DataHandler</method-return-value>
+        <wsdl-message xmlns:wsdlMsgNS="http://org.jboss.webservice/attachment">wsdlMsgNS:Attachment_echoResponse</wsdl-message>
+        <wsdl-message-part-name>response</wsdl-message-part-name>
+      </wsdl-return-value-mapping>
+    </service-endpoint-method-mapping>
+  </service-endpoint-interface-mapping>
+</java-wsdl-mapping>

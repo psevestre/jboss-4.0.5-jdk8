@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name='OrderProcessService' targetNamespace='http://org.jboss.test.webservice/samples2' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='http://org.jboss.test.webservice/sampels2/types' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://org.jboss.test.webservice/samples2' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <schema targetNamespace='http://org.jboss.test.webservice/sampels2/types' xmlns='http://www.w3.org/2001/XMLSchema' xmlns:soap11-enc='http://schemas.xmlsoap.org/soap/encoding/' xmlns:tns='http://org.jboss.test.webservice/sampels2/types' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+   <complexType name='OrderException'>
+    <sequence>
+     <element name='message' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <complexType name='OrderItem'>
+    <sequence>
+     <element name='name' nillable='true' type='string'/>
+     <element name='quantity' type='int'/>
+    </sequence>
+   </complexType>
+   <complexType name='OrderProcess_processOrder_RequestStruct'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOfOrderItem_1' nillable='true' type='tns:OrderItem'/>
+     <element name='person_2' nillable='true' type='tns:Person'/>
+    </sequence>
+   </complexType>
+   <complexType name='OrderProcess_processOrder_ResponseStruct'>
+    <sequence>
+     <element name='result' nillable='true' type='tns:OrderResponse'/>
+    </sequence>
+   </complexType>
+   <complexType name='OrderResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='items' nillable='true' type='tns:OrderItem'/>
+     <element name='message' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <complexType name='Person'>
+    <sequence>
+     <element name='age' type='int'/>
+     <element name='name' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <element name='OrderException' type='tns:OrderException'/>
+   <element name='processOrder' type='tns:OrderProcess_processOrder_RequestStruct'/>
+   <element name='processOrderResponse' type='tns:OrderProcess_processOrder_ResponseStruct'/>
+  </schema>
+ </types>
+ <message name='OrderProcessBare_processOrder'>
+  <part element='ns1:processOrder' name='parameters'/>
+ </message>
+ <message name='OrderProcessBare_processOrderResponse'>
+  <part element='ns1:processOrderResponse' name='result'/>
+ </message>
+ <message name='OrderException'>
+  <part element='ns1:OrderException' name='OrderException'/>
+ </message>
+ <portType name='OrderProcessBare'>
+  <operation name='processOrder'>
+   <input message='tns:OrderProcessBare_processOrder'/>
+   <output message='tns:OrderProcessBare_processOrderResponse'/>
+   <fault message='tns:OrderException' name='OrderException'/>
+  </operation>
+ </portType>
+ <binding name='OrderProcessBareBinding' type='tns:OrderProcessBare'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='processOrder'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='OrderException'>
+    <soap:fault name='OrderException' use='literal'/>
+   </fault>
+  </operation>
+ </binding>
+ <service name='OrderProcessService'>
+  <port binding='tns:OrderProcessBareBinding' name='OrderProcessBarePort'>
+   <soap:address location='REPLACE_WITH_ACTUAL_URL'/>
+  </port>
+ </service>
+</definitions>

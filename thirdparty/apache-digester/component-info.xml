@@ -1,0 +1,15 @@
+<project name="apache-commons-digester">
+   <component id="apache-digester"
+              licenseType="apache-2.0"
+              version="1.6"
+              projectHome="http://jakarta.apache.org/commons/digester/"
+              description='XML to Java object mapping module'>
+      <artifact id="commons-digester.jar"/>
+      <artifact id="commons-digester-1.6.jar"/>
+      <export>
+         <include input="commons-digester.jar"/>
+         <include input="commons-digester-1.6.jar"/>
+      </export>
+   </component>
+
+</project>

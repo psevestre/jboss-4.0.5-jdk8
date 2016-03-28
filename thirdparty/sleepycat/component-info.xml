@@ -1,0 +1,14 @@
+<project name="sleepycat-component-info">
+
+   <component id="sleepycat"
+              version="1.5.2"
+              projectHome="http://www.sleepycat.com"
+              description="Used for Sleepcat-based CacheLoader (org.jboss.cache.loader.bdbje.BdbjeCacheLoader)">
+      <artifact id="je.jar"/>
+      <export>
+         <include input="je.jar"/>
+      </export>
+   </component>
+
+
+</project>

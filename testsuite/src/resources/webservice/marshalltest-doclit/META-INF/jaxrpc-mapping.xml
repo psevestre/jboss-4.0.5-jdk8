@@ -1,0 +1,1150 @@
+<?xml version='1.0' encoding='UTF-8'?><java-wsdl-mapping version='1.1' xmlns='http://java.sun.com/xml/ns/j2ee' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://java.sun.com/xml/ns/j2ee    http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd'>
+ <package-mapping>
+  <package-type>org.jboss.test.webservice.marshalltest.types</package-type>
+  <namespaceURI>http://types.marshalltest.webservice.test.jboss.org/jaws</namespaceURI>
+ </package-mapping>
+ <package-mapping>
+  <package-type>org.jboss.test.webservice.marshalltest</package-type>
+  <namespaceURI>http://org.jboss.webservice/marshalltest-doclit/types</namespaceURI>
+ </package-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoString_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoString</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>string_1</java-variable-name>
+   <xml-element-name>String_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoString_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoStringResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoInteger_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoInteger</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>bigInteger_1</java-variable-name>
+   <xml-element-name>BigInteger_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoInteger_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoIntegerResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoInt_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoInt</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>int_1</java-variable-name>
+   <xml-element-name>int_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoInt_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoIntResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoLong_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoLong</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>long_1</java-variable-name>
+   <xml-element-name>long_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoLong_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoLongResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoShort_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoShort</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>short_1</java-variable-name>
+   <xml-element-name>short_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoShort_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoShortResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDecimal_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDecimal</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>bigDecimal_1</java-variable-name>
+   <xml-element-name>BigDecimal_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDecimal_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDecimalResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoFloat_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoFloat</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>float_1</java-variable-name>
+   <xml-element-name>float_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoFloat_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoFloatResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDouble_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDouble</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>double_1</java-variable-name>
+   <xml-element-name>double_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDouble_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDoubleResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoBoolean_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoBoolean</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>boolean_1</java-variable-name>
+   <xml-element-name>boolean_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoBoolean_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoBooleanResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoByte_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoByte</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>byte_1</java-variable-name>
+   <xml-element-name>byte_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoByte_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoByteResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoQName_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoQName</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>qName_1</java-variable-name>
+   <xml-element-name>QName_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoQName_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoQNameResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDateTimeCalendar_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDateTimeCalendar</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>calendar_1</java-variable-name>
+   <xml-element-name>Calendar_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDateTimeCalendar_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDateTimeCalendarResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDateTimeDate_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDateTimeDate</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>date_1</java-variable-name>
+   <xml-element-name>Date_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDateTimeDate_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDateTimeDateResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDateCalendar_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDateCalendar</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>calendar_1</java-variable-name>
+   <xml-element-name>Calendar_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDateCalendar_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDateCalendarResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDateDate_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDateDate</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>date_1</java-variable-name>
+   <xml-element-name>Date_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDateDate_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDateDateResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoBase64Binary_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoBase64Binary</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfbyte_1</java-variable-name>
+   <xml-element-name>arrayOfbyte_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoBase64Binary_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoBase64BinaryResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoHexBinary_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoHexBinary</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfbyte_1</java-variable-name>
+   <xml-element-name>arrayOfbyte_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoHexBinary_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoHexBinaryResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.types.Bean</java-type>
+  <root-type-qname xmlns:typeNS='http://types.marshalltest.webservice.test.jboss.org/jaws'>typeNS:Bean</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>base64</java-variable-name>
+   <xml-element-name>base64</xml-element-name>
+  </variable-mapping>
+  <variable-mapping>
+   <java-variable-name>x</java-variable-name>
+   <xml-element-name>x</xml-element-name>
+  </variable-mapping>
+  <variable-mapping>
+   <java-variable-name>y</java-variable-name>
+   <xml-element-name>y</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoBean_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoBean</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>bean_1</java-variable-name>
+   <xml-element-name>Bean_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoBean_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoBeanResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoStringArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoStringArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfString_1</java-variable-name>
+   <xml-element-name>arrayOfString_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoStringArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoStringArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoIntegerArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoIntegerArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfBigInteger_1</java-variable-name>
+   <xml-element-name>arrayOfBigInteger_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoIntegerArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoIntegerArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoIntArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoIntArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfint_1</java-variable-name>
+   <xml-element-name>arrayOfint_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoIntArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoIntArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoLongArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoLongArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOflong_1</java-variable-name>
+   <xml-element-name>arrayOflong_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoLongArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoLongArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoShortArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoShortArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfshort_1</java-variable-name>
+   <xml-element-name>arrayOfshort_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoShortArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoShortArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDecimalArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDecimalArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfBigDecimal_1</java-variable-name>
+   <xml-element-name>arrayOfBigDecimal_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDecimalArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDecimalArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoFloatArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoFloatArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOffloat_1</java-variable-name>
+   <xml-element-name>arrayOffloat_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoFloatArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoFloatArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDoubleArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDoubleArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfdouble_1</java-variable-name>
+   <xml-element-name>arrayOfdouble_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDoubleArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDoubleArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoBooleanArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoBooleanArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfboolean_1</java-variable-name>
+   <xml-element-name>arrayOfboolean_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoBooleanArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoBooleanArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoByteArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoByteArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfbyte_1</java-variable-name>
+   <xml-element-name>arrayOfbyte_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoByteArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoByteArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoQNameArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoQNameArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfQName_1</java-variable-name>
+   <xml-element-name>arrayOfQName_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoQNameArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoQNameArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDateTimeArray_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDateTimeArray</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>arrayOfCalendar_1</java-variable-name>
+   <xml-element-name>arrayOfCalendar_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>org.jboss.test.webservice.marshalltest.MarshallEndpoint_echoDateTimeArray_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://org.jboss.webservice/marshalltest-doclit/types'>typeNS:echoDateTimeArrayResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <service-interface-mapping>
+  <service-interface>org.jboss.test.webservice.marshalltest.MarshallDocLitService</service-interface>
+  <wsdl-service-name xmlns:serviceNS='http://org.jboss.webservice/marshalltest-doclit'>serviceNS:MarshallDocLitService</wsdl-service-name>
+  <port-mapping>
+   <port-name>MarshallEndpointPort</port-name>
+   <java-port-name>MarshallEndpointPort</java-port-name>
+  </port-mapping>
+ </service-interface-mapping>
+ <service-endpoint-interface-mapping>
+  <service-endpoint-interface>org.jboss.test.webservice.marshalltest.MarshallEndpoint</service-endpoint-interface>
+  <wsdl-port-type xmlns:portTypeNS='http://org.jboss.webservice/marshalltest-doclit'>portTypeNS:MarshallEndpoint</wsdl-port-type>
+  <wsdl-binding xmlns:bindingNS='http://org.jboss.webservice/marshalltest-doclit'>bindingNS:MarshallEndpointBinding</wsdl-binding>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoString</java-method-name>
+   <wsdl-operation>echoString</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.lang.String</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoString</wsdl-message>
+     <wsdl-message-part-name>String_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.lang.String</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoStringResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoInteger</java-method-name>
+   <wsdl-operation>echoInteger</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.math.BigInteger</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoInteger</wsdl-message>
+     <wsdl-message-part-name>BigInteger_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.math.BigInteger</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoIntegerResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoInt</java-method-name>
+   <wsdl-operation>echoInt</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>int</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoInt</wsdl-message>
+     <wsdl-message-part-name>int_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>int</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoIntResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoLong</java-method-name>
+   <wsdl-operation>echoLong</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>long</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoLong</wsdl-message>
+     <wsdl-message-part-name>long_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>long</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoLongResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoShort</java-method-name>
+   <wsdl-operation>echoShort</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>short</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoShort</wsdl-message>
+     <wsdl-message-part-name>short_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>short</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoShortResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoDecimal</java-method-name>
+   <wsdl-operation>echoDecimal</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.math.BigDecimal</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDecimal</wsdl-message>
+     <wsdl-message-part-name>BigDecimal_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.math.BigDecimal</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDecimalResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoFloat</java-method-name>
+   <wsdl-operation>echoFloat</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>float</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoFloat</wsdl-message>
+     <wsdl-message-part-name>float_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>float</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoFloatResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoDouble</java-method-name>
+   <wsdl-operation>echoDouble</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>double</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDouble</wsdl-message>
+     <wsdl-message-part-name>double_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>double</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDoubleResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoBoolean</java-method-name>
+   <wsdl-operation>echoBoolean</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>boolean</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoBoolean</wsdl-message>
+     <wsdl-message-part-name>boolean_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>boolean</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoBooleanResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoByte</java-method-name>
+   <wsdl-operation>echoByte</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>byte</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoByte</wsdl-message>
+     <wsdl-message-part-name>byte_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>byte</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoByteResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoQName</java-method-name>
+   <wsdl-operation>echoQName</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>javax.xml.namespace.QName</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoQName</wsdl-message>
+     <wsdl-message-part-name>QName_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>javax.xml.namespace.QName</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoQNameResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoDateTimeCalendar</java-method-name>
+   <wsdl-operation>echoDateTimeCalendar</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.util.Calendar</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDateTimeCalendar</wsdl-message>
+     <wsdl-message-part-name>Calendar_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.util.Calendar</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDateTimeCalendarResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoDateTimeDate</java-method-name>
+   <wsdl-operation>echoDateTimeDate</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.util.Date</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDateTimeDate</wsdl-message>
+     <wsdl-message-part-name>Date_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.util.Date</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDateTimeDateResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoDateCalendar</java-method-name>
+   <wsdl-operation>echoDateCalendar</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.util.Calendar</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDateCalendar</wsdl-message>
+     <wsdl-message-part-name>Calendar_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.util.Calendar</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDateCalendarResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoDateDate</java-method-name>
+   <wsdl-operation>echoDateDate</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.util.Date</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDateDate</wsdl-message>
+     <wsdl-message-part-name>Date_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.util.Date</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDateDateResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoBase64Binary</java-method-name>
+   <wsdl-operation>echoBase64Binary</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>byte[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoBase64Binary</wsdl-message>
+     <wsdl-message-part-name>arrayOfbyte_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>byte[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoBase64BinaryResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoHexBinary</java-method-name>
+   <wsdl-operation>echoHexBinary</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>byte[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoHexBinary</wsdl-message>
+     <wsdl-message-part-name>arrayOfbyte_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>byte[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoHexBinaryResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoBean</java-method-name>
+   <wsdl-operation>echoBean</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>org.jboss.test.webservice.marshalltest.types.Bean</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoBean</wsdl-message>
+     <wsdl-message-part-name>Bean_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>org.jboss.test.webservice.marshalltest.types.Bean</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoBeanResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoStringArray</java-method-name>
+   <wsdl-operation>echoStringArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.lang.String[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoStringArray</wsdl-message>
+     <wsdl-message-part-name>arrayOfString_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.lang.String[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoStringArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoIntegerArray</java-method-name>
+   <wsdl-operation>echoIntegerArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.math.BigInteger[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoIntegerArray</wsdl-message>
+     <wsdl-message-part-name>arrayOfBigInteger_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.math.BigInteger[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoIntegerArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoIntArray</java-method-name>
+   <wsdl-operation>echoIntArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>int[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoIntArray</wsdl-message>
+     <wsdl-message-part-name>arrayOfint_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>int[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoIntArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoLongArray</java-method-name>
+   <wsdl-operation>echoLongArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>long[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoLongArray</wsdl-message>
+     <wsdl-message-part-name>arrayOflong_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>long[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoLongArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoShortArray</java-method-name>
+   <wsdl-operation>echoShortArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>short[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoShortArray</wsdl-message>
+     <wsdl-message-part-name>arrayOfshort_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>short[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoShortArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoDecimalArray</java-method-name>
+   <wsdl-operation>echoDecimalArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.math.BigDecimal[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDecimalArray</wsdl-message>
+     <wsdl-message-part-name>arrayOfBigDecimal_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.math.BigDecimal[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDecimalArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoFloatArray</java-method-name>
+   <wsdl-operation>echoFloatArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>float[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoFloatArray</wsdl-message>
+     <wsdl-message-part-name>arrayOffloat_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>float[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoFloatArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoDoubleArray</java-method-name>
+   <wsdl-operation>echoDoubleArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>double[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDoubleArray</wsdl-message>
+     <wsdl-message-part-name>arrayOfdouble_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>double[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDoubleArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoBooleanArray</java-method-name>
+   <wsdl-operation>echoBooleanArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>boolean[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoBooleanArray</wsdl-message>
+     <wsdl-message-part-name>arrayOfboolean_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>boolean[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoBooleanArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoByteArray</java-method-name>
+   <wsdl-operation>echoByteArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>byte[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoByteArray</wsdl-message>
+     <wsdl-message-part-name>arrayOfbyte_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>byte[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoByteArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoQNameArray</java-method-name>
+   <wsdl-operation>echoQNameArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>javax.xml.namespace.QName[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoQNameArray</wsdl-message>
+     <wsdl-message-part-name>arrayOfQName_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>javax.xml.namespace.QName[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoQNameArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+  <service-endpoint-method-mapping>
+   <java-method-name>echoDateTimeArray</java-method-name>
+   <wsdl-operation>echoDateTimeArray</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.util.Calendar[]</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDateTimeArray</wsdl-message>
+     <wsdl-message-part-name>arrayOfCalendar_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.util.Calendar[]</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://org.jboss.webservice/marshalltest-doclit'>wsdlMsgNS:MarshallEndpoint_echoDateTimeArrayResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+ </service-endpoint-interface-mapping>
+</java-wsdl-mapping>

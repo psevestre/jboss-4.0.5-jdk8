@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   wscompile -cp ../../../../output/classes -gen:server -f:rpcliteral -keep -mapping jaxrpc-mapping.xml config.xml
+-->
+
+<configuration
+  xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+
+  <service name="HelloService"
+    targetNamespace="http://org.jboss.webservice/example"
+    typeNamespace="http://org.jboss.webservice/example/types"
+    packageName="org.jboss.test.webservice.admindevel">
+    <interface name="org.jboss.test.webservice.admindevel.Hello"/>
+  </service>
+
+</configuration>
+

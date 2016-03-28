@@ -1,0 +1,14 @@
+<project name="antlr-component-info">
+
+   <component id="antlr"
+              licenseType="antlr"
+              version="2.7.6.ga"
+              projectHome="http://www.antlr.org/"
+              description="ANother Tool for Language Recognition">
+      <artifact id="antlr-2.7.6.jar"/>
+      <export>
+         <include input="antlr-2.7.6.jar"/>
+      </export>
+   </component>
+
+</project>

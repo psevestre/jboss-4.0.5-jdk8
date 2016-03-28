@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE project [
+   <!ENTITY buildmagic SYSTEM "../tools/etc/buildmagic/buildmagic.ent">
+   <!ENTITY libraries  SYSTEM "../thirdparty/libraries.ent">
+   <!ENTITY modules SYSTEM "../tools/etc/buildmagic/modules.ent">
+]>
+
+<!-- ====================================================================== -->
+<!--                                                                        -->
+<!--  JBoss, the OpenSource J2EE webOS                                      -->
+<!--                                                                        -->
+<!--  Distributable under LGPL license.                                     -->
+<!--  See terms of license at http://www.gnu.org.                           -->
+<!--                                                                        -->
+<!-- ====================================================================== -->
+
+<!-- $Id: build.xml 56068 2006-08-18 15:26:21Z thomas.diesler@jboss.com $ -->
+
+<project default="main" name="JBoss/Webservice">
+
+  <!-- ================================================================== -->
+  <!-- Setup                                                              -->
+  <!-- ================================================================== -->
+
+  <!--
+     | Include the common Buildmagic elements.
+     |
+     | This defines several different targets, properties and paths.
+     | It also sets up the basic extention tasks amoung other things.
+   -->
+
+  &buildmagic;
+
+  <!-- ================================================================== -->
+  <!-- Initialization                                                     -->
+  <!-- ================================================================== -->
+
+  <!--
+     | Initialize the build system.  Must depend on '_buildmagic:init'.
+     | Other targets should depend on 'init' or things will mysteriously fail.
+   -->
+
+  <target name="init" unless="init.disable" depends="_buildmagic:init">
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- Configuration                                                      -->
+  <!-- ================================================================== -->
+
+  <!--
+     | Configure the build system.
+     |
+     | This target is invoked by the Buildmagic initialization logic and
+     | should contain module specific configuration elements.
+   -->
+
+  <target name="configure" unless="configure.disable">
+
+    <!-- =================== -->
+    <!-- Basic Configuration -->
+    <!-- =================== -->
+
+    <!-- Module name(s) & version -->
+    <property name="module.name" value="webservice"/>
+    <property name="module.Name" value="JBossWS4EE"/>
+    <property name="module.version" value="DEV"/>
+
+    <!-- ========= -->
+    <!-- Libraries -->
+    <!-- ========= -->
+
+    &libraries;
+
+    <!-- The combined library classpath -->
+    <path id="library.classpath">
+    </path>
+
+    <!-- ======= -->
+    <!-- Modules -->
+    <!-- ======= -->
+
+    &modules;
+
+    <!-- The combined dependant module classpath -->
+    <path id="dependentmodule.classpath">
+    </path>
+
+    <!-- Override the compiler bootclasspath to use the dom2 parser apis -->
+    <path id="local.bootclasspath">
+      <path refid="apache.xerces.classpath"/>
+    </path>
+    <property name="local.bootclasspath" refid="local.bootclasspath"/>
+
+    <!-- ===== -->
+    <!-- Tasks -->
+    <!-- ===== -->
+
+    <call target="_default:task-init"/>
+
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- Compile                                                            -->
+  <!-- ================================================================== -->
+
+  <!--
+     | Compile everything.
+     |
+     | This target should depend on other compile-* targets for each
+     | different type of compile that needs to be performed, short of
+     | documentation compiles.
+   -->
+
+  <target name="compile"
+    description="Compile all source files."
+    depends="_default:compile-classes,
+             _default:compile-resources">
+
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- Archives                                                           -->
+  <!-- ================================================================== -->
+
+  <!--
+     | Build all jar files.
+   -->
+  <target name="jars"
+    description="Builds all jar files."
+    depends="_buildmagic:build-bypass-check"
+    unless="build-bypass.on">
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- Deployment                                                         -->
+  <!-- ================================================================== -->
+
+  <!-- Deploy the jboss-ws4ee to the server specified like this: -Dserver=default  -->
+  <target name="deploy-ws4ee" depends="main">
+    <property name="server" value="default"/>
+    <property name="jboss.home" value="${module.root}/../build/output/jboss-${version.major}.${version.minor}.${version.revision}.${version.tag}"/>
+    <!-- delete jbossws implementation -->
+    <delete dir="${jboss.home}/server/${server}/deploy/jbossws.sar/"/>
+    <delete file="${jboss.home}/client/jbossws-client.jar"/>
+    <delete dir="${jboss.home}/server/${server}/deploy/jbossws14.sar/"/>
+    <delete file="${jboss.home}/client/jbossws14-client.jar"/>
+    <!-- install jboss-ws4ee implementation -->
+    <copy todir="${jboss.home}/client" file="${jboss/jboss.ws4ee.lib}/jboss-ws4ee-client.jar" overwrite="true"/>
+    <copy todir="${jboss.home}/client" file="${jboss/jboss.ws4ee.lib}/axis-ws4ee.jar" overwrite="true"/>
+    <mkdir dir="${jboss.home}/server/${server}/deploy/jboss-ws4ee.sar"/>
+    <unjar dest="${jboss.home}/server/${server}/deploy/jboss-ws4ee.sar" src="${jboss/jboss.ws4ee.lib}/jboss-ws4ee.sar"/>
+    <copy todir="${jboss.home}/server/${server}/deploy/jboss-ws4ee.sar" file="${jboss.jbossws14.lib}/jboss-jaxrpc.jar"/>
+    <copy todir="${jboss.home}/server/${server}/deploy/jboss-ws4ee.sar" file="${jboss.jbossws14.lib}/jboss-saaj.jar"/>
+  </target>
+
+  <target name="remove-ws4ee" depends="main">
+    <property name="server" value="default"/>
+    <property name="jboss.home" value="${module.root}/../build/output/jboss-${version.major}.${version.minor}.${version.revision}.${version.tag}"/>
+    <!-- delete jboss-ws4ee implementation -->
+    <delete dir="${jboss.home}/server/${server}/deploy/jboss-ws4ee.sar/"/>
+    <delete file="${jboss.home}/client/jboss-ws4ee-client.jar"/>
+    <delete file="${jboss.home}/client/axis-ws4ee.jar"/>
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- Cleaning                                                           -->
+  <!-- ================================================================== -->
+
+  <!-- Clean up all build output -->
+  <target name="clean" depends="_buildmagic:clean"
+    description="Cleans up most generated files.">
+    <delete dir="${basedir}/samples/output"/>
+    <delete dir="${basedir}/test/output"/>
+  </target>
+
+  <!-- Clean up all generated files -->
+  <target name="clobber"
+    description="Cleans up all generated files."
+    depends="_buildmagic:clobber, clean">
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- Misc.                                                              -->
+  <!-- ================================================================== -->
+
+  <target name="main"
+    description="Executes the default target (most)."
+    depends="most"/>
+
+  <target name="all"
+    description="Builds everything."
+    depends="jars, docs"/>
+
+  <target name="most"
+    description="Builds almost everything."
+    depends="jars"/>
+
+  <target name="help"
+    description="Show this help message."
+    depends="_buildmagic:help:standard"/>
+
+</project>

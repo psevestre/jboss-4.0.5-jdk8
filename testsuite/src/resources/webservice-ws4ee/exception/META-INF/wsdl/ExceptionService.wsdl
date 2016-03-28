@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ExceptionService" targetNamespace="http://org.jboss.webservice/exception" xmlns:tns="http://org.jboss.webservice/exception" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://org.jboss.webservice/exception/types/arrays/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://org.jboss.webservice/exception/types">
+  <types>
+    <schema targetNamespace="http://org.jboss.webservice/exception/types/arrays/" xmlns:tns="http://org.jboss.webservice/exception/types/arrays/" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://org.jboss.webservice/exception/types"/>
+      <complexType name="intArray">
+        <sequence>
+          <element name="value" type="int" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema targetNamespace="http://org.jboss.webservice/exception/types" xmlns:tns="http://org.jboss.webservice/exception/types" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://org.jboss.webservice/exception/types/arrays/"/>
+      <complexType name="ComplexUserArrayException">
+        <sequence>
+          <element name="message" type="string" nillable="true"/>
+          <element name="errorCodes" type="int" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+      </complexType>
+      <complexType name="ComplexUserException">
+        <sequence>
+          <element name="message" type="string" nillable="true"/>
+          <element name="errorCode" type="int"/>
+        </sequence>
+      </complexType>
+      <complexType name="UserException">
+        <sequence/>
+      </complexType>
+      <complexType name="UserMessageException">
+        <sequence>
+          <element name="message" type="string" nillable="true"/>
+        </sequence>
+      </complexType>
+      <element name="ComplexUserArrayException" type="tns:ComplexUserArrayException"/>
+      <element name="ComplexUserException" type="tns:ComplexUserException"/>
+      <element name="UserException" type="tns:UserException"/>
+      <element name="UserMessageException" type="tns:UserMessageException"/>
+    </schema>
+  </types>
+  <message name="ExceptionServiceInterface_throwComplexUserArrayException">
+    <part name="String_1" type="xsd:string"/>
+    <part name="arrayOfint_2" type="ns2:intArray"/>
+  </message>
+  <message name="ExceptionServiceInterface_throwComplexUserArrayExceptionResponse"/>
+  <message name="ComplexUserArrayException">
+    <part name="ComplexUserArrayException" element="ns3:ComplexUserArrayException"/>
+  </message>
+  <message name="ExceptionServiceInterface_throwComplexUserException">
+    <part name="String_1" type="xsd:string"/>
+    <part name="int_2" type="xsd:int"/>
+  </message>
+  <message name="ExceptionServiceInterface_throwComplexUserExceptionResponse"/>
+  <message name="ComplexUserException">
+    <part name="ComplexUserException" element="ns3:ComplexUserException"/>
+  </message>
+  <message name="ExceptionServiceInterface_throwException"/>
+  <message name="ExceptionServiceInterface_throwExceptionResponse"/>
+  <message name="UserException">
+    <part name="UserException" element="ns3:UserException"/>
+  </message>
+  <message name="ExceptionServiceInterface_throwExceptionWithMessage">
+    <part name="String_1" type="xsd:string"/>
+  </message>
+  <message name="ExceptionServiceInterface_throwExceptionWithMessageResponse"/>
+  <message name="UserMessageException">
+    <part name="UserMessageException" element="ns3:UserMessageException"/>
+  </message>
+  <portType name="ExceptionServiceInterface">
+    <operation name="throwComplexUserArrayException" parameterOrder="String_1 arrayOfint_2">
+      <input message="tns:ExceptionServiceInterface_throwComplexUserArrayException"/>
+      <output message="tns:ExceptionServiceInterface_throwComplexUserArrayExceptionResponse"/>
+      <fault name="ComplexUserArrayException" message="tns:ComplexUserArrayException"/>
+    </operation>
+    <operation name="throwComplexUserException" parameterOrder="String_1 int_2">
+      <input message="tns:ExceptionServiceInterface_throwComplexUserException"/>
+      <output message="tns:ExceptionServiceInterface_throwComplexUserExceptionResponse"/>
+      <fault name="ComplexUserException" message="tns:ComplexUserException"/>
+    </operation>
+    <operation name="throwException">
+      <input message="tns:ExceptionServiceInterface_throwException"/>
+      <output message="tns:ExceptionServiceInterface_throwExceptionResponse"/>
+      <fault name="UserException" message="tns:UserException"/>
+    </operation>
+    <operation name="throwExceptionWithMessage" parameterOrder="String_1">
+      <input message="tns:ExceptionServiceInterface_throwExceptionWithMessage"/>
+      <output message="tns:ExceptionServiceInterface_throwExceptionWithMessageResponse"/>
+      <fault name="UserMessageException" message="tns:UserMessageException"/>
+    </operation>
+  </portType>
+  <binding name="ExceptionServiceInterfaceBinding" type="tns:ExceptionServiceInterface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="throwComplexUserArrayException">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/exception"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/exception"/>
+      </output>
+      <fault name="ComplexUserArrayException">
+        <soap:fault name="ComplexUserArrayException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="throwComplexUserException">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/exception"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/exception"/>
+      </output>
+      <fault name="ComplexUserException">
+        <soap:fault name="ComplexUserException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="throwException">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/exception"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/exception"/>
+      </output>
+      <fault name="UserException">
+        <soap:fault name="UserException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="throwExceptionWithMessage">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/exception"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://org.jboss.webservice/exception"/>
+      </output>
+      <fault name="UserMessageException">
+        <soap:fault name="UserMessageException" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="ExceptionService">
+    <port name="ExceptionServiceInterfacePort" binding="tns:ExceptionServiceInterfaceBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+</definitions>

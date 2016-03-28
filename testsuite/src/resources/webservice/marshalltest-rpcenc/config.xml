@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   wscompile -cp ../../../../output/classes -gen:server -mapping jaxrpc-mapping.xml config.xml
+-->
+
+<configuration
+  xmlns="http://java.sun.com/xml/ns/jax-rpc/ri/config">
+
+  <service name="MarshallRpcEncService"
+    targetNamespace="http://org.jboss.webservice/marshalltest-rpcenc"
+    typeNamespace="http://org.jboss.webservice/marshalltest-rpcenc/types"
+    packageName="org.jboss.test.webservice.marshalltest">
+    <interface name="org.jboss.test.webservice.marshalltest.MarshallEndpoint"/>
+  </service>
+
+</configuration>
+
+<!--
+			<complexType name="Bean">
+				<sequence>
+					<element name="base64" type="base64Binary" nillable="true"/>
+					<element name="x" type="int"/>
+					<element name="y" type="int"/>
+				</sequence>
+			</complexType>
+-->

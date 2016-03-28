@@ -1,0 +1,15 @@
+<jboss-web>
+   <class-loading>
+   <loader-repository>jboss.web:loader=testHA</loader-repository>
+   </class-loading>
+
+   <!-- Uncomment the security-domain to enable security. You will
+      need to edit the htmladaptor login configuration to setup the
+      login modules used to authentication users.
+      <security-domain>java:/jaas/jmx-console</security-domain>
+   -->
+   <replication-config>
+      <replication-trigger>SET_AND_NON_PRIMITIVE_GET</replication-trigger>
+      <replication-granularity>ATTRIBUTE</replication-granularity>
+   </replication-config>
+</jboss-web>

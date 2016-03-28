@@ -1,0 +1,17 @@
+<project name="apache-commons-logging">
+   <component id="apache-logging"
+      licenseType="apache-2.0"
+      version="1.0.5.GA-jboss"
+      projectHome="http://jakarta.apache.org/commons/logging/"
+      description="Yet another logging api. Patched to use a WeakHashMap
+  such that it does not hold hard references to the classloaders.
+  This also includes a mapping of the log.trace call to the custom
+  org.jboss.logging.XLevel priority. Also includes an updated Log4JLogger that uses a Log4jProxy which allows for binding the log4j classes to the caller thread context class loader rather than the commons-logging class loader.">
+
+      <artifact id="commons-logging.jar"/>
+      <export>
+         <include input="commons-logging.jar"/>
+      </export>
+   </component>
+
+</project>

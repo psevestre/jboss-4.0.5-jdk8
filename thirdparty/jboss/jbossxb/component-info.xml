@@ -1,0 +1,16 @@
+<project name="jboss/jbossxb-component-info">
+
+   <component id="jboss/jbossxb"
+              licenseType="lgpl"
+              version="1.0.0.CR6"
+              description="JBoss XML Binding">
+
+      <artifact id="jboss-xml-binding.jar"/>
+
+      <export>
+         <include input="jboss-xml-binding.jar"/>
+      </export>
+
+   </component>
+
+</project>

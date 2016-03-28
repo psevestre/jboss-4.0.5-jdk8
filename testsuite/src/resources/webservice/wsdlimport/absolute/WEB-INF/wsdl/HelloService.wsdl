@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="HelloService" targetNamespace="http://test.jboss.org/ws4eesimple" xmlns:tns="http://test.jboss.org/ws4eesimple" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+  <import namespace="http://test.jboss.org/ws4eesimple" location="http://@jbosstest.host.name@:8080/ws4ee-wsdlimport-absolute1/HelloImport.xml"/>
+
+  <service name="HelloService">
+    <port name="HelloWsPort" binding="tns:HelloWsBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+  
+</definitions>

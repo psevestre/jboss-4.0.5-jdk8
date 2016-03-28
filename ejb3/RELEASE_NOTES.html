@@ -1,0 +1,214 @@
+<html>
+<body>
+
+
+Release Notes - EJB 3.0 - Version EJB 3.0 RC7 - FD
+
+<h2>Feature Request</h2>
+<ul>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-521'>EJBTHREE-521</a>] - Use org.jboss.serial.io.MarshalledObjectForLocalCalls on in-vm call-by-value operations</li>
+</ul>
+
+<h2>Bug</h2>
+<ul>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-235'>EJBTHREE-235</a>] - Incorrect PreDestroy method handling with StrictMaxPool</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-352'>EJBTHREE-352</a>] - EJB Containers should be scoped per deployment</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-440'>EJBTHREE-440</a>] - ClassCastException with SerializableProxy on lazy attributes</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-474'>EJBTHREE-474</a>] - please remove unused XML elements from jboss_5_0.xsd and JBossDDObjectFactory.java</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-484'>EJBTHREE-484</a>] - EQL: COUNT(*) => Integer instead of Long</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-486'>EJBTHREE-486</a>] - SELECT COUNT(...) returns Integer. Must be Long</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-502'>EJBTHREE-502</a>] - env-entry does not work for Message Driven Beans</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-504'>EJBTHREE-504</a>] - resource-ref not processed from ejb-jar.xml</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-514'>EJBTHREE-514</a>] - None of the ejb3 jars include the version manifest headers</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-515'>EJBTHREE-515</a>] - @EJB injection into @Service stopped working</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-519'>EJBTHREE-519</a>] - calling a @Remove method inside rolled back tx causes exception</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-520'>EJBTHREE-520</a>] - injecting em in @Service is null in start()</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-528'>EJBTHREE-528</a>] - deploying ejbs with large number of methods is slow.</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-533'>EJBTHREE-533</a>] - Cache regions not being removed.</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-537'>EJBTHREE-537</a>] - Transaction demarcation does not affect session management for looked up EM.</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-540'>EJBTHREE-540</a>] - RegisterSynchronization fails if the transaction is already marked for rollback</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-541'>EJBTHREE-541</a>] - An MDB with a jboss.xml-specified destination misbehaves, trying to create wrong destination</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-542'>EJBTHREE-542</a>] - Rewrap of EJBExceptions</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-543'>EJBTHREE-543</a>] - problems injecting with @Depends</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-550'>EJBTHREE-550</a>] - @Depends fails in embedded</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-554'>EJBTHREE-554</a>] - ejb-ref/ejb-local-ref ine web.xml fails with RemoteHome/LocalHome fails</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-565'>EJBTHREE-565</a>] - Invalid webservice namespace usage</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-573'>EJBTHREE-573</a>] - scoping of thrown exceptions not done with inVM @Remote invocation</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-574'>EJBTHREE-574</a>] - postActivate incorrectly called after failover</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-581'>EJBTHREE-581</a>] - Possible NPE in StatefulEvictionPolicy</li>
+</ul>
+
+<h2>Task</h2>
+<ul>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-126'>EJBTHREE-126</a>] - Create Docbook for Session/MDBs</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-293'>EJBTHREE-293</a>] - JACC tutorial for Entity Beans</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-294'>EJBTHREE-294</a>] - Docbook for JACC integration</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-467'>EJBTHREE-467</a>] - move interceptors to javax.interceptor and change InvocationContext API to match spec</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-470'>EJBTHREE-470</a>] - Boot profiling and optimizations.</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-475'>EJBTHREE-475</a>] - autodocument jboss_5_0.xsd</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-532'>EJBTHREE-532</a>] - implement @AspectDomain in jboss.xml</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-539'>EJBTHREE-539</a>] - complete <loader-repository> implementation for jboss.xml. Annotation?</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-547'>EJBTHREE-547</a>] - create test for <depends></li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-548'>EJBTHREE-548</a>] - implement <ignore-dependency> in jboss.xml</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-555'>EJBTHREE-555</a>] - write test for unsecured ejb calling secured ejb to test principal/credential propagation</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-562'>EJBTHREE-562</a>] - make sure all custom jboss annotations have XML counterpart</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-568'>EJBTHREE-568</a>] - Refactored clusteredsession tests</li>
+</ul>
+
+
+Release Notes - EJB 3.0 - Version EJB 3.0 RC6 - PFD
+
+<h2>Feature Request</h2>
+<ul>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-241'>EJBTHREE-241</a>] - Remote interface should be optional for WS endpoints</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-317'>EJBTHREE-317</a>] - Update binding manager.</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-381'>EJBTHREE-381</a>] - add mappedName() support for @EJB</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-411'>EJBTHREE-411</a>] - schema validation for ejb-jar.xml and jboss.xml</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-443'>EJBTHREE-443</a>] - EJBContext should be bound into ENC</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-482'>EJBTHREE-482</a>] - Enable support for file-based HSQLDB manager</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-516'>EJBTHREE-516</a>] - update to final schema</li>
+</ul>
+
+<h2>Bug</h2>
+<ul>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-239'>EJBTHREE-239</a>] - toString can't be part of business interface (see also EJBTHREE-192)</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-359'>EJBTHREE-359</a>] - Timer.getInfo() in stateless session bean method annotated with @PostConstruct  throws IllegalStateException</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-376'>EJBTHREE-376</a>] - Inherited bean class @AroundInvoke method problem</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-416'>EJBTHREE-416</a>] - ejb-jar.xml not up to latest schema from spec</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-417'>EJBTHREE-417</a>] - schema validation for ejb-jar.xml</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-418'>EJBTHREE-418</a>] - Injected session should not raise TransactionRequiredException</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-422'>EJBTHREE-422</a>] - SFSB call entityManager.close() inside the transaction after @Remove</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-437'>EJBTHREE-437</a>] - OptimisticLockException is not supported</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-438'>EJBTHREE-438</a>] - NPE em.createEntityManagerFactory("puname")</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-445'>EJBTHREE-445</a>] - EJB3 deployment fails silently when deploying with an old version of persistence.xml (pre-RC4/5)</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-447'>EJBTHREE-447</a>] - EJB injection into Service fails</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-448'>EJBTHREE-448</a>] - Incorrect package of PostConstruct and PreDestroy annotations</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-452'>EJBTHREE-452</a>] - CLONE -EJB client: NullPointerException in StatelessLocalProxy</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-453'>EJBTHREE-453</a>] - stateless test fails with internet access for j2ee_web_services_client_1_1.xsd</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-454'>EJBTHREE-454</a>] - Conflict when same ejb-jar is deployed in multiple ears</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-457'>EJBTHREE-457</a>] - EJBContext.lookup("XXX") fails</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-458'>EJBTHREE-458</a>] - @PersistenceUnit/@PersistenceContext on bean class does not work</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-460'>EJBTHREE-460</a>] - ServiceMBeanDelegate.java:170 - 1.2.4.7 - Casts Throwable into Exception causes ClassCastException</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-461'>EJBTHREE-461</a>] - missing antlr jar in embeddable EJB distribution</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-462'>EJBTHREE-462</a>] - assembly-descriptor required to get proper SFSB remove-method behavior</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-463'>EJBTHREE-463</a>] - Fix JACC stuff following updates to EJB3</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-464'>EJBTHREE-464</a>] - Bean injection fails in MDB during deploy of EAR if JMS messages already exist in queue</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-469'>EJBTHREE-469</a>] - @Stateful(mappedName) is missing</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-473'>EJBTHREE-473</a>] - incomplete jboss_5_0.xsd</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-490'>EJBTHREE-490</a>] - flush() syncrhonization not done on SLSB</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-491'>EJBTHREE-491</a>] - @RunAs + @Management/Service not working - @SecurityDomain ignored?</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-492'>EJBTHREE-492</a>] - Service bean with @SecurityDomain fails to start</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-507'>EJBTHREE-507</a>] - NamingContext for beans remains bound in global jndi tree after undeploy</li>
+</ul>
+
+<h2>Task</h2>
+<ul>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-302'>EJBTHREE-302</a>] - Create unit tests for @AspectDomain, @CallByValue, @DefaultActivationSpecs</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-332'>EJBTHREE-332</a>] - Update spring-int use Interceptors instead of CallbackHandler as per the latest spec</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-343'>EJBTHREE-343</a>] - INFO logging level is overused</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-426'>EJBTHREE-426</a>] - hibernate-client.jar should contain org.hibernate.proxy.SerializableProxy</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-459'>EJBTHREE-459</a>] - implement SessionContext.getInvokedBusinessInterface()</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-493'>EJBTHREE-493</a>] - Create tutorial for EJB30/EJB2.x refs</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-497'>EJBTHREE-497</a>] - EJB3 with Java5 server and Java1.4.x client</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-511'>EJBTHREE-511</a>] - Renamed clustered session bean testsuite</li>
+</ul>
+
+Release Notes - EJB 3.0 - Version EJB 3.0 RC5 - PFD
+        
+<h2>Bug</h2>
+<ul>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-428'>EJBTHREE-428</a>] - EJB3 remoting connector needs ${jboss.bind.address}</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-429'>EJBTHREE-429</a>] - HA-JMS + MDB problem:  MDB Container not reconnecting properly.</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-430'>EJBTHREE-430</a>] - Not setting correct datasource dependency</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-431'>EJBTHREE-431</a>] - SFSB Activation is not closing file so it cannot delete old passivated bean</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-432'>EJBTHREE-432</a>] - @PersistenceContext on class not working</li>
+</ul>
+
+                        
+Release Notes - EJB 3.0 - Version EJB 3.0 RC4 - PFD
+    
+<h2>Feature Request</h2>
+<ul>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-187'>EJBTHREE-187</a>] - SFSB's don't have to implement Serializable/Externalizable</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-279'>EJBTHREE-279</a>] - Update to latest interceptors draft</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-298'>EJBTHREE-298</a>] - Transaction timeout at method level for EJB3 session bean</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-300'>EJBTHREE-300</a>] - Support for client side interceptor payload propagation</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-310'>EJBTHREE-310</a>] - implement message-destination-link</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-346'>EJBTHREE-346</a>] - Add client to stack trace of exception</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-351'>EJBTHREE-351</a>] - MDB with BMT: Message ack on RuntimeException</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-353'>EJBTHREE-353</a>] - @SerializedConcurrentAccess allows blocking instead of exception for an SFSB</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-355'>EJBTHREE-355</a>] - implement and test <depends> element in jboss.xml</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-390'>EJBTHREE-390</a>] - Implement <application-exception></li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-393'>EJBTHREE-393</a>] - Change default JNDI binding to EJBNAME/remote, EJBNAME/local</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-394'>EJBTHREE-394</a>] - Output better exceptions when failing to bind into JNDI</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-395'>EJBTHREE-395</a>] - make sure all the Java Mail injection requirements are satisfied</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-397'>EJBTHREE-397</a>] - allow .jar instead of .ejb3 and .par</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-398'>EJBTHREE-398</a>] - support latest PFD persistence.xml format</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-412'>EJBTHREE-412</a>] - embeddable should output non-resolved dependencies after a deploy</li>
+</ul>
+    
+<h2>Bug</h2>
+<ul>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-250'>EJBTHREE-250</a>] - EJBs need to publish dependencies</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-251'>EJBTHREE-251</a>] - EJB deployment should abort if create/start fails</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-270'>EJBTHREE-270</a>] - Redeployment of stateful bean fails</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-295'>EJBTHREE-295</a>] - org.hibernate.dialect.IngresDialect no longer works with paged queries</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-296'>EJBTHREE-296</a>] - EAR datasource does not deploy in time for par.</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-315'>EJBTHREE-315</a>] - Underscored method names in Session beans cause exception</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-316'>EJBTHREE-316</a>] - Extended PC cannot be passivated in SFSB</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-318'>EJBTHREE-318</a>] - Problem with injection remove the message from the queue</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-320'>EJBTHREE-320</a>] - BMT doesn't work if you define it within XML</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-321'>EJBTHREE-321</a>] - BMT tx.suspend() behavior broken: BMT in general broken</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-324'>EJBTHREE-324</a>] - NullPointerException end unnecessary passivate in stateful EJB3 Session Bean</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-328'>EJBTHREE-328</a>] - default persistence.properties should not specify the dialect</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-330'>EJBTHREE-330</a>] - <jta-datasource>blah</jta-dasource> ignored unless you override hibernate.connection.datasource</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-333'>EJBTHREE-333</a>] - Unexpected Principal (Security Identity) Propagation Switch</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-334'>EJBTHREE-334</a>] - injection-target for resource-ref is ignored</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-337'>EJBTHREE-337</a>] - EJBException should set cause</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-356'>EJBTHREE-356</a>] - @TransactionAttribute has no effect when specified at the top level of an SFSB</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-357'>EJBTHREE-357</a>] - Extended persistence context not propagated across SFSB instantiation</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-362'>EJBTHREE-362</a>] - Incorrect attribute name "activateConfig" in annotation @MessageDriven.</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-365'>EJBTHREE-365</a>] - Env-entry needs to be fully tested to see if it conforms to spec</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-366'>EJBTHREE-366</a>] - Error create ejb-ref</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-373'>EJBTHREE-373</a>] - MDBs on Temporary Queues do not receive messages</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-374'>EJBTHREE-374</a>] - jboss.xml should override destination-jndi-name, mdb-user and mdb-passwd for MDBs</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-375'>EJBTHREE-375</a>] - Improve dd/mdb tests</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-377'>EJBTHREE-377</a>] - NullPointerException in RunAsSecurityInterceptor called from @Timeout method</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-382'>EJBTHREE-382</a>] - default ejb-name should be unqualified bean class, not fully qualitifed name of class</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-383'>EJBTHREE-383</a>] - Inadvertent use of immutable list causes EJBException with null message, null detail, no useful stack trace</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-384'>EJBTHREE-384</a>] - Security Problem - Server fails to clear user authentication after standalone client disconnects</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-385'>EJBTHREE-385</a>] - javax.ejb.EJBContext.lookup() should look relative to the bean's ENC.  Currently it is a global JNDI lookup</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-386'>EJBTHREE-386</a>] - invocations through collocated remote interfaces in separate isolated classloaders causes CCE's</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-387'>EJBTHREE-387</a>] - PersistenceInfo.getEntityclassNames should be PersistenceInfo.getEntityClassNames</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-391'>EJBTHREE-391</a>] - empty string named persistence unit seems to not deploy within an .ejb3 jar.</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-401'>EJBTHREE-401</a>] - Cannot deploy solo jboss.xml with jndi override</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-403'>EJBTHREE-403</a>] - ejbjar with @Entity gets CNF exceptions when deployed in a scoped EAR</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-404'>EJBTHREE-404</a>] - Statefull beans looses security context after activation from passivated state</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-415'>EJBTHREE-415</a>] - ejb21 adaptor tutorial is broken, returns null values</li>
+</ul>
+    
+<h2>Task</h2>
+<ul>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-309'>EJBTHREE-309</a>] - unitTest message-destination-ref XML element</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-331'>EJBTHREE-331</a>] - Passivating non-serializable inerceptors using JBoss Cache as SFSB cache gives NotSerializableException</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-336'>EJBTHREE-336</a>] - remove default hibernate schema export from EJB3 (don't use hbm2ddl=create)</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-339'>EJBTHREE-339</a>] - DD xml binding does not differentiate between methods with no parameters and not specified parameters</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-341'>EJBTHREE-341</a>] - Configure @Service and @Consumer the same way as @Stateless, @Stateful, @MessageDriven</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-345'>EJBTHREE-345</a>] - test env-entry injection</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-349'>EJBTHREE-349</a>] - docbook for JCA RAR inflow integration</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-354'>EJBTHREE-354</a>] - Document @SerializedConcurrentAccess</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-360'>EJBTHREE-360</a>] - UserTransaction needs to be bound in embeddable</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-364'>EJBTHREE-364</a>] - support jboss.xml resource-manager tags</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-369'>EJBTHREE-369</a>] - HEM now set tx.flush_before_completion to true => the container should not flush anymore</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-392'>EJBTHREE-392</a>] - document SSL integration</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-399'>EJBTHREE-399</a>] - Security bug needs different patch</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-409'>EJBTHREE-409</a>] - create tutorials for jboss.xml</li>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-410'>EJBTHREE-410</a>] - cleanup jboss.xml in tests</li>
+</ul>
+        
+<h2>Patch</h2>
+<ul>
+<li>[<a href='http://jira.jboss.com/jira/browse/EJBTHREE-363'>EJBTHREE-363</a>] - <security-domain> in jboss.xml is ignored when there is no <assembly-descriptor> in ejb-jar.xml</li>
+</ul>
+</body>
+</html>

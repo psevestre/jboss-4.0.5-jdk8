@@ -1,0 +1,17 @@
+<project name="apache-bsf-component-info">
+
+   <!-- ============================================================ -->
+   <!-- Apache Bean Scripting Framework (BSF)                        -->
+   <!-- ============================================================ -->
+
+   <component id="apache-bsf"
+              licenseType="apache-1.1"
+              version="2.3.0"
+              projectHome="http://jakarta.apache.org/bsf/">
+      <artifact id="bsf.jar"/>
+      <export>
+         <include input="bsf.jar"/>
+      </export>
+   </component>
+
+</project>

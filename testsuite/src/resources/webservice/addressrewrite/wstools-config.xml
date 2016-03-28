@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  webservices.xml must be written by hand
+
+  Add the following to wsdl:
+  <service name="ValidURLService">
+    <port name="ValidURLPort" binding="tns:HelloWsBinding">
+      <soap:address location="http://somehost:80/somepath"/>
+    </port>
+  </service>
+
+  <service name="InvalidURLService">
+    <port name="InvalidURLPort" binding="tns:HelloWsBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+
+  <service name="ValidSecureURLService">
+    <port name="ValidSecureURLPort" binding="tns:HelloWsBinding">
+      <soap:address location="https://somehost:443/some-secure-path"/>
+    </port>
+  </service>
+
+  <service name="InvalidSecureURLService">
+    <port name="InvalidSecureURLPort" binding="tns:HelloWsBinding">
+      <soap:address location="https://REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+-->
+
+<configuration xmlns="http://www.jboss.org/jbossws-tools" 
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.jboss.org/jbossws-tools http://www.jboss.org/jbossws-tools/schema/jbossws-tool_1_0.xsd">
+   <java-wsdl>
+     <service name="HelloService" 
+              endpoint="org.jboss.test.webservice.ws4eesimple.HelloWs"
+              style="rpc">
+     </service>
+     <namespaces target-namespace="http://test.jboss.org/ws4eesimple"
+                 type-namespace="http://test.jboss.org/ws4eesimple/types" />
+     <mapping file="jaxrpc-mapping.xml"/>
+   </java-wsdl>
+</configuration>

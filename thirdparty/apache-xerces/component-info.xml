@@ -1,0 +1,24 @@
+<project name="apache-xerces-component-info">
+
+   <!-- ============================================================ -->
+   <!-- Apache Xerces                                                -->
+   <!-- ============================================================ -->
+
+   <component id="apache-xerces"
+              licenseType="apache-2.0"
+              version="2.7.1"
+              projectHome="http://xml.apache.org/xerces2-j/index.html"
+              description="High performance, fully compliant XML parser">
+
+      <artifact id="xercesImpl.jar"/>
+      <artifact id="resolver.jar"/>
+      <artifact id="xml-apis.jar"/>
+      <export>
+         <include input="xercesImpl.jar"/>
+         <include input="resolver.jar"/>
+         <include input="xml-apis.jar"/>
+      </export>
+   </component>
+
+
+</project>

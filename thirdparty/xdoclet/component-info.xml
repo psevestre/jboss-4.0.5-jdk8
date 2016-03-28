@@ -1,0 +1,31 @@
+<project name="xdoclet-component-info">
+   <component id="xdoclet"
+               version="1.2b3"
+    >
+      <artifact id="xdoclet-xjavadoc-jb4.jar"/>
+      <artifact id="xdoclet-xdoclet-module-jb4.jar"/>
+      <artifact id="xdoclet-web-module-jb4.jar"/>
+      <artifact id="xdoclet-jdo-module-jb4.jar"/>
+      <artifact id="xdoclet-jboss-module-jb4.jar"/>
+      <artifact id="xdoclet-jb4.jar"/>
+      <artifact id="xdoclet-java-module-jb4.jar"/>
+      <artifact id="xdoclet-ejb-module-jb4.jar"/>
+      <artifact id="xdoclet-bea-module-jb4.jar"/>
+      <artifact id="xdoclet-jmx-module-jb4.jar"/>
+      
+      <export>
+          <include input="xdoclet-xjavadoc-jb4.jar"/>
+	  <include input="xdoclet-xdoclet-module-jb4.jar"/>
+	  <include input="xdoclet-web-module-jb4.jar"/>
+	  <include input="xdoclet-jdo-module-jb4.jar"/>
+	  <include input="xdoclet-jboss-module-jb4.jar"/>
+	  <include input="xdoclet-jb4.jar"/>
+	  <include input="xdoclet-java-module-jb4.jar"/>
+	  <include input="xdoclet-ejb-module-jb4.jar"/>
+          <include input="xdoclet-bea-module-jb4.jar"/>
+	  <include input="xdoclet-jmx-module-jb4.jar"/>          
+      </export>
+      
+   </component>
+
+</project>

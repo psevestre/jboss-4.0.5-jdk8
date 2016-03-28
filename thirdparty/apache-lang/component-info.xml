@@ -1,0 +1,12 @@
+<project name="apache-commons-lang">
+   <component id="apache-lang"
+              licenseType="apache-2.0"
+              version="2.1"
+              projectHome="http://jakarta.apache.org/commons/lang/">
+      <artifact id="commons-lang-2.1.jar"/>
+      <export>
+         <include input="commons-lang-2.1.jar"/>
+      </export>
+   </component>
+
+</project>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name='BenchmarkService' targetNamespace='http://org.jboss.test.webservice/benchmark' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='http://org.jboss.test.webservice/benchmark/types' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://org.jboss.test.webservice/benchmark' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <schema targetNamespace='http://org.jboss.test.webservice/benchmark/types' xmlns='http://www.w3.org/2001/XMLSchema' xmlns:ns2='http://www.w3.org/2001/XMLSchema' xmlns:soap11-enc='http://schemas.xmlsoap.org/soap/encoding/' xmlns:tns='http://org.jboss.test.webservice/benchmark/types' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+   <import namespace='http://www.w3.org/2001/XMLSchema'/>
+   <complexType name='Address'>
+    <sequence>
+     <element name='address1' nillable='true' type='string'/>
+     <element name='address2' nillable='true' type='string'/>
+     <element name='city' nillable='true' type='string'/>
+     <element name='firstName' nillable='true' type='string'/>
+     <element name='lastName' nillable='true' type='string'/>
+     <element name='state' nillable='true' type='string'/>
+     <element name='zip' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <complexType name='Customer'>
+    <sequence>
+     <element name='billingAddress' nillable='true' type='tns:Address'/>
+     <element name='contactFirstName' nillable='true' type='string'/>
+     <element name='contactLastName' nillable='true' type='string'/>
+     <element name='contactPhone' nillable='true' type='string'/>
+     <element name='creditCardExpirationDate' nillable='true' type='string'/>
+     <element name='creditCardNumber' nillable='true' type='string'/>
+     <element name='customerId' type='int'/>
+     <element name='lastActivityDate' nillable='true' type='dateTime'/>
+     <element name='shippingAddress' nillable='true' type='tns:Address'/>
+    </sequence>
+   </complexType>
+   <complexType name='LineItem'>
+    <sequence>
+     <element name='itemId' type='int'/>
+     <element name='orderId' type='int'/>
+     <element name='orderQuantity' type='int'/>
+     <element name='productDescription' nillable='true' type='string'/>
+     <element name='productId' type='int'/>
+     <element name='unitPrice' type='float'/>
+    </sequence>
+   </complexType>
+   <complexType name='Order'>
+    <sequence>
+     <element name='customer' nillable='true' type='tns:Customer'/>
+     <element maxOccurs='unbounded' minOccurs='0' name='lineItems' nillable='true' type='tns:LineItem'/>
+     <element name='orderDate' nillable='true' type='dateTime'/>
+     <element name='orderId' type='int'/>
+     <element name='orderStatus' type='int'/>
+     <element name='orderTotalAmount' type='float'/>
+    </sequence>
+   </complexType>
+   <complexType name='SimpleUserType'>
+    <sequence>
+     <element name='f' type='float'/>
+     <element name='i' type='int'/>
+     <element name='s' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <complexType name='SimpleUserType.Array'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='value' nillable='true' type='tns:SimpleUserType'/>
+    </sequence>
+   </complexType>
+   <complexType name='Synthetic'>
+    <sequence>
+     <element name='b' nillable='true' type='base64Binary'/>
+     <element name='s' nillable='true' type='string'/>
+     <element name='sut' nillable='true' type='tns:SimpleUserType'/>
+    </sequence>
+   </complexType>
+  </schema>
+ </types>
+ <message name='BenchmarkService_echoArrayOfSimpleUserType'>
+  <part name='arrayOfSimpleUserType_1' type='ns1:SimpleUserType.Array'/>
+ </message>
+ <message name='BenchmarkService_echoArrayOfSimpleUserTypeResponse'>
+  <part name='result' type='ns1:SimpleUserType.Array'/>
+ </message>
+ <message name='BenchmarkService_echoSimpleType'>
+  <part name='SimpleUserType_1' type='ns1:SimpleUserType'/>
+ </message>
+ <message name='BenchmarkService_echoSimpleTypeResponse'>
+  <part name='result' type='ns1:SimpleUserType'/>
+ </message>
+ <message name='BenchmarkService_echoSynthetic'>
+  <part name='Synthetic_1' type='ns1:Synthetic'/>
+ </message>
+ <message name='BenchmarkService_echoSyntheticResponse'>
+  <part name='result' type='ns1:Synthetic'/>
+ </message>
+ <message name='BenchmarkService_getOrder'>
+  <part name='int_1' type='xsd:int'/>
+  <part name='int_2' type='xsd:int'/>
+ </message>
+ <message name='BenchmarkService_getOrderResponse'>
+  <part name='result' type='ns1:Order'/>
+ </message>
+ <portType name='BenchmarkService'>
+  <operation name='echoArrayOfSimpleUserType' parameterOrder='arrayOfSimpleUserType_1'>
+   <input message='tns:BenchmarkService_echoArrayOfSimpleUserType'/>
+   <output message='tns:BenchmarkService_echoArrayOfSimpleUserTypeResponse'/>
+  </operation>
+  <operation name='echoSimpleType' parameterOrder='SimpleUserType_1'>
+   <input message='tns:BenchmarkService_echoSimpleType'/>
+   <output message='tns:BenchmarkService_echoSimpleTypeResponse'/>
+  </operation>
+  <operation name='echoSynthetic' parameterOrder='Synthetic_1'>
+   <input message='tns:BenchmarkService_echoSynthetic'/>
+   <output message='tns:BenchmarkService_echoSyntheticResponse'/>
+  </operation>
+  <operation name='getOrder' parameterOrder='int_1 int_2'>
+   <input message='tns:BenchmarkService_getOrder'/>
+   <output message='tns:BenchmarkService_getOrderResponse'/>
+  </operation>
+ </portType>
+ <binding name='BenchmarkServiceBinding' type='tns:BenchmarkService'>
+  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='echoArrayOfSimpleUserType'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.test.webservice/benchmark' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.test.webservice/benchmark' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoSimpleType'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.test.webservice/benchmark' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.test.webservice/benchmark' use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoSynthetic'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.test.webservice/benchmark' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.test.webservice/benchmark' use='literal'/>
+   </output>
+  </operation>
+  <operation name='getOrder'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body namespace='http://org.jboss.test.webservice/benchmark' use='literal'/>
+   </input>
+   <output>
+    <soap:body namespace='http://org.jboss.test.webservice/benchmark' use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='BenchmarkService'>
+  <port binding='tns:BenchmarkServiceBinding' name='BenchmarkServicePort'>
+   <soap:address location='REPLACE_WITH_ACTUAL_URL'/>
+  </port>
+ </service>
+</definitions>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<jboss>
+   <enterprise-beans>
+      <session>
+         <ejb-name>Session21</ejb-name>
+         <jndi-name>Session21</jndi-name>
+      </session>
+   </enterprise-beans>
+</jboss>

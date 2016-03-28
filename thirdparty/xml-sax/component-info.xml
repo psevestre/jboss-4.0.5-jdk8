@@ -1,0 +1,18 @@
+<project name="xml-sax-component-info">
+
+      <!-- ============================================================ -->
+      <!-- SAX2 & SAX2 Extensions                                       -->
+      <!-- ============================================================ -->
+
+   <component id="xml-sax"
+              version="2.0.x">
+      <artifact id="sax2.jar"/>
+      <artifact id="sax2-ext.jar"/>
+      <export>
+         <include input="sax2.jar"/>
+         <include input="sax2-ext.jar"/>
+      </export>
+   </component>
+
+
+</project>

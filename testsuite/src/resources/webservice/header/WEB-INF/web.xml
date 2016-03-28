@@ -1,0 +1,40 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+  version="2.4">
+
+  <servlet>
+    <servlet-name>SimpleHeaderEndpoint</servlet-name>
+    <servlet-class>org.jboss.test.webservice.header.SimpleHeaderEndpointImpl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>BeanHeaderEndpoint</servlet-name>
+    <servlet-class>org.jboss.test.webservice.header.BeanHeaderEndpointImpl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ImplicitHeaderEndpoint</servlet-name>
+    <servlet-class>org.jboss.test.webservice.header.ImplicitHeaderEndpointImpl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ExplicitHeaderEndpoint</servlet-name>
+    <servlet-class>org.jboss.test.webservice.header.ExplicitHeaderEndpointImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>SimpleHeaderEndpoint</servlet-name>
+    <url-pattern>/simple</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BeanHeaderEndpoint</servlet-name>
+    <url-pattern>/bean</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ImplicitHeaderEndpoint</servlet-name>
+    <url-pattern>/implicit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ExplicitHeaderEndpoint</servlet-name>
+    <url-pattern>/explicit</url-pattern>
+  </servlet-mapping>
+
+</web-app>

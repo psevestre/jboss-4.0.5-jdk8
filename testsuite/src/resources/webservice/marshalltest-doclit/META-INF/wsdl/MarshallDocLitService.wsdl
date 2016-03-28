@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name='MarshallDocLitService' targetNamespace='http://org.jboss.webservice/marshalltest-doclit' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='http://org.jboss.webservice/marshalltest-doclit/types' xmlns:ns2='http://types.marshalltest.webservice.test.jboss.org/jaws' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://org.jboss.webservice/marshalltest-doclit' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <schema targetNamespace='http://types.marshalltest.webservice.test.jboss.org/jaws' xmlns='http://www.w3.org/2001/XMLSchema' xmlns:ns1='http://org.jboss.webservice/marshalltest-doclit/types' xmlns:ns2='http://www.w3.org/2001/XMLSchema' xmlns:soap11-enc='http://schemas.xmlsoap.org/soap/encoding/' xmlns:tns='http://types.marshalltest.webservice.test.jboss.org/jaws' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+   <import namespace='http://org.jboss.webservice/marshalltest-doclit/types'/>
+   <import namespace='http://www.w3.org/2001/XMLSchema'/>
+   <complexType name='Bean'>
+    <sequence>
+     <element name='base64' nillable='true' type='base64Binary'/>
+     <element name='x' type='int'/>
+     <element name='y' type='int'/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema targetNamespace='http://org.jboss.webservice/marshalltest-doclit/types' xmlns='http://www.w3.org/2001/XMLSchema' xmlns:ns2='http://www.w3.org/2001/XMLSchema' xmlns:ns3='http://types.marshalltest.webservice.test.jboss.org/jaws' xmlns:soap11-enc='http://schemas.xmlsoap.org/soap/encoding/' xmlns:tns='http://org.jboss.webservice/marshalltest-doclit/types' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+   <import namespace='http://types.marshalltest.webservice.test.jboss.org/jaws'/>
+   <import namespace='http://www.w3.org/2001/XMLSchema'/>
+   <complexType name='echoBase64Binary'>
+    <sequence>
+     <element name='arrayOfbyte_1' nillable='true' type='base64Binary'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoBase64BinaryResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='base64Binary'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoBean'>
+    <sequence>
+     <element name='Bean_1' nillable='true' type='ns3:Bean'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoBeanResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='ns3:Bean'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoBoolean'>
+    <sequence>
+     <element name='boolean_1' type='boolean'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoBooleanArray'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOfboolean_1' type='boolean'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoBooleanArrayResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' type='boolean'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoBooleanResponse'>
+    <sequence>
+     <element name='result' type='boolean'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoByte'>
+    <sequence>
+     <element name='byte_1' type='byte'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoByteArray'>
+    <sequence>
+     <element name='arrayOfbyte_1' nillable='true' minOccurs="0" maxOccurs="unbounded" type='byte'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoByteArrayResponse'>
+    <sequence>
+     <element name='result' nillable='true' minOccurs="0" maxOccurs="unbounded" type='byte'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoByteResponse'>
+    <sequence>
+     <element name='result' type='byte'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDateCalendar'>
+    <sequence>
+     <element name='Calendar_1' nillable='true' type='dateTime'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDateCalendarResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='dateTime'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDateDate'>
+    <sequence>
+     <element name='Date_1' nillable='true' type='dateTime'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDateDateResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='dateTime'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDateTimeArray'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOfCalendar_1' nillable='true' type='dateTime'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDateTimeArrayResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' nillable='true' type='dateTime'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDateTimeCalendar'>
+    <sequence>
+     <element name='Calendar_1' nillable='true' type='dateTime'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDateTimeCalendarResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='dateTime'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDateTimeDate'>
+    <sequence>
+     <element name='Date_1' nillable='true' type='dateTime'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDateTimeDateResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='dateTime'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDecimal'>
+    <sequence>
+     <element name='BigDecimal_1' nillable='true' type='decimal'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDecimalArray'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOfBigDecimal_1' nillable='true' type='decimal'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDecimalArrayResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' nillable='true' type='decimal'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDecimalResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='decimal'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDouble'>
+    <sequence>
+     <element name='double_1' type='double'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDoubleArray'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOfdouble_1' type='double'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDoubleArrayResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' type='double'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoDoubleResponse'>
+    <sequence>
+     <element name='result' type='double'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoFloat'>
+    <sequence>
+     <element name='float_1' type='float'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoFloatArray'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOffloat_1' type='float'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoFloatArrayResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' type='float'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoFloatResponse'>
+    <sequence>
+     <element name='result' type='float'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoHexBinary'>
+    <sequence>
+     <element name='arrayOfbyte_1' nillable='true' type='hexBinary'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoHexBinaryResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='hexBinary'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoInt'>
+    <sequence>
+     <element name='int_1' type='int'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoIntArray'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOfint_1' type='int'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoIntArrayResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' type='int'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoIntResponse'>
+    <sequence>
+     <element name='result' type='int'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoInteger'>
+    <sequence>
+     <element name='BigInteger_1' nillable='true' type='integer'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoIntegerArray'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOfBigInteger_1' nillable='true' type='integer'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoIntegerArrayResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' nillable='true' type='integer'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoIntegerResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='integer'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoLong'>
+    <sequence>
+     <element name='long_1' type='long'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoLongArray'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOflong_1' type='long'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoLongArrayResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' type='long'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoLongResponse'>
+    <sequence>
+     <element name='result' type='long'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoQName'>
+    <sequence>
+     <element name='QName_1' nillable='true' type='QName'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoQNameArray'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOfQName_1' nillable='true' type='QName'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoQNameArrayResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' nillable='true' type='QName'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoQNameResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='QName'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoShort'>
+    <sequence>
+     <element name='short_1' type='short'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoShortArray'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOfshort_1' type='short'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoShortArrayResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' type='short'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoShortResponse'>
+    <sequence>
+     <element name='result' type='short'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoString'>
+    <sequence>
+     <element name='String_1' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoStringArray'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='arrayOfString_1' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoStringArrayResponse'>
+    <sequence>
+     <element maxOccurs='unbounded' minOccurs='0' name='result' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <complexType name='echoStringResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <element name='echoBase64Binary' type='tns:echoBase64Binary'/>
+   <element name='echoBase64BinaryResponse' type='tns:echoBase64BinaryResponse'/>
+   <element name='echoBean' type='tns:echoBean'/>
+   <element name='echoBeanResponse' type='tns:echoBeanResponse'/>
+   <element name='echoBoolean' type='tns:echoBoolean'/>
+   <element name='echoBooleanArray' type='tns:echoBooleanArray'/>
+   <element name='echoBooleanArrayResponse' type='tns:echoBooleanArrayResponse'/>
+   <element name='echoBooleanResponse' type='tns:echoBooleanResponse'/>
+   <element name='echoByte' type='tns:echoByte'/>
+   <element name='echoByteArray' type='tns:echoByteArray'/>
+   <element name='echoByteArrayResponse' type='tns:echoByteArrayResponse'/>
+   <element name='echoByteResponse' type='tns:echoByteResponse'/>
+   <element name='echoDateCalendar' type='tns:echoDateCalendar'/>
+   <element name='echoDateCalendarResponse' type='tns:echoDateCalendarResponse'/>
+   <element name='echoDateDate' type='tns:echoDateDate'/>
+   <element name='echoDateDateResponse' type='tns:echoDateDateResponse'/>
+   <element name='echoDateTimeArray' type='tns:echoDateTimeArray'/>
+   <element name='echoDateTimeArrayResponse' type='tns:echoDateTimeArrayResponse'/>
+   <element name='echoDateTimeCalendar' type='tns:echoDateTimeCalendar'/>
+   <element name='echoDateTimeCalendarResponse' type='tns:echoDateTimeCalendarResponse'/>
+   <element name='echoDateTimeDate' type='tns:echoDateTimeDate'/>
+   <element name='echoDateTimeDateResponse' type='tns:echoDateTimeDateResponse'/>
+   <element name='echoDecimal' type='tns:echoDecimal'/>
+   <element name='echoDecimalArray' type='tns:echoDecimalArray'/>
+   <element name='echoDecimalArrayResponse' type='tns:echoDecimalArrayResponse'/>
+   <element name='echoDecimalResponse' type='tns:echoDecimalResponse'/>
+   <element name='echoDouble' type='tns:echoDouble'/>
+   <element name='echoDoubleArray' type='tns:echoDoubleArray'/>
+   <element name='echoDoubleArrayResponse' type='tns:echoDoubleArrayResponse'/>
+   <element name='echoDoubleResponse' type='tns:echoDoubleResponse'/>
+   <element name='echoFloat' type='tns:echoFloat'/>
+   <element name='echoFloatArray' type='tns:echoFloatArray'/>
+   <element name='echoFloatArrayResponse' type='tns:echoFloatArrayResponse'/>
+   <element name='echoFloatResponse' type='tns:echoFloatResponse'/>
+   <element name='echoHexBinary' type='tns:echoHexBinary'/>
+   <element name='echoHexBinaryResponse' type='tns:echoHexBinaryResponse'/>
+   <element name='echoInt' type='tns:echoInt'/>
+   <element name='echoIntArray' type='tns:echoIntArray'/>
+   <element name='echoIntArrayResponse' type='tns:echoIntArrayResponse'/>
+   <element name='echoIntResponse' type='tns:echoIntResponse'/>
+   <element name='echoInteger' type='tns:echoInteger'/>
+   <element name='echoIntegerArray' type='tns:echoIntegerArray'/>
+   <element name='echoIntegerArrayResponse' type='tns:echoIntegerArrayResponse'/>
+   <element name='echoIntegerResponse' type='tns:echoIntegerResponse'/>
+   <element name='echoLong' type='tns:echoLong'/>
+   <element name='echoLongArray' type='tns:echoLongArray'/>
+   <element name='echoLongArrayResponse' type='tns:echoLongArrayResponse'/>
+   <element name='echoLongResponse' type='tns:echoLongResponse'/>
+   <element name='echoQName' type='tns:echoQName'/>
+   <element name='echoQNameArray' type='tns:echoQNameArray'/>
+   <element name='echoQNameArrayResponse' type='tns:echoQNameArrayResponse'/>
+   <element name='echoQNameResponse' type='tns:echoQNameResponse'/>
+   <element name='echoShort' type='tns:echoShort'/>
+   <element name='echoShortArray' type='tns:echoShortArray'/>
+   <element name='echoShortArrayResponse' type='tns:echoShortArrayResponse'/>
+   <element name='echoShortResponse' type='tns:echoShortResponse'/>
+   <element name='echoString' type='tns:echoString'/>
+   <element name='echoStringArray' type='tns:echoStringArray'/>
+   <element name='echoStringArrayResponse' type='tns:echoStringArrayResponse'/>
+   <element name='echoStringResponse' type='tns:echoStringResponse'/>
+  </schema>
+ </types>
+ <message name='MarshallEndpoint_echoBase64Binary'>
+  <part element='ns1:echoBase64Binary' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoBase64BinaryResponse'>
+  <part element='ns1:echoBase64BinaryResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoBean'>
+  <part element='ns1:echoBean' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoBeanResponse'>
+  <part element='ns1:echoBeanResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoBoolean'>
+  <part element='ns1:echoBoolean' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoBooleanResponse'>
+  <part element='ns1:echoBooleanResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoBooleanArray'>
+  <part element='ns1:echoBooleanArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoBooleanArrayResponse'>
+  <part element='ns1:echoBooleanArrayResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoByte'>
+  <part element='ns1:echoByte' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoByteResponse'>
+  <part element='ns1:echoByteResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoByteArray'>
+  <part element='ns1:echoByteArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoByteArrayResponse'>
+  <part element='ns1:echoByteArrayResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateCalendar'>
+  <part element='ns1:echoDateCalendar' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateCalendarResponse'>
+  <part element='ns1:echoDateCalendarResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateDate'>
+  <part element='ns1:echoDateDate' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateDateResponse'>
+  <part element='ns1:echoDateDateResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeArray'>
+  <part element='ns1:echoDateTimeArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeArrayResponse'>
+  <part element='ns1:echoDateTimeArrayResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeCalendar'>
+  <part element='ns1:echoDateTimeCalendar' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeCalendarResponse'>
+  <part element='ns1:echoDateTimeCalendarResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeDate'>
+  <part element='ns1:echoDateTimeDate' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoDateTimeDateResponse'>
+  <part element='ns1:echoDateTimeDateResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoDecimal'>
+  <part element='ns1:echoDecimal' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoDecimalResponse'>
+  <part element='ns1:echoDecimalResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoDecimalArray'>
+  <part element='ns1:echoDecimalArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoDecimalArrayResponse'>
+  <part element='ns1:echoDecimalArrayResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoDouble'>
+  <part element='ns1:echoDouble' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoDoubleResponse'>
+  <part element='ns1:echoDoubleResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoDoubleArray'>
+  <part element='ns1:echoDoubleArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoDoubleArrayResponse'>
+  <part element='ns1:echoDoubleArrayResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoFloat'>
+  <part element='ns1:echoFloat' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoFloatResponse'>
+  <part element='ns1:echoFloatResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoFloatArray'>
+  <part element='ns1:echoFloatArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoFloatArrayResponse'>
+  <part element='ns1:echoFloatArrayResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoHexBinary'>
+  <part element='ns1:echoHexBinary' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoHexBinaryResponse'>
+  <part element='ns1:echoHexBinaryResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoInt'>
+  <part element='ns1:echoInt' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntResponse'>
+  <part element='ns1:echoIntResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntArray'>
+  <part element='ns1:echoIntArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntArrayResponse'>
+  <part element='ns1:echoIntArrayResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoInteger'>
+  <part element='ns1:echoInteger' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntegerResponse'>
+  <part element='ns1:echoIntegerResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntegerArray'>
+  <part element='ns1:echoIntegerArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoIntegerArrayResponse'>
+  <part element='ns1:echoIntegerArrayResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoLong'>
+  <part element='ns1:echoLong' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoLongResponse'>
+  <part element='ns1:echoLongResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoLongArray'>
+  <part element='ns1:echoLongArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoLongArrayResponse'>
+  <part element='ns1:echoLongArrayResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoQName'>
+  <part element='ns1:echoQName' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoQNameResponse'>
+  <part element='ns1:echoQNameResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoQNameArray'>
+  <part element='ns1:echoQNameArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoQNameArrayResponse'>
+  <part element='ns1:echoQNameArrayResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoShort'>
+  <part element='ns1:echoShort' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoShortResponse'>
+  <part element='ns1:echoShortResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoShortArray'>
+  <part element='ns1:echoShortArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoShortArrayResponse'>
+  <part element='ns1:echoShortArrayResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoString'>
+  <part element='ns1:echoString' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoStringResponse'>
+  <part element='ns1:echoStringResponse' name='result'/>
+ </message>
+ <message name='MarshallEndpoint_echoStringArray'>
+  <part element='ns1:echoStringArray' name='parameters'/>
+ </message>
+ <message name='MarshallEndpoint_echoStringArrayResponse'>
+  <part element='ns1:echoStringArrayResponse' name='result'/>
+ </message>
+ <portType name='MarshallEndpoint'>
+  <operation name='echoBase64Binary'>
+   <input message='tns:MarshallEndpoint_echoBase64Binary'/>
+   <output message='tns:MarshallEndpoint_echoBase64BinaryResponse'/>
+  </operation>
+  <operation name='echoBean'>
+   <input message='tns:MarshallEndpoint_echoBean'/>
+   <output message='tns:MarshallEndpoint_echoBeanResponse'/>
+  </operation>
+  <operation name='echoBoolean'>
+   <input message='tns:MarshallEndpoint_echoBoolean'/>
+   <output message='tns:MarshallEndpoint_echoBooleanResponse'/>
+  </operation>
+  <operation name='echoBooleanArray'>
+   <input message='tns:MarshallEndpoint_echoBooleanArray'/>
+   <output message='tns:MarshallEndpoint_echoBooleanArrayResponse'/>
+  </operation>
+  <operation name='echoByte'>
+   <input message='tns:MarshallEndpoint_echoByte'/>
+   <output message='tns:MarshallEndpoint_echoByteResponse'/>
+  </operation>
+  <operation name='echoByteArray'>
+   <input message='tns:MarshallEndpoint_echoByteArray'/>
+   <output message='tns:MarshallEndpoint_echoByteArrayResponse'/>
+  </operation>
+  <operation name='echoDateCalendar'>
+   <input message='tns:MarshallEndpoint_echoDateCalendar'/>
+   <output message='tns:MarshallEndpoint_echoDateCalendarResponse'/>
+  </operation>
+  <operation name='echoDateDate'>
+   <input message='tns:MarshallEndpoint_echoDateDate'/>
+   <output message='tns:MarshallEndpoint_echoDateDateResponse'/>
+  </operation>
+  <operation name='echoDateTimeArray'>
+   <input message='tns:MarshallEndpoint_echoDateTimeArray'/>
+   <output message='tns:MarshallEndpoint_echoDateTimeArrayResponse'/>
+  </operation>
+  <operation name='echoDateTimeCalendar'>
+   <input message='tns:MarshallEndpoint_echoDateTimeCalendar'/>
+   <output message='tns:MarshallEndpoint_echoDateTimeCalendarResponse'/>
+  </operation>
+  <operation name='echoDateTimeDate'>
+   <input message='tns:MarshallEndpoint_echoDateTimeDate'/>
+   <output message='tns:MarshallEndpoint_echoDateTimeDateResponse'/>
+  </operation>
+  <operation name='echoDecimal'>
+   <input message='tns:MarshallEndpoint_echoDecimal'/>
+   <output message='tns:MarshallEndpoint_echoDecimalResponse'/>
+  </operation>
+  <operation name='echoDecimalArray'>
+   <input message='tns:MarshallEndpoint_echoDecimalArray'/>
+   <output message='tns:MarshallEndpoint_echoDecimalArrayResponse'/>
+  </operation>
+  <operation name='echoDouble'>
+   <input message='tns:MarshallEndpoint_echoDouble'/>
+   <output message='tns:MarshallEndpoint_echoDoubleResponse'/>
+  </operation>
+  <operation name='echoDoubleArray'>
+   <input message='tns:MarshallEndpoint_echoDoubleArray'/>
+   <output message='tns:MarshallEndpoint_echoDoubleArrayResponse'/>
+  </operation>
+  <operation name='echoFloat'>
+   <input message='tns:MarshallEndpoint_echoFloat'/>
+   <output message='tns:MarshallEndpoint_echoFloatResponse'/>
+  </operation>
+  <operation name='echoFloatArray'>
+   <input message='tns:MarshallEndpoint_echoFloatArray'/>
+   <output message='tns:MarshallEndpoint_echoFloatArrayResponse'/>
+  </operation>
+  <operation name='echoHexBinary'>
+   <input message='tns:MarshallEndpoint_echoHexBinary'/>
+   <output message='tns:MarshallEndpoint_echoHexBinaryResponse'/>
+  </operation>
+  <operation name='echoInt'>
+   <input message='tns:MarshallEndpoint_echoInt'/>
+   <output message='tns:MarshallEndpoint_echoIntResponse'/>
+  </operation>
+  <operation name='echoIntArray'>
+   <input message='tns:MarshallEndpoint_echoIntArray'/>
+   <output message='tns:MarshallEndpoint_echoIntArrayResponse'/>
+  </operation>
+  <operation name='echoInteger'>
+   <input message='tns:MarshallEndpoint_echoInteger'/>
+   <output message='tns:MarshallEndpoint_echoIntegerResponse'/>
+  </operation>
+  <operation name='echoIntegerArray'>
+   <input message='tns:MarshallEndpoint_echoIntegerArray'/>
+   <output message='tns:MarshallEndpoint_echoIntegerArrayResponse'/>
+  </operation>
+  <operation name='echoLong'>
+   <input message='tns:MarshallEndpoint_echoLong'/>
+   <output message='tns:MarshallEndpoint_echoLongResponse'/>
+  </operation>
+  <operation name='echoLongArray'>
+   <input message='tns:MarshallEndpoint_echoLongArray'/>
+   <output message='tns:MarshallEndpoint_echoLongArrayResponse'/>
+  </operation>
+  <operation name='echoQName'>
+   <input message='tns:MarshallEndpoint_echoQName'/>
+   <output message='tns:MarshallEndpoint_echoQNameResponse'/>
+  </operation>
+  <operation name='echoQNameArray'>
+   <input message='tns:MarshallEndpoint_echoQNameArray'/>
+   <output message='tns:MarshallEndpoint_echoQNameArrayResponse'/>
+  </operation>
+  <operation name='echoShort'>
+   <input message='tns:MarshallEndpoint_echoShort'/>
+   <output message='tns:MarshallEndpoint_echoShortResponse'/>
+  </operation>
+  <operation name='echoShortArray'>
+   <input message='tns:MarshallEndpoint_echoShortArray'/>
+   <output message='tns:MarshallEndpoint_echoShortArrayResponse'/>
+  </operation>
+  <operation name='echoString'>
+   <input message='tns:MarshallEndpoint_echoString'/>
+   <output message='tns:MarshallEndpoint_echoStringResponse'/>
+  </operation>
+  <operation name='echoStringArray'>
+   <input message='tns:MarshallEndpoint_echoStringArray'/>
+   <output message='tns:MarshallEndpoint_echoStringArrayResponse'/>
+  </operation>
+ </portType>
+ <binding name='MarshallEndpointBinding' type='tns:MarshallEndpoint'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='echoBase64Binary'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoBean'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoBoolean'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoBooleanArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoByte'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoByteArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDateCalendar'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDateDate'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDateTimeArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDateTimeCalendar'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDateTimeDate'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDecimal'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDecimalArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDouble'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoDoubleArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoFloat'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoFloatArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoHexBinary'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoInt'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoIntArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoInteger'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoIntegerArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoLong'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoLongArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoQName'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoQNameArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoShort'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoShortArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoString'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+  <operation name='echoStringArray'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='MarshallDocLitService'>
+  <port binding='tns:MarshallEndpointBinding' name='MarshallEndpointPort'>
+   <soap:address location='REPLACE_WITH_ACTUAL_URL'/>
+  </port>
+ </service>
+</definitions>

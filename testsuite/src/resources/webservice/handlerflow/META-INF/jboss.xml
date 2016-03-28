@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE jboss PUBLIC "-//JBoss//DTD JBOSS 4.0//EN" "http://www.jboss.org/j2ee/dtd/jboss_4_0.dtd">
+
+<jboss>
+  <!-- only top level deployments can have a loader-repository
+  <class-loading>
+    <loader-repository>jboss.test:loader=ws4ee-handlerflow.jar</loader-repository>
+  </class-loading>
+  -->
+  <enterprise-beans>
+    <session>
+      <ejb-name>HelloEjb</ejb-name>
+      <jndi-name>ejb/HelloEjb</jndi-name>
+    </session>
+  </enterprise-beans>
+</jboss>
